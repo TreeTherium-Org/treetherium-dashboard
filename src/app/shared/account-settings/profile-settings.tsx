@@ -110,25 +110,6 @@ export default function ProfileSettingsView() {
                 </FormGroup>
 
                 <FormGroup
-                  title="Your Bio"
-                  className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
-                >
-                  <div className="@3xl:col-span-2">
-                    <Controller
-                      control={control}
-                      name="description"
-                      render={({ field: { onChange, value } }) => (
-                        <QuillEditor
-                          value={value}
-                          onChange={onChange}
-                          className="[&>.ql-container_.ql-editor]:min-h-[100px]"
-                        />
-                      )}
-                    />
-                  </div>
-                </FormGroup>
-
-                <FormGroup
                   title="Job Title"
                   className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
                 >

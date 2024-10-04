@@ -5,16 +5,22 @@ import toast from 'react-hot-toast';
 import isEmpty from 'lodash/isEmpty';
 import prettyBytes from 'pretty-bytes';
 import { useCallback, useState } from 'react';
-import { useDropzone } from '@uploadthing/react/hooks';
-import { PiCheckBold, PiTrashBold, PiUploadSimpleBold } from 'react-icons/pi';
-import { generateClientDropzoneAccept } from 'uploadthing/client';
-import { useUploadThing } from '../../utils/uploadthing';
+import { useDropzone, Accept } from 'react-dropzone'; // Import Accept type from react-dropzone
+import { storage } from '../../../../firebase'; // Ensure you have your Firebase initialized
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { Button, Text, FieldError } from 'rizzui';
 import cn from '../../utils/class-names';
 import UploadIcon from '../../components/shape/upload';
 import { endsWith } from 'lodash';
 import { FileWithPath } from 'react-dropzone';
-import { ClientUploadedFileData } from 'uploadthing/types';
+import { Check, Trash, UploadSimple } from 'phosphor-react'; // Updated imports for icons
+
+// Define the type for responded URLs
+interface RespondedUrl {
+  name: string;
+  size: number;
+  url: string;
+}
 
 interface UploadZoneProps {
   label?: string;
@@ -40,35 +46,26 @@ export default function UploadZone({
   error,
 }: UploadZoneProps) {
   const [files, setFiles] = useState<File[]>([]);
+  const [isUploading, setIsUploading] = useState(false);
 
-  const onDrop = useCallback(
-    (acceptedFiles: FileWithPath[]) => {
-      console.log('acceptedFiles', acceptedFiles);
-      setFiles([
-        ...acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          })
-        ),
-      ]);
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [files]
-  );
+  const onDrop = useCallback((acceptedFiles: FileWithPath[]) => {
+    console.log('acceptedFiles', acceptedFiles);
+    setFiles([
+      ...acceptedFiles.map((file) =>
+        Object.assign(file, {
+          preview: URL.createObjectURL(file),
+        })
+      ),
+    ]);
+  }, []);
 
   function handleRemoveFile(index: number) {
-    // Make a copy of the files array
     const updatedFiles = [...files];
-
-    // Remove the file at the specified index
     updatedFiles.splice(index, 1);
-
-    // Update the state
     setFiles(updatedFiles);
   }
 
   const uploadedItems = isEmpty(getValues(name)) ? [] : getValues(name);
-
   const notUploadedItems = files.filter(
     (file) =>
       !uploadedItems?.some(
@@ -76,66 +73,64 @@ export default function UploadZone({
       )
   );
 
-  const { startUpload, permittedFileInfo, isUploading } = useUploadThing(
-    'generalMedia',
-    {
-      onClientUploadComplete: (
-        res: ClientUploadedFileData<any>[] | undefined
-      ) => {
-        console.log('res', res);
-        if (setValue) {
-          // const respondedUrls = res?.map((r) => r.url);
-          setFiles([]);
-          const respondedUrls = res?.map((r) => ({
-            name: r.name,
-            size: r.size,
-            url: r.url,
-          }));
-          setValue(name, respondedUrls);
-        }
-        toast.success(
-          <Text as="b" className="font-semibold">
-            portfolio Images updated
-          </Text>
+  const uploadFiles = async (files: File[]) => {
+    if (files.length === 0) return;
+  
+    setIsUploading(true);
+    const respondedUrls: RespondedUrl[] = []; // Specify the type here
+  
+    for (const file of files) {
+      const storageRef = ref(storage, `uploads/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+  
+      // Create a promise that resolves when the upload task completes
+      await new Promise<void>((resolve, reject) => { // Specify void as the type argument
+        uploadTask.on(
+          'state_changed',
+          (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+          },
+          (error) => {
+            console.error(error);
+            toast.error('Upload failed: ' + error.message);
+            reject(error); // Reject the promise on error
+          },
+          async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            respondedUrls.push({ name: file.name, size: file.size, url: downloadURL });
+            resolve(); // Resolve the promise when upload completes
+          }
         );
-      },
-      onUploadError: (error: Error) => {
-        console.error(error);
-        toast.error(error.message);
-      },
+      });
     }
-  );
-
-  const fileTypes = permittedFileInfo?.config
-    ? Object.keys(permittedFileInfo?.config)
-    : [];
+  
+    if (setValue) {
+      setValue(name, respondedUrls);
+    }
+  
+    toast.success(<Text as="b" className="font-semibold">Files uploaded successfully!</Text>);
+    setIsUploading(false);
+    setFiles([]);
+  };
+  
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: fileTypes ? generateClientDropzoneAccept(fileTypes) : undefined,
+    accept: {
+      'image/*': [] // Accept all image types
+    }
   });
 
   return (
     <div className={cn('grid @container', className)}>
-      {label && (
-        <span className="mb-1.5 block font-semibold text-gray-900">
-          {label}
-        </span>
-      )}
-      <div
-        className={cn(
-          'rounded-md border-[1.8px]',
-          !isEmpty(files) &&
-            'flex flex-wrap items-center justify-between @xl:flex-nowrap @xl:pr-6'
-        )}
-      >
+      {label && <span className="mb-1.5 block font-semibold text-gray-900">{label}</span>}
+      <div className={cn('rounded-md border-[1.8px]', !isEmpty(files) && 'flex flex-wrap items-center justify-between @xl:flex-nowrap @xl:pr-6')}>
         <div
           {...getRootProps()}
           className={cn(
             'flex cursor-pointer items-center gap-4 px-6 py-5 transition-all duration-300',
-            isEmpty(files)
-              ? 'justify-center'
-              : 'flex-grow justify-center @xl:justify-start'
+            isEmpty(files) ? 'justify-center' : 'flex-grow justify-center @xl:justify-start'
           )}
         >
           <input {...getInputProps()} />
@@ -143,30 +138,12 @@ export default function UploadZone({
           <Text className="text-base font-medium">Drop or select file</Text>
         </div>
 
-        {!isEmpty(files) && !isEmpty(notUploadedItems) && (
-          <UploadButtons
-            files={notUploadedItems}
-            isLoading={isUploading}
-            onClear={() => setFiles([])}
-            onUpload={() => startUpload(notUploadedItems)}
-          />
-        )}
-
-        {isEmpty(files) && !isEmpty(notUploadedItems) && (
-          <UploadButtons
-            files={notUploadedItems}
-            isLoading={isUploading}
-            onClear={() => setFiles([])}
-            onUpload={() => startUpload(notUploadedItems)}
-          />
-        )}
-
-        {!isEmpty(files) && isEmpty(notUploadedItems) && (
+        {!isEmpty(files) && (
           <UploadButtons
             files={files}
             isLoading={isUploading}
             onClear={() => setFiles([])}
-            onUpload={() => startUpload(files)}
+            onUpload={() => uploadFiles(files)}
           />
         )}
       </div>
@@ -181,7 +158,7 @@ export default function UploadZone({
                   type="button"
                   className="absolute right-0 top-0 rounded-full bg-gray-700 p-1.5 transition duration-300"
                 >
-                  <PiCheckBold className="text-white" />
+                  <Check className="text-white" /> {/* Updated icon */}
                 </button>
               </figure>
               <MediaCaption name={file.name} size={file.size} />
@@ -201,7 +178,7 @@ export default function UploadZone({
                     onClick={() => handleRemoveFile(index)}
                     className="absolute right-0 top-0 rounded-full bg-gray-700/70 p-1.5 opacity-20 transition duration-300 hover:bg-red-dark group-hover:opacity-100"
                   >
-                    <PiTrashBold className="text-white" />
+                    <Trash className="text-white" /> {/* Updated icon */}
                   </button>
                 )}
               </figure>
@@ -235,7 +212,7 @@ function UploadButtons({
         isLoading={isLoading}
         onClick={onClear}
       >
-        <PiTrashBold />
+        <Trash /> {/* Updated icon */}
         Clear {files.length} files
       </Button>
       <Button
@@ -243,7 +220,7 @@ function UploadButtons({
         isLoading={isLoading}
         onClick={onUpload}
       >
-        <PiUploadSimpleBold /> Upload {files.length} files
+        <UploadSimple /> Upload {files.length} files
       </Button>
     </div>
   );
@@ -284,19 +261,18 @@ export function LoadingSpinner() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
-          <stop stopColor="#fff" stopOpacity="0" offset="0%" />
-          <stop stopColor="#fff" stopOpacity=".631" offset="63.146%" />
-          <stop stopColor="#fff" offset="100%" />
+        <linearGradient x1="8.042%" y1="0%" x2="95.338%" y2="23.262%">
+          <stop id="loading-spinner-gradient-1" stopColor="#FFF" stopOpacity="0" />
+          <stop id="loading-spinner-gradient-2" stopColor="#FFF" />
         </linearGradient>
       </defs>
       <g fill="none" fillRule="evenodd">
         <g transform="translate(1 1)">
+          <circle className="text-gray-200" cx="18" cy="18" r="18" />
           <path
-            d="M36 18c0-9.94-8.06-18-18-18"
-            id="Oval-2"
-            stroke="url(#a)"
-            strokeWidth="2"
+            className="text-gray-500"
+            fill="url(#loading-spinner-gradient-1)"
+            d="M36 18c0-9.941-8.059-18-18-18"
           >
             <animateTransform
               attributeName="transform"
@@ -307,16 +283,6 @@ export function LoadingSpinner() {
               repeatCount="indefinite"
             />
           </path>
-          <circle fill="#fff" cx="36" cy="18" r="1">
-            <animateTransform
-              attributeName="transform"
-              type="rotate"
-              from="0 18 18"
-              to="360 18 18"
-              dur="0.9s"
-              repeatCount="indefinite"
-            />
-          </circle>
         </g>
       </g>
     </svg>

@@ -188,39 +188,6 @@ export default function PersonalInfoView() {
                   )}
                 />
               </FormGroup>
-
-              <FormGroup
-                title="Bio"
-                className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
-              >
-                <Controller
-                  control={control}
-                  name="bio"
-                  render={({ field: { onChange, value } }) => (
-                    <QuillEditor
-                      value={value}
-                      onChange={onChange}
-                      className="@3xl:col-span-2 [&>.ql-container_.ql-editor]:min-h-[100px]"
-                      labelClassName="font-medium text-gray-700 dark:text-gray-600 mb-1.5"
-                    />
-                  )}
-                />
-              </FormGroup>
-
-              <FormGroup
-                title="Portfolio Projects"
-                description="Share a few snippets of your work"
-                className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
-              >
-                <div className="mb-5 @3xl:col-span-2">
-                  <UploadZone
-                    name="portfolios"
-                    getValues={getValues}
-                    setValue={setValue}
-                    error={errors?.portfolios?.message as string}
-                  />
-                </div>
-              </FormGroup>
             </div>
 
             <FormFooter

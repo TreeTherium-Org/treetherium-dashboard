@@ -10,6 +10,8 @@ export const personalInfoFormSchema = z.object({
   email: validateEmail,
   avatar: fileSchema.optional(),
   role: z.string().min(1, { message: messages.roleIsRequired }),
+  country: z.string().optional(), // Add country field
+  timezone: z.string().optional(),
 });
 
 // generate form types from zod validation schema
@@ -21,4 +23,6 @@ export const defaultValues = {
   email: '',
   avatar: undefined,
   role: 'admin',
+  country: '', // Add default value for country
+  timezone: '',
 };
