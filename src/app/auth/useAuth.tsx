@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { auth, db } from '../../../firebase'; // Import Firebase auth and Firestore database.
 import { onAuthStateChanged } from 'firebase/auth'; // Firebase function to track authentication changes.
