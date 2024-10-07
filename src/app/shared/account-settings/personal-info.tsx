@@ -1,9 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../../../firebase'; // Assuming you have your firebase config here
 import dynamic from 'next/dynamic';
 import toast from 'react-hot-toast';
 import { SubmitHandler, Controller } from 'react-hook-form';
-import { PiClock, PiEnvelopeSimple } from 'react-icons/pi';
+import { PiClock } from 'react-icons/pi';
 import { Form } from '@core/ui/form';
 import { Loader, Text, Input } from 'rizzui';
 import FormGroup from '@/app/shared/form-group';
@@ -31,6 +34,30 @@ const QuillEditor = dynamic(() => import('@core/ui/quill-editor'), {
 });
 
 export default function PersonalInfoView() {
+  const [email, setEmail] = useState<string | null>(null);
+  const userId = 'USER_ID'; // Replace this with the actual user ID
+
+  // Fetch user's email from Firestore
+  useEffect(() => {
+    const fetchUserEmail = async () => {
+      try {
+        const docRef = doc(db, 'staff', userId);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          setEmail(userData.email); // Assuming the field is called 'email'
+        } else {
+          console.log('No such document!');
+        }
+      } catch (error) {
+        console.error('Error fetching user email:', error);
+      }
+    };
+
+    fetchUserEmail();
+  }, [userId]);
+
   const onSubmit: SubmitHandler<PersonalInfoFormTypes> = (data) => {
     toast.success(<Text as="b">Successfully added!</Text>);
     console.log('Profile settings data ->', {
@@ -41,7 +68,6 @@ export default function PersonalInfoView() {
   return (
     <Form<PersonalInfoFormTypes>
       validationSchema={personalInfoFormSchema}
-      // resetValues={reset}
       onSubmit={onSubmit}
       className="@container"
       useFormProps={{
@@ -81,16 +107,9 @@ export default function PersonalInfoView() {
                 title="Email Address"
                 className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
               >
-                <Input
-                  className="col-span-full"
-                  prefix={
-                    <PiEnvelopeSimple className="h-6 w-6 text-gray-500" />
-                  }
-                  type="email"
-                  placeholder="georgia.young@example.com"
-                  {...register('email')}
-                  error={errors.email?.message}
-                />
+                <Text className="text-gray-500">
+                  {email ? email : 'Loading...'}
+                </Text>
               </FormGroup>
 
               <FormGroup
@@ -191,7 +210,6 @@ export default function PersonalInfoView() {
             </div>
 
             <FormFooter
-              // isLoading={isLoading}
               altBtnText="Cancel"
               submitBtnText="Save"
             />

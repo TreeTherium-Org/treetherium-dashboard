@@ -1,11 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { SubmitHandler, Controller } from 'react-hook-form';
 import { PiEnvelopeSimple, PiSealCheckFill } from 'react-icons/pi';
 import { Form } from '@core/ui/form';
-import { Button, Title, Text, Input, Checkbox, Select } from 'rizzui';
+import { Button, Title, Text, Select } from 'rizzui';
 import cn from '@core/utils/class-names';
 import { routes } from '@/config/routes';
 import toast from 'react-hot-toast';
@@ -19,15 +20,39 @@ import { roles } from '@/data/forms/my-details';
 import FormGroup from '@/app/shared/form-group';
 import Link from 'next/link';
 import FormFooter from '@core/components/form-footer';
-import UploadZone from '@core/ui/file-upload/upload-zone';
 import { useLayout } from '@/layouts/use-layout';
 import { useBerylliumSidebars } from '@/layouts/beryllium/beryllium-utils';
 import { LAYOUT_OPTIONS } from '@/config/enums';
+import { doc, getDoc } from "firebase/firestore"; // Firestore import
+import { db } from '../../../../firebase'; // Import Firebase config
+
 const QuillEditor = dynamic(() => import('@core/ui/quill-editor'), {
   ssr: false,
 });
 
 export default function ProfileSettingsView() {
+  const [email, setEmail] = useState<string | null>(null);
+  const userId = 'USER_ID'; // Replace with actual logic to get the user ID
+
+  useEffect(() => {
+    // Function to fetch user email from Firestore
+    const fetchUserEmail = async () => {
+      try {
+        const docRef = doc(db, "staff", userId); // Firestore 'staff' collection
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setEmail(docSnap.data().email); // Assuming the field is 'email'
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching document: ", error);
+      }
+    };
+
+    fetchUserEmail();
+  }, [userId]);
+
   const onSubmit: SubmitHandler<ProfileFormTypes> = (data) => {
     toast.success(<Text as="b">Profile successfully updated!</Text>);
     console.log('Profile settings data ->', data);
@@ -66,35 +91,6 @@ export default function ProfileSettingsView() {
 
               <div className="mx-auto mb-10 grid w-full max-w-screen-2xl gap-7 divide-y divide-dashed divide-gray-200 @2xl:gap-9 @3xl:gap-11">
                 <FormGroup
-                  title="Username"
-                  className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
-                >
-                  <Input
-                    className="col-span-full"
-                    prefix="https://redq.io/"
-                    placeholder="First Name"
-                    prefixClassName="relative pe-2.5 before:w-[1px] before:h-[38px] before:absolute before:bg-gray-300 before:-top-[9px] before:right-0"
-                    {...register('username')}
-                    error={errors.username?.message}
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  title="Website"
-                  className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
-                >
-                  <Input
-                    type="url"
-                    className="col-span-full"
-                    prefix="https://"
-                    prefixClassName="relative pe-2.5 before:w-[1px] before:h-[38px] before:absolute before:bg-gray-300 before:-top-[9px] before:right-0"
-                    placeholder="Enter your website url"
-                    {...register('website')}
-                    error={errors.website?.message}
-                  />
-                </FormGroup>
-
-                <FormGroup
                   title="Your Photo"
                   description="This will be displayed on your profile."
                   className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
@@ -127,16 +123,11 @@ export default function ProfileSettingsView() {
                           value={value}
                           getOptionValue={(option) => option.value}
                           displayValue={(selected) =>
-                            roles?.find((r) => r.value === selected)?.label ??
-                            ''
+                            roles?.find((r) => r.value === selected)?.label ?? ''
                           }
                           error={errors?.role?.message as string}
                         />
                       )}
-                    />
-                    <Checkbox
-                      label="Show my job title in my profile"
-                      className="mt-3"
                     />
                   </div>
                 </FormGroup>
@@ -144,40 +135,15 @@ export default function ProfileSettingsView() {
                 <FormGroup
                   title="Alternative contact email"
                   className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
-                  description="Enter an alternative email if you’d like to be contacted via a different email."
+                  description="Your registered email will be displayed here."
                 >
-                  <Input
-                    prefix={
-                      <PiEnvelopeSimple className="h-6 w-6 text-gray-500" />
-                    }
-                    type="email"
-                    className="col-span-full"
-                    placeholder="georgia.young@example.com"
-                    {...register('email')}
-                    error={errors.email?.message}
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  title="Portfolio Projects"
-                  description="Share a few snippets of your work"
-                  className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
-                >
-                  <div className="@3xl:col-span-2">
-                    <UploadZone
-                      name="portfolios"
-                      getValues={getValues}
-                      setValue={setValue}
-                      error={errors?.portfolios?.message as string}
-                    />
+                  <div className="flex items-center space-x-2">
+                    <PiEnvelopeSimple className="h-6 w-6 text-gray-500" />
+                    <Text>{email || 'No email available'}</Text> {/* Display the fetched email */}
                   </div>
                 </FormGroup>
               </div>
-              <FormFooter
-                // isLoading={isLoading}
-                altBtnText="Cancel"
-                submitBtnText="Save"
-              />
+              <FormFooter altBtnText="Cancel" submitBtnText="Save" />
             </>
           );
         }}

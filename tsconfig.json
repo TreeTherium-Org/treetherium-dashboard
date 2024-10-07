@@ -48,7 +48,7 @@
     "**/*.cjs",
     "**/*.mjs",
     ".next/types/**/*.ts"
-  ],
+, "firebase.js", "firebase.js"  ],
   "exclude": [
     "node_modules"
   ]
