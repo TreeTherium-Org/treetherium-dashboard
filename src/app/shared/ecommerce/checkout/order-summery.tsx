@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { routes } from '@/config/routes';
-import usePrice from '@core/hooks/use-price';
-import OrderProducts from './order-products';
-import { Button, Title, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { toCurrency } from '@core/utils/to-currency';
-import { useCart } from '@/store/quick-cart/cart.context';
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { routes } from "@/config/routes";
+import usePrice from "@/src/hooks/use-price";
+import OrderProducts from "./order-products";
+import { Button, Title, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { toCurrency } from "@/src/utils/to-currency";
+import { useCart } from "@/store/quick-cart/cart.context";
 
 export default function OrderSummery({
   isLoading,
@@ -32,7 +32,7 @@ export default function OrderSummery({
   return (
     <div
       className={cn(
-        'sticky top-24 mt-8 @5xl:col-span-4 @5xl:mt-0 @6xl:col-span-3 2xl:top-28',
+        "sticky top-24 mt-8 @5xl:col-span-4 @5xl:mt-0 @6xl:col-span-3 2xl:top-28",
         className
       )}
     >
@@ -89,7 +89,7 @@ export default function OrderSummery({
               isLoading={isLoading}
               className="mt-3 w-full text-base @md:h-12"
             >
-              {params?.id ? 'Update Order' : 'Place Order'}
+              {params?.id ? "Update Order" : "Place Order"}
             </Button>
           ) : (
             <Link href={routes.eCommerce.shop}>

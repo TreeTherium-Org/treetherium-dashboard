@@ -1,6 +1,6 @@
-import { Title, Text, ActionIcon, Button, Popover } from 'rizzui';
-import TrashIcon from '@core/components/icons/trash';
-import { PiTrashFill } from 'react-icons/pi';
+import { Title, Text, ActionIcon, Button, Popover } from "rizzui";
+import TrashIcon from "@/src/components/icons/trash";
+import { PiTrashFill } from "react-icons/pi";
 
 type DeletePopoverProps = {
   title: string;
@@ -19,7 +19,7 @@ export default function DeletePopover({
         <ActionIcon
           size="sm"
           variant="outline"
-          aria-label={'Delete Item'}
+          aria-label={"Delete Item"}
           className="cursor-pointer hover:!border-gray-900 hover:text-gray-700"
         >
           <TrashIcon className="h-4 w-4" />

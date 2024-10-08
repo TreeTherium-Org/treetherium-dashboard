@@ -1,38 +1,38 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import dynamic from 'next/dynamic';
-import { SubmitHandler, Controller } from 'react-hook-form';
-import { PiEnvelopeSimple, PiSealCheckFill } from 'react-icons/pi';
-import { Form } from '@core/ui/form';
-import { Button, Title, Text, Select } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { routes } from '@/config/routes';
-import toast from 'react-hot-toast';
-import AvatarUpload from '@core/ui/file-upload/avatar-upload';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import { SubmitHandler, Controller } from "react-hook-form";
+import { PiEnvelopeSimple, PiSealCheckFill } from "react-icons/pi";
+import { Form } from "@/src/ui/form";
+import { Button, Title, Text, Select } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { routes } from "@/config/routes";
+import toast from "react-hot-toast";
+import AvatarUpload from "@/src/ui/file-upload/avatar-upload";
 import {
   defaultValues,
   profileFormSchema,
   ProfileFormTypes,
-} from '@/validators/profile-settings.schema';
-import { roles } from '@/data/forms/my-details';
-import FormGroup from '@/app/shared/form-group';
-import Link from 'next/link';
-import FormFooter from '@core/components/form-footer';
-import { useLayout } from '@/layouts/use-layout';
-import { useBerylliumSidebars } from '@/layouts/beryllium/beryllium-utils';
-import { LAYOUT_OPTIONS } from '@/config/enums';
+} from "@/validators/profile-settings.schema";
+import { roles } from "@/data/forms/my-details";
+import FormGroup from "@/app/shared/form-group";
+import Link from "next/link";
+import FormFooter from "@/src/components/form-footer";
+import { useLayout } from "@/layouts/use-layout";
+import { useBerylliumSidebars } from "@/layouts/beryllium/beryllium-utils";
+import { LAYOUT_OPTIONS } from "@/config/enums";
 import { doc, getDoc } from "firebase/firestore"; // Firestore import
-import { db } from '../../../../firebase'; // Import Firebase config
+import { db } from "../../../../firebase"; // Import Firebase config
 
-const QuillEditor = dynamic(() => import('@core/ui/quill-editor'), {
+const QuillEditor = dynamic(() => import("@/src/ui/quill-editor"), {
   ssr: false,
 });
 
 export default function ProfileSettingsView() {
   const [email, setEmail] = useState<string | null>(null);
-  const userId = 'USER_ID'; // Replace with actual logic to get the user ID
+  const userId = "USER_ID"; // Replace with actual logic to get the user ID
 
   useEffect(() => {
     // Function to fetch user email from Firestore
@@ -55,7 +55,7 @@ export default function ProfileSettingsView() {
 
   const onSubmit: SubmitHandler<ProfileFormTypes> = (data) => {
     toast.success(<Text as="b">Profile successfully updated!</Text>);
-    console.log('Profile settings data ->', data);
+    console.log("Profile settings data ->", data);
   };
 
   return (
@@ -65,7 +65,7 @@ export default function ProfileSettingsView() {
         onSubmit={onSubmit}
         className="@container"
         useFormProps={{
-          mode: 'onChange',
+          mode: "onChange",
           defaultValues,
         }}
       >
@@ -123,7 +123,8 @@ export default function ProfileSettingsView() {
                           value={value}
                           getOptionValue={(option) => option.value}
                           displayValue={(selected) =>
-                            roles?.find((r) => r.value === selected)?.label ?? ''
+                            roles?.find((r) => r.value === selected)?.label ??
+                            ""
                           }
                           error={errors?.role?.message as string}
                         />
@@ -139,7 +140,8 @@ export default function ProfileSettingsView() {
                 >
                   <div className="flex items-center space-x-2">
                     <PiEnvelopeSimple className="h-6 w-6 text-gray-500" />
-                    <Text>{email || 'No email available'}</Text> {/* Display the fetched email */}
+                    <Text>{email || "No email available"}</Text>{" "}
+                    {/* Display the fetched email */}
                   </div>
                 </FormGroup>
               </div>
@@ -163,10 +165,10 @@ export function ProfileHeader({
   return (
     <div
       className={cn(
-        'relative z-0 -mx-4 px-4 pt-28 before:absolute before:start-0 before:top-0 before:h-40 before:w-full before:bg-gradient-to-r before:from-[#F8E1AF] before:to-[#F6CFCF] @3xl:pt-[190px] @3xl:before:h-[calc(100%-120px)] dark:before:from-[#bca981] dark:before:to-[#cbb4b4] md:-mx-5 md:px-5 lg:-mx-8 lg:px-8 xl:-mx-6 xl:px-6 3xl:-mx-[33px] 3xl:px-[33px] 4xl:-mx-10 4xl:px-10',
+        "relative z-0 -mx-4 px-4 pt-28 before:absolute before:start-0 before:top-0 before:h-40 before:w-full before:bg-gradient-to-r before:from-[#F8E1AF] before:to-[#F6CFCF] @3xl:pt-[190px] @3xl:before:h-[calc(100%-120px)] dark:before:from-[#bca981] dark:before:to-[#cbb4b4] md:-mx-5 md:px-5 lg:-mx-8 lg:px-8 xl:-mx-6 xl:px-6 3xl:-mx-[33px] 3xl:px-[33px] 4xl:-mx-10 4xl:px-10",
         layout === LAYOUT_OPTIONS.BERYLLIUM && expandedLeft
-          ? 'before:start-5 3xl:before:start-[25px]'
-          : 'xl:before:w-[calc(100%_+_10px)]'
+          ? "before:start-5 3xl:before:start-[25px]"
+          : "xl:before:w-[calc(100%_+_10px)]"
       )}
     >
       <div className="relative z-10 mx-auto flex w-full max-w-screen-2xl flex-wrap items-end justify-start gap-6 border-b border-dashed border-muted pb-10">

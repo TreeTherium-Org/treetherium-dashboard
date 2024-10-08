@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useCallback } from 'react';
-import { useFieldArray, useFormContext } from 'react-hook-form';
-import { Input, Button, ActionIcon } from 'rizzui';
-import TrashIcon from '@core/components/icons/trash';
-import { customFields } from '@/app/shared/ecommerce/product/create-edit/form-utils';
-import { PiPlusBold } from 'react-icons/pi';
+import { useCallback } from "react";
+import { useFieldArray, useFormContext } from "react-hook-form";
+import { Input, Button, ActionIcon } from "rizzui";
+import TrashIcon from "@/src/components/icons/trash";
+import { customFields } from "@/app/shared/ecommerce/product/create-edit/form-utils";
+import { PiPlusBold } from "react-icons/pi";
 
 export default function CustomFields() {
   const { control, register } = useFormContext();
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'customFields',
+    name: "customFields",
   });
 
   const addCustomField = useCallback(() => append([...customFields]), [append]);

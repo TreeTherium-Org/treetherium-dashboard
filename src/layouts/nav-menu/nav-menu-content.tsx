@@ -1,36 +1,36 @@
-'use client';
-import React, { Fragment } from 'react';
-import { useNavMenu } from './nav-menu-context';
-import cn from '@core/utils/class-names';
-import { useClientWidth } from '@core/hooks/use-client-width';
+"use client";
+import React, { Fragment } from "react";
+import { useNavMenu } from "./nav-menu-context";
+import cn from "@/src/utils/class-names";
+import { useClientWidth } from "@/src/hooks/use-client-width";
 import type {
   ContentWrapperRounded,
   ContentWrapperShadow,
   ItemContentRef,
   NavMenuContentProps,
-} from './nav-menu-types';
+} from "./nav-menu-types";
 
 export function NavMenuContent({ children }: NavMenuContentProps) {
   return <>{children}</>;
 }
 
-NavMenuContent.displayName = 'NavMenuContent';
+NavMenuContent.displayName = "NavMenuContent";
 
 const menuContentClassNames = {
-  base: 'content-wrapper rounded-lg shadow-lg bg-white dark:bg-gray-100 transform-gpu shadow-gray-400/10 overflow-hidden duration-300',
+  base: "content-wrapper rounded-lg shadow-lg bg-white dark:bg-gray-100 transform-gpu shadow-gray-400/10 overflow-hidden duration-300",
   rounded: {
-    sm: 'rounded-sm',
-    md: 'rounded-md',
-    lg: 'rounded-lg',
-    xl: 'rounded-xl',
-    none: 'rounded-none',
+    sm: "rounded-sm",
+    md: "rounded-md",
+    lg: "rounded-lg",
+    xl: "rounded-xl",
+    none: "rounded-none",
   },
   shadow: {
-    sm: 'shadow-sm',
-    md: 'shadow-md',
-    lg: 'shadow-lg',
-    xl: 'shadow-xl',
-    none: 'shadow-none',
+    sm: "shadow-sm",
+    md: "shadow-md",
+    lg: "shadow-lg",
+    xl: "shadow-xl",
+    none: "shadow-none",
   },
 };
 
@@ -62,9 +62,9 @@ export function NavMenuContentWrapper({
   } = useNavMenu();
 
   const roundedKey = (contentUiPropsRefs.current[hovering!]?.rounded ||
-    'md') as ContentWrapperRounded;
+    "md") as ContentWrapperRounded;
   const shadowKey = (contentUiPropsRefs.current[hovering!]?.shadow ||
-    'md') as ContentWrapperShadow;
+    "md") as ContentWrapperShadow;
 
   const negativeXLtrValue =
     clientWidth - hoveringElRect?.x! - floatingOffset < popoverWidth!
@@ -86,22 +86,22 @@ export function NavMenuContentWrapper({
     <>
       <div
         style={{
-          ...{ '--client-width': `${clientWidth}px` },
+          ...{ "--client-width": `${clientWidth}px` },
           ...(!fullscreen
             ? {
                 left:
-                  dir === 'ltr'
+                  dir === "ltr"
                     ? popoverLeft! - Math.abs(negativeXLtrValue)
                     : leftRtl!,
                 width: popoverWidth || 0,
-                position: 'absolute',
+                position: "absolute",
               }
             : {
-                width: 'var(--client-width)',
-                position: 'fixed',
+                width: "var(--client-width)",
+                position: "fixed",
                 insetInlineStart: 0,
               }),
-          transformOrigin: 'top',
+          transformOrigin: "top",
           height: popoverHeight || 0,
         }}
         className={cn(
@@ -110,9 +110,9 @@ export function NavMenuContentWrapper({
           menuContentClassNames.shadow[shadowKey],
           menuContentClassName,
           hovering !== null
-            ? 'visible scale-y-100 opacity-100 transition-all'
-            : 'invisible scale-y-95 opacity-0',
-          !items[hovering!]?.component && 'border-none opacity-0 shadow-none'
+            ? "visible scale-y-100 opacity-100 transition-all"
+            : "invisible scale-y-95 opacity-0",
+          !items[hovering!]?.component && "border-none opacity-0 shadow-none"
         )}
       >
         {items.map((item, index) => {
@@ -135,7 +135,7 @@ export function NavMenuContentWrapper({
                     contentRefs.current[index] = element;
                   }}
                   className={cn(
-                    'w-32',
+                    "w-32",
                     // @ts-ignore
                     item?.component?.props?.children?.props?.className
                   )}
@@ -164,16 +164,16 @@ function Wrapper(props: WrapperProps) {
   return (
     <div
       className={cn(
-        'absolute start-0 top-0 w-full overflow-hidden transition-all duration-300 ease-in-out',
+        "absolute start-0 top-0 w-full overflow-hidden transition-all duration-300 ease-in-out",
         props.hovering === props.index
-          ? 'opacity-100'
-          : 'pointer-events-none translate-x-0 opacity-0',
+          ? "opacity-100"
+          : "pointer-events-none translate-x-0 opacity-0",
         props.hovering === props.index
-          ? 'transform-none'
+          ? "transform-none"
           : props.hovering! > props.index
-            ? '-translate-x-1/4'
-            : 'translate-x-1/4',
-        props.hovering === null && 'translate-x-0 opacity-0'
+          ? "-translate-x-1/4"
+          : "translate-x-1/4",
+        props.hovering === null && "translate-x-0 opacity-0"
       )}
     >
       {props.children}

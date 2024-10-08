@@ -1,6 +1,6 @@
-import { ROLES } from '@/config/constants';
-import { avatarIds } from '@core/utils/get-avatar';
-import { getRandomArrayElement } from '@core/utils/get-random-array-element';
+import { ROLES } from "@/config/constants";
+import { avatarIds } from "@/src/utils/get-avatar";
+import { getRandomArrayElement } from "@/src/utils/get-random-array-element";
 
 export const users = [
   {
@@ -50,42 +50,42 @@ export const users = [
 export const rolesList = [
   {
     name: ROLES.Administrator,
-    color: '#2465FF',
+    color: "#2465FF",
     users,
   },
   {
     name: ROLES.Manager,
-    color: '#F5A623',
+    color: "#F5A623",
     users,
   },
   {
     name: ROLES.Sales,
-    color: '#FF1A1A',
+    color: "#FF1A1A",
     users,
   },
   {
     name: ROLES.Support,
-    color: '#8A63D2',
+    color: "#8A63D2",
     users,
   },
   {
     name: ROLES.Developer,
-    color: '#FF1A1A',
+    color: "#FF1A1A",
     users,
   },
   {
     name: ROLES.HRD,
-    color: '#11A849',
+    color: "#11A849",
     users,
   },
   {
     name: ROLES.RestrictedUser,
-    color: '#4E36F5',
+    color: "#4E36F5",
     users,
   },
   {
     name: ROLES.Customer,
-    color: '#0070F3',
+    color: "#0070F3",
     users,
   },
 ];
@@ -93,14 +93,14 @@ export const rolesList = [
 export const roleActions = [
   {
     id: 1,
-    name: 'Add User',
+    name: "Add User",
   },
   {
     id: 2,
-    name: 'Rename',
+    name: "Rename",
   },
   {
     id: 3,
-    name: 'Remove Role',
+    name: "Remove Role",
   },
 ];

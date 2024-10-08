@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useFormContext, useWatch } from 'react-hook-form';
-import { PiCheckCircleFill, PiQuestionFill } from 'react-icons/pi';
-import { shippingMethodData, shippingSpeedData } from '@/data/checkout-data';
-import { AdvancedRadio, FieldError, Title, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
+import Image from "next/image";
+import { useFormContext, useWatch } from "react-hook-form";
+import { PiCheckCircleFill, PiQuestionFill } from "react-icons/pi";
+import { shippingMethodData, shippingSpeedData } from "@/data/checkout-data";
+import { AdvancedRadio, FieldError, Title, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
 
 export default function ShippingMethod({ className }: { className?: string }) {
   const {
@@ -16,7 +16,7 @@ export default function ShippingMethod({ className }: { className?: string }) {
 
   const shippingMethod = useWatch({
     control,
-    name: 'shippingMethod',
+    name: "shippingMethod",
   });
 
   return (
@@ -40,7 +40,7 @@ export default function ShippingMethod({ className }: { className?: string }) {
                 <AdvancedRadio
                   key={item.id}
                   value={item.value}
-                  {...register('shippingMethod')}
+                  {...register("shippingMethod")}
                   className="flex shrink-0 items-center rounded border-muted/80 hover:cursor-pointer peer-checked:ring-[0.5px] [&_.rizzui-advanced-checkbox:hover]:border-primary [&_.rizzui-advanced-checkbox]:min-w-[unset] [&_.rizzui-advanced-checkbox]:p-0 [&_img]:h-[45px] [&_img]:w-[60px] [&_img]:rounded-md [&_input:checked~.rizzui-advanced-checkbox]:border-primary [&_input:checked~.rizzui-advanced-checkbox]:ring-primary"
                 >
                   <Image
@@ -66,7 +66,7 @@ export default function ShippingMethod({ className }: { className?: string }) {
                     key={item.id}
                     value={item.speed}
                     defaultChecked={item.checked}
-                    {...register('shippingSpeed')}
+                    {...register("shippingSpeed")}
                     className="[&_.rizzui-advanced-checkbox]:!px-5 [&_.rizzui-advanced-checkbox]:!py-4"
                     inputClassName="[&~span]:border-0 [&~span]:ring-1 [&~span]:ring-gray-200 [&~span:hover]:ring-primary [&:checked~span:hover]:ring-primary [&:checked~span]:border-1 [&:checked~.rizzui-advanced-checkbox]:ring-2 [&~span>.icon]:opacity-0 [&:checked~span>.icon]:opacity-100"
                   >

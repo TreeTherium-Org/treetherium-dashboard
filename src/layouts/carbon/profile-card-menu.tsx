@@ -1,11 +1,11 @@
-'use client';
-import { Avatar, Button, Popover, Title, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { ReactNode, useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import { routes } from '@/config/routes';
-import Link from 'next/link';
-import { Placement } from '@floating-ui/react';
+"use client";
+import { Avatar, Button, Popover, Title, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { ReactNode, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { routes } from "@/config/routes";
+import Link from "next/link";
+import { Placement } from "@floating-ui/react";
 
 type ProfileCardMenuProps = {
   className?: string;
@@ -21,16 +21,16 @@ type ProfileCardMenuProps = {
 
 const menuItems = [
   {
-    name: 'My Profile',
+    name: "My Profile",
     href: routes.profile,
   },
   {
-    name: 'Account Settings',
+    name: "Account Settings",
     href: routes.forms.profileSettings,
   },
   {
-    name: 'Activity Log',
-    href: '#',
+    name: "Activity Log",
+    href: "#",
   },
 ];
 
@@ -76,12 +76,12 @@ export default function ProfileCardMenu({
   className,
   buttonClassName,
   avatarClassName,
-  placement = 'bottom-start',
+  placement = "bottom-start",
   icon,
   title,
   designation,
   image,
-  initial = 'P',
+  initial = "P",
 }: ProfileCardMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -92,7 +92,7 @@ export default function ProfileCardMenu({
 
   return (
     <>
-      <div className={cn('px-6 py-5', className)}>
+      <div className={cn("px-6 py-5", className)}>
         <Popover
           isOpen={isOpen}
           setIsOpen={setIsOpen}
@@ -103,7 +103,7 @@ export default function ProfileCardMenu({
             <Button
               variant="outline"
               className={cn(
-                'flex-items-center group flex h-auto w-full max-w-full justify-between gap-3 border-2 border-gray-100 px-5 py-3.5 text-left',
+                "flex-items-center group flex h-auto w-full max-w-full justify-between gap-3 border-2 border-gray-100 px-5 py-3.5 text-left",
                 buttonClassName
               )}
             >

@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { atom, useAtom } from 'jotai';
-import { updateThemeColor } from '@core/utils/update-theme-color';
+import { useEffect } from "react";
+import { atom, useAtom } from "jotai";
+import { updateThemeColor } from "@/src/utils/update-theme-color";
 import {
   DEFAULT_PRESET_COLOR_NAME,
   DEFAULT_PRESET_COLORS,
   usePresets,
-} from '@/config/color-presets';
+} from "@/config/color-presets";
 
 // color preset hook
 function getLocalStoragePreset() {
-  if (typeof window !== 'undefined') {
-    const localStorageValue = localStorage.getItem('isomorphic-preset');
+  if (typeof window !== "undefined") {
+    const localStorageValue = localStorage.getItem("isomorphic-preset");
     return JSON.parse(String(localStorageValue));
   }
 }
 
 const colorPresetsAtom = atom(
-  typeof window !== 'undefined'
+  typeof window !== "undefined"
     ? getLocalStoragePreset()
     : DEFAULT_PRESET_COLORS
 );
@@ -27,7 +27,7 @@ const colorPresetsAtomWithPersistence = atom(
   (get) => get(colorPresetsAtom),
   (get, set, newStorage: any) => {
     set(colorPresetsAtom, newStorage);
-    localStorage.setItem('isomorphic-preset', JSON.stringify(newStorage));
+    localStorage.setItem("isomorphic-preset", JSON.stringify(newStorage));
   }
 );
 
@@ -43,8 +43,8 @@ export function useColorPresets() {
 
 //  color preset name hook
 const colorPresetNameAtom = atom(
-  typeof window !== 'undefined'
-    ? localStorage.getItem('isomorphic-preset-name')
+  typeof window !== "undefined"
+    ? localStorage.getItem("isomorphic-preset-name")
     : DEFAULT_PRESET_COLOR_NAME
 );
 
@@ -52,7 +52,7 @@ const colorPresetNameAtomWithPersistence = atom(
   (get) => get(colorPresetNameAtom),
   (get, set, newStorage: any) => {
     set(colorPresetNameAtom, newStorage);
-    localStorage.setItem('isomorphic-preset-name', newStorage);
+    localStorage.setItem("isomorphic-preset-name", newStorage);
   }
 );
 

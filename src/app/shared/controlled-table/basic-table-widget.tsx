@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Input } from 'rizzui';
-import cn from '@core/utils/class-names';
-import WidgetCard from '@core/components/cards/widget-card';
-import { PiMagnifyingGlassBold } from 'react-icons/pi';
-import { useTable } from '@core/hooks/use-table';
-import { useColumn } from '@core/hooks/use-column';
-import ControlledTable from './index';
+import React from "react";
+import { Input } from "rizzui";
+import cn from "@/src/utils/class-names";
+import WidgetCard from "@/src/components/cards/widget-card";
+import { PiMagnifyingGlassBold } from "react-icons/pi";
+import { useTable } from "@/src/hooks/use-table";
+import { useColumn } from "@/src/hooks/use-column";
+import ControlledTable from "./index";
 
 type ColumnTypes = {
   data?: any[];
@@ -35,7 +35,7 @@ type BasicTableWidgetProps = {
   }: ColumnTypes) => any;
   data: any[];
   enablePagination?: boolean;
-  variant?: 'modern' | 'minimal' | 'classic' | 'elegant' | 'retro';
+  variant?: "modern" | "minimal" | "classic" | "elegant" | "retro";
   enableSearch?: boolean;
   paginatorClassName?: string;
   searchPlaceholder?: string;
@@ -54,14 +54,14 @@ export default function BasicTableWidget({
   pageSize = 7,
   setPageSize,
   enablePagination,
-  variant = 'modern',
+  variant = "modern",
   enableSearch = true,
   paginatorClassName,
   noGutter,
   sticky,
   scroll = { x: 1300 },
   className,
-  searchPlaceholder = 'Search...',
+  searchPlaceholder = "Search...",
 }: BasicTableWidgetProps) {
   const onHeaderCellClick = (value: string) => ({
     onClick: () => {
@@ -117,7 +117,7 @@ export default function BasicTableWidget({
   return (
     <WidgetCard
       title={title}
-      className={cn('flex flex-col', className)}
+      className={cn("flex flex-col", className)}
       headerClassName="widget-card-header flex-col sm:flex-row [&>.ps-2]:ps-0 [&>.ps-2]:w-full sm:[&>.ps-2]:w-auto [&>.ps-2]:mt-3 sm:[&>.ps-2]:mt-0"
       {...(enableSearch && {
         action: (
@@ -125,7 +125,7 @@ export default function BasicTableWidget({
             type="search"
             placeholder={searchPlaceholder}
             value={searchTerm}
-            onClear={() => handleSearch('')}
+            onClear={() => handleSearch("")}
             onChange={(event) => handleSearch(event.target.value)}
             clearable
             prefix={<PiMagnifyingGlassBold className="h-4 w-4" />}
@@ -134,7 +134,7 @@ export default function BasicTableWidget({
       })}
     >
       <div
-        className={cn('table-wrapper flex-grow', noGutter && '-mx-5 lg:-mx-7')}
+        className={cn("table-wrapper flex-grow", noGutter && "-mx-5 lg:-mx-7")}
       >
         <ControlledTable
           isLoading={isLoading}
@@ -153,8 +153,8 @@ export default function BasicTableWidget({
               onChange: (page: number) => handlePaginate(page),
             },
             paginatorClassName: cn(
-              'mt-4 lg:mt-5',
-              noGutter && 'px-5 lg:px-7',
+              "mt-4 lg:mt-5",
+              noGutter && "px-5 lg:px-7",
               paginatorClassName
             ),
           })}

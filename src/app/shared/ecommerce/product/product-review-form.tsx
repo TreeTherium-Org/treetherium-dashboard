@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Textarea, Button } from 'rizzui';
-import Rate from '@core/ui/rate';
-import { Controller, SubmitHandler } from 'react-hook-form';
-import { Form } from '@core/ui/form';
+import { useState } from "react";
+import { Textarea, Button } from "rizzui";
+import Rate from "@/src/ui/rate";
+import { Controller, SubmitHandler } from "react-hook-form";
+import { Form } from "@/src/ui/form";
 
 type ReviewFormValues = {
   rating: any;
@@ -15,14 +15,14 @@ export default function ProductReviewForm() {
   const [reset, setReset] = useState({});
   const onSubmit: SubmitHandler<ReviewFormValues> = (data) => {
     console.log(data);
-    setReset({ rating: '', review: '' });
+    setReset({ rating: "", review: "" });
   };
   return (
     <Form<ReviewFormValues>
       resetValues={reset}
       onSubmit={onSubmit}
       useFormProps={{
-        defaultValues: { rating: '', review: '' },
+        defaultValues: { rating: "", review: "" },
       }}
     >
       {({ register, control, formState: { errors } }) => (
@@ -37,7 +37,7 @@ export default function ProductReviewForm() {
             />
             <Textarea
               placeholder="Review...."
-              {...register('review')}
+              {...register("review")}
               error={errors.review?.message}
               textareaClassName="h-24"
               className="col-span-2"

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { Button, Input, Title, Text, Switch, ActionIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { PiMagnifyingGlass, PiX } from 'react-icons/pi';
-import { teams } from '@/data/teams-data';
+import { useState } from "react";
+import Image from "next/image";
+import { Button, Input, Title, Text, Switch, ActionIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { PiMagnifyingGlass, PiX } from "react-icons/pi";
+import { teams } from "@/data/teams-data";
 
 export default function IntegrationSettingsView() {
   const [showBanner, setShowBanner] = useState(true);
@@ -45,8 +45,8 @@ export default function IntegrationSettingsView() {
                 </Text>
                 <a
                   href={currentTeam.url}
-                  target={'_blank'}
-                  rel={'noopener noreferrer nofollow noindex'}
+                  target={"_blank"}
+                  rel={"noopener noreferrer nofollow noindex"}
                   className="mt-3 inline-block w-auto flex-shrink-0 justify-start p-0 text-xs font-medium capitalize text-gray-900 sm:justify-center"
                 >
                   Learn more
@@ -71,7 +71,7 @@ export function PromoBanner({
   return (
     <div
       className={cn(
-        'relative flex flex-col items-center overflow-hidden rounded-xl border border-muted xs:flex-row',
+        "relative flex flex-col items-center overflow-hidden rounded-xl border border-muted xs:flex-row",
         className
       )}
     >
@@ -124,12 +124,12 @@ function HorizontalFormBlockWrapper({
   return (
     <div
       className={cn(
-        'pb-3 pt-9 @2xl:grid @2xl:grid-cols-6 @2xl:pt-11',
+        "pb-3 pt-9 @2xl:grid @2xl:grid-cols-6 @2xl:pt-11",
         className
       )}
     >
       <div className="col-span-2 mb-6 @5xl:mb-0">
-        <Title as="h6" className={cn('text-xl font-semibold', titleClassName)}>
+        <Title as="h6" className={cn("text-xl font-semibold", titleClassName)}>
           {title}
         </Title>
         <Text className="mt-1 text-sm text-gray-500">{description}</Text>

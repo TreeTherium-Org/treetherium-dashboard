@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import HamburgerButton from '@/layouts/hamburger-button';
-import SearchWidget from '@/app/shared/search/search';
-import Logo from '@core/components/logo';
-import HeaderMenuRight from '@/layouts/header-menu-right';
-import StickyHeader from '@/layouts/sticky-header';
-import { CarbonDrawerSidebar } from './carbon-drawer-sidebar';
+import Link from "next/link";
+import HamburgerButton from "@/layouts/hamburger-button";
+import SearchWidget from "@/app/shared/search/search";
+import Logo from "@/src/components/logo";
+import HeaderMenuRight from "@/layouts/header-menu-right";
+import StickyHeader from "@/layouts/sticky-header";
+import { CarbonDrawerSidebar } from "./carbon-drawer-sidebar";
 
 export default function Header() {
   return (
@@ -16,7 +16,7 @@ export default function Header() {
           view={<CarbonDrawerSidebar className="static w-full 2xl:w-full" />}
         />
         <Link
-          href={'/'}
+          href={"/"}
           aria-label="Site Logo"
           className="me-4 w-9 shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:hidden"
         >

@@ -1,19 +1,19 @@
-import { Controller, useFormContext } from 'react-hook-form';
-import { Input } from 'rizzui';
-import cn from '@core/utils/class-names';
-import FormGroup from '@/app/shared/form-group';
+import { Controller, useFormContext } from "react-hook-form";
+import { Input } from "rizzui";
+import cn from "@/src/utils/class-names";
+import FormGroup from "@/app/shared/form-group";
 import {
   categoryOption,
   typeOption,
-} from '@/app/shared/ecommerce/product/create-edit/form-utils';
-import dynamic from 'next/dynamic';
-import SelectLoader from '@core/components/loader/select-loader';
-import QuillLoader from '@core/components/loader/quill-loader';
-const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
+} from "@/app/shared/ecommerce/product/create-edit/form-utils";
+import dynamic from "next/dynamic";
+import SelectLoader from "@/src/components/loader/select-loader";
+import QuillLoader from "@/src/components/loader/quill-loader";
+const Select = dynamic(() => import("rizzui").then((mod) => mod.Select), {
   ssr: false,
   loading: () => <SelectLoader />,
 });
-const QuillEditor = dynamic(() => import('@core/ui/quill-editor'), {
+const QuillEditor = dynamic(() => import("@/src/ui/quill-editor"), {
   ssr: false,
   loading: () => <QuillLoader className="col-span-full h-[143px]" />,
 });
@@ -34,13 +34,13 @@ export default function ProductSummary({ className }: { className?: string }) {
       <Input
         label="Title"
         placeholder="Product title"
-        {...register('title')}
+        {...register("title")}
         error={errors.title?.message as string}
       />
       <Input
         label="SKU"
         placeholder="Product sku"
-        {...register('sku')}
+        {...register("sku")}
         error={errors.sku?.message as string}
       />
 

@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import dayjs from 'dayjs';
-import { PiCloudArrowDown } from 'react-icons/pi';
-import { HeaderCell } from '@/app/shared/table';
-import { Checkbox, Title, Text, Button, Badge } from 'rizzui';
-import { exportToCSV } from '@core/utils/export-to-csv';
+import Image from "next/image";
+import dayjs from "dayjs";
+import { PiCloudArrowDown } from "react-icons/pi";
+import { HeaderCell } from "@/app/shared/table";
+import { Checkbox, Title, Text, Button, Badge } from "rizzui";
+import { exportToCSV } from "@/src/utils/export-to-csv";
 
 const statusColors: any = {
-  'In Progress': 'info',
-  Paid: 'success',
-  Canceled: 'secondary',
-  'On hold': 'danger',
+  "In Progress": "info",
+  Paid: "success",
+  Canceled: "secondary",
+  "On hold": "danger",
 };
 
 function handleDownloadRowData(row: { [key: string]: any }) {
   exportToCSV(
     [row],
-    'Title,Amount,Date,Status,Shared',
+    "Title,Amount,Date,Status,Shared",
     `billing_history_${row.id}`
   );
 }
@@ -43,15 +43,15 @@ export const getColumns = ({
     title: (
       <div className="ps-2">
         <Checkbox
-          title={'Select All'}
+          title={"Select All"}
           onChange={handleSelectAll}
           checked={checkedItems.length === data.length}
           className="cursor-pointer"
         />
       </div>
     ),
-    dataIndex: 'checked',
-    key: 'checked',
+    dataIndex: "checked",
+    key: "checked",
     width: 30,
     render: (_: any, row: any) => (
       <div className="inline-flex ps-2">
@@ -65,32 +65,32 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Name" />,
-    dataIndex: 'title',
-    key: 'title',
+    dataIndex: "title",
+    key: "title",
     width: 420,
     render: (_: any, row: any) => {
       return (
         <Title as="h6" className="mb-0.5 !text-sm font-medium text-gray-700">
-          {row.title} - {dayjs(row.date).format('MMM YYYY')}
+          {row.title} - {dayjs(row.date).format("MMM YYYY")}
         </Title>
       );
     },
   },
   {
     title: <HeaderCell title="Amount" />,
-    dataIndex: 'amount',
-    key: 'amount',
+    dataIndex: "amount",
+    key: "amount",
     width: 130,
     render: (value: any) => <span className="text-gray-700">{value}</span>,
   },
   {
     title: <HeaderCell title="Date" />,
-    dataIndex: 'date',
-    key: 'date',
+    dataIndex: "date",
+    key: "date",
     width: 130,
     render: (value: Date) => (
       <Text className="mb-1 text-gray-700">
-        {dayjs(value).format('DD MMM YYYY')}
+        {dayjs(value).format("DD MMM YYYY")}
       </Text>
     ),
   },
@@ -100,13 +100,13 @@ export const getColumns = ({
         title="Status"
         sortable
         ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'dueDate'
+          sortConfig?.direction === "asc" && sortConfig?.key === "dueDate"
         }
       />
     ),
-    onHeaderCell: () => onHeaderCellClick('status'),
-    dataIndex: 'status',
-    key: 'status',
+    onHeaderCell: () => onHeaderCellClick("status"),
+    dataIndex: "status",
+    key: "status",
     width: 200,
     render: (status: any) => (
       <Badge
@@ -121,8 +121,8 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="USERS ON PLAN" />,
-    dataIndex: 'shared',
-    key: 'shared',
+    dataIndex: "shared",
+    key: "shared",
     width: 200,
     render: (_: any, row: any) => {
       return (
@@ -145,8 +145,8 @@ export const getColumns = ({
   },
   {
     title: <></>,
-    dataIndex: 'action',
-    key: 'action',
+    dataIndex: "action",
+    key: "action",
     width: 100,
     render: (_: string, row: any) => (
       <Button

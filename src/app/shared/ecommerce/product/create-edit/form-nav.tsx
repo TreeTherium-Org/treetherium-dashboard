@@ -1,46 +1,46 @@
-import { Link } from 'react-scroll';
-import cn from '@core/utils/class-names';
-import SimpleBar from '@core/ui/simplebar';
+import { Link } from "react-scroll";
+import cn from "@/src/utils/class-names";
+import SimpleBar from "@/src/ui/simplebar";
 
 export const formParts = {
-  summary: 'summary',
-  media: 'media',
-  pricingInventory: 'pricingInventory',
-  productIdentifiers: 'productIdentifiers',
-  shipping: 'shipping',
-  seo: 'seo',
-  deliveryEvent: 'deliveryEvent',
-  variantOptions: 'variantOptions',
-  tagsAndCategory: 'tagsAndCategory',
+  summary: "summary",
+  media: "media",
+  pricingInventory: "pricingInventory",
+  productIdentifiers: "productIdentifiers",
+  shipping: "shipping",
+  seo: "seo",
+  deliveryEvent: "deliveryEvent",
+  variantOptions: "variantOptions",
+  tagsAndCategory: "tagsAndCategory",
 };
 
 export const menuItems = [
   {
-    label: 'Summary',
+    label: "Summary",
     value: formParts.summary,
   },
   {
-    label: 'Images & Gallery',
+    label: "Images & Gallery",
     value: formParts.media,
   },
   {
-    label: 'Pricing & Inventory',
+    label: "Pricing & Inventory",
     value: formParts.pricingInventory,
   },
   {
-    label: 'Product Identifiers & Custom Fields',
+    label: "Product Identifiers & Custom Fields",
     value: formParts.productIdentifiers,
   },
   {
-    label: 'Shipping',
+    label: "Shipping",
     value: formParts.shipping,
   },
   {
-    label: 'SEO',
+    label: "SEO",
     value: formParts.seo,
   },
   {
-    label: 'Variant Options',
+    label: "Variant Options",
     value: formParts.variantOptions,
   },
 ];
@@ -53,7 +53,7 @@ export default function FormNav({ className }: FormNavProps) {
   return (
     <div
       className={cn(
-        'sticky top-[68px] z-20 border-b border-gray-300 bg-white py-0 font-medium text-gray-500 @2xl:top-[72px] dark:bg-gray-50 2xl:top-20',
+        "sticky top-[68px] z-20 border-b border-gray-300 bg-white py-0 font-medium text-gray-500 @2xl:top-[72px] dark:bg-gray-50 2xl:top-20",
         className
       )}
     >

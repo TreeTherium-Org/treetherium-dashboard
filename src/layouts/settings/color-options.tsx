@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useTheme } from 'next-themes';
-import { PiCheckBold } from 'react-icons/pi';
-import cn from '@core/utils/class-names';
-import { usePresets } from '@/config/color-presets';
+import { useTheme } from "next-themes";
+import { PiCheckBold } from "react-icons/pi";
+import cn from "@/src/utils/class-names";
+import { usePresets } from "@/config/color-presets";
 import {
   useColorPresetName,
   useColorPresets,
-} from '@/layouts/settings/use-theme-color';
-import DrawerBlock from '@/layouts/settings/drawer-block';
+} from "@/layouts/settings/use-theme-color";
+import DrawerBlock from "@/layouts/settings/drawer-block";
 
 export default function ColorOptions() {
   const { theme } = useTheme();
@@ -31,36 +31,36 @@ export default function ColorOptions() {
                 setColorPresetName(preset?.name.toLowerCase());
               }}
               className={cn(
-                'grid h-auto w-full place-content-center gap-2 rounded-lg border-2 border-transparent py-1.5 shadow-sm transition duration-300 focus-visible:outline-none',
+                "grid h-auto w-full place-content-center gap-2 rounded-lg border-2 border-transparent py-1.5 shadow-sm transition duration-300 focus-visible:outline-none",
                 colorPresetName?.toLowerCase() === preset?.name?.toLowerCase()
-                  ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-gray-100'
-                  : 'hover:border-primary'
+                  ? "ring-2 ring-primary ring-offset-2 dark:ring-offset-gray-100"
+                  : "hover:border-primary"
               )}
               style={{ backgroundColor: preset.colors.default }}
             >
               <PiCheckBold
                 className={cn(
-                  'h-6 w-6',
+                  "h-6 w-6",
                   colorPresetName?.toLowerCase() === preset?.name?.toLowerCase()
-                    ? 'text-white'
-                    : 'text-transparent',
+                    ? "text-white"
+                    : "text-transparent",
                   colorPresetName?.toLowerCase() ===
-                    preset?.name?.toLowerCase() && preset.name === 'Black'
-                    ? 'text-gray-0'
-                    : ''
+                    preset?.name?.toLowerCase() && preset.name === "Black"
+                    ? "text-gray-0"
+                    : ""
                 )}
               />
             </button>
             <span
               className={
                 colorPresetName?.toLowerCase() === preset?.name?.toLowerCase()
-                  ? 'font-semibold'
-                  : 'font-medium'
+                  ? "font-semibold"
+                  : "font-medium"
               }
               style={{ color: preset.colors.default }}
             >
-              {theme === 'dark' && preset.name === 'Black'
-                ? 'White'
+              {theme === "dark" && preset.name === "Black"
+                ? "White"
                 : preset.name}
             </span>
           </div>

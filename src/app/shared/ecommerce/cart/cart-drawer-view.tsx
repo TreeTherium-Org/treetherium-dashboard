@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import isEmpty from 'lodash/isEmpty';
-import OrderProducts from '@/app/shared/ecommerce/checkout/order-products';
-import { toCurrency } from '@core/utils/to-currency';
-import { Title, Text, Button, EmptyProductBoxIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { routes } from '@/config/routes';
-import { CartItem } from '@/types';
-import DrawerHeader from '@/app/shared/drawer-header';
+import Link from "next/link";
+import isEmpty from "lodash/isEmpty";
+import OrderProducts from "@/app/shared/ecommerce/checkout/order-products";
+import { toCurrency } from "@/src/utils/to-currency";
+import { Title, Text, Button, EmptyProductBoxIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { routes } from "@/config/routes";
+import { CartItem } from "@/types";
+import DrawerHeader from "@/app/shared/drawer-header";
 
 type CartDrawerViewProps = {
   items: CartItem[];
@@ -69,7 +69,7 @@ export default function CartDrawerView({
         <Link
           href={routes.eCommerce.checkout}
           className={cn(
-            'mx-4 mb-6 mt-auto flex items-center justify-between rounded-md bg-primary px-5 py-2 font-medium text-primary-foreground md:mx-6'
+            "mx-4 mb-6 mt-auto flex items-center justify-between rounded-md bg-primary px-5 py-2 font-medium text-primary-foreground md:mx-6"
           )}
         >
           Checkout

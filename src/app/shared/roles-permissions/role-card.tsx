@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { PiDotsThreeBold } from 'react-icons/pi';
-import { Title, ActionIcon, Dropdown } from 'rizzui';
-import cn from '@core/utils/class-names';
-import UserCog from '@core/components/icons/user-cog';
-import { ROLES } from '@/config/constants';
-import { useModal } from '@/app/shared/modal-views/use-modal';
-import ModalButton from '@/app/shared/modal-button';
-import EditRole from '@/app/shared/roles-permissions/edit-role';
-import CreateUser from '@/app/shared/roles-permissions/create-user';
+import Image from "next/image";
+import { PiDotsThreeBold } from "react-icons/pi";
+import { Title, ActionIcon, Dropdown } from "rizzui";
+import cn from "@/src/utils/class-names";
+import UserCog from "@/src/components/icons/user-cog";
+import { ROLES } from "@/config/constants";
+import { useModal } from "@/app/shared/modal-views/use-modal";
+import ModalButton from "@/app/shared/modal-button";
+import EditRole from "@/app/shared/roles-permissions/edit-role";
+import CreateUser from "@/app/shared/roles-permissions/create-user";
 
 type User = {
   id: number;
@@ -33,7 +33,7 @@ export default function RoleCard({
 }: RoleCardProps) {
   const { openModal } = useModal();
   return (
-    <div className={cn('rounded-lg border border-muted p-6', className)}>
+    <div className={cn("rounded-lg border border-muted p-6", className)}>
       <header className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-3">
           <span

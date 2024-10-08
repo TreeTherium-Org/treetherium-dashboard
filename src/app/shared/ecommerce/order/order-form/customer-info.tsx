@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import { Controller, useFormContext } from 'react-hook-form';
-import { DatePicker } from '@core/ui/datepicker';
-import PencilIcon from '@core/components/icons/pencil';
-import { Text, Title, Select, ActionIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
+import Image from "next/image";
+import { Controller, useFormContext } from "react-hook-form";
+import { DatePicker } from "@/src/ui/datepicker";
+import PencilIcon from "@/src/components/icons/pencil";
+import { Text, Title, Select, ActionIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
 
 interface CustomerInfoProps {
   className?: string;
@@ -18,7 +18,7 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
   return (
     <div
       className={cn(
-        'pb-7 pt-10 @container @5xl:col-span-4 @5xl:py-0 @6xl:col-span-3',
+        "pb-7 pt-10 @container @5xl:col-span-4 @5xl:py-0 @6xl:col-span-3",
         className
       )}
     >
@@ -40,7 +40,7 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
               <Image
                 fill
                 src={
-                  'https://isomorphic-furyroad.s3.amazonaws.com/public/avatar.png'
+                  "https://isomorphic-furyroad.s3.amazonaws.com/public/avatar.png"
                 }
                 alt="avatar"
                 sizes="(max-width: 768px) 100vw"
@@ -113,7 +113,7 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
             control={control}
             render={({ field: { value, onChange, onBlur } }) => (
               <DatePicker
-                inputProps={{ label: 'Order date' }}
+                inputProps={{ label: "Order date" }}
                 placeholderText="Select Date"
                 dateFormat="dd/MM/yyyy"
                 onChange={onChange}
@@ -133,35 +133,35 @@ export default function CustomerInfo({ className }: CustomerInfoProps) {
 // Payment method option
 const paymentOptions = [
   {
-    value: 'paypal',
-    label: 'PayPal',
+    value: "paypal",
+    label: "PayPal",
   },
   {
-    value: 'skrill',
-    label: 'Skrill',
+    value: "skrill",
+    label: "Skrill",
   },
   {
-    value: 'visa',
-    label: 'Visa',
+    value: "visa",
+    label: "Visa",
   },
   {
-    value: 'mastercard',
-    label: 'Mastercard',
+    value: "mastercard",
+    label: "Mastercard",
   },
 ];
 
 // shipping option
 const shippingOption = [
   {
-    value: 'ups',
-    label: 'UPS',
+    value: "ups",
+    label: "UPS",
   },
   {
-    value: 'usps',
-    label: 'USPS',
+    value: "usps",
+    label: "USPS",
   },
   {
-    value: 'fedex',
-    label: 'FedEx',
+    value: "fedex",
+    label: "FedEx",
   },
 ];

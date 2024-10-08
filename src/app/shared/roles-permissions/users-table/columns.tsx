@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { STATUSES, type User } from '@/data/users-data';
-import { Text, Badge, Tooltip, Checkbox, ActionIcon } from 'rizzui';
-import { HeaderCell } from '@/app/shared/table';
-import EyeIcon from '@core/components/icons/eye';
-import PencilIcon from '@core/components/icons/pencil';
-import AvatarCard from '@core/ui/avatar-card';
-import DateCell from '@core/ui/date-cell';
-import DeletePopover from '@/app/shared/delete-popover';
+import { STATUSES, type User } from "@/data/users-data";
+import { Text, Badge, Tooltip, Checkbox, ActionIcon } from "rizzui";
+import { HeaderCell } from "@/app/shared/table";
+import EyeIcon from "@/src/components/icons/eye";
+import PencilIcon from "@/src/components/icons/pencil";
+import AvatarCard from "@/src/ui/avatar-card";
+import DateCell from "@/src/ui/date-cell";
+import DeletePopover from "@/app/shared/delete-popover";
 
-function getStatusBadge(status: User['status']) {
+function getStatusBadge(status: User["status"]) {
   switch (status) {
     case STATUSES.Deactivated:
       return (
@@ -66,7 +66,7 @@ export const getColumns = ({
     title: (
       <div className="flex items-center gap-3 whitespace-nowrap ps-3">
         <Checkbox
-          title={'Select All'}
+          title={"Select All"}
           onChange={handleSelectAll}
           checked={checkedItems.length === data.length}
           className="cursor-pointer"
@@ -74,8 +74,8 @@ export const getColumns = ({
         User ID
       </div>
     ),
-    dataIndex: 'checked',
-    key: 'checked',
+    dataIndex: "checked",
+    key: "checked",
     width: 30,
     render: (_: any, row: User) => (
       <div className="inline-flex ps-3">
@@ -90,8 +90,8 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Name" />,
-    dataIndex: 'fullName',
-    key: 'fullName',
+    dataIndex: "fullName",
+    key: "fullName",
     width: 250,
     render: (_: string, user: User) => (
       <AvatarCard
@@ -107,13 +107,13 @@ export const getColumns = ({
         title="Role"
         sortable
         ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'role'
+          sortConfig?.direction === "asc" && sortConfig?.key === "role"
         }
       />
     ),
-    onHeaderCell: () => onHeaderCellClick('role'),
-    dataIndex: 'role',
-    key: 'role',
+    onHeaderCell: () => onHeaderCellClick("role"),
+    dataIndex: "role",
+    key: "role",
     width: 250,
     render: (role: string) => role,
   },
@@ -123,22 +123,22 @@ export const getColumns = ({
         title="Created"
         sortable
         ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'createdAt'
+          sortConfig?.direction === "asc" && sortConfig?.key === "createdAt"
         }
       />
     ),
-    onHeaderCell: () => onHeaderCellClick('createdAt'),
-    dataIndex: 'createdAt',
-    key: 'createdAt',
+    onHeaderCell: () => onHeaderCellClick("createdAt"),
+    dataIndex: "createdAt",
+    key: "createdAt",
     width: 200,
     render: (value: Date) => <DateCell date={value} />,
   },
   {
     title: <HeaderCell title="Permissions" />,
-    dataIndex: 'permissions',
-    key: 'permissions',
+    dataIndex: "permissions",
+    key: "permissions",
     width: 200,
-    render: (permissions: User['permissions'][]) => (
+    render: (permissions: User["permissions"][]) => (
       <div className="flex items-center gap-2">
         {permissions.map((permission) => (
           <Badge
@@ -155,19 +155,19 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Status" />,
-    dataIndex: 'status',
-    key: 'status',
+    dataIndex: "status",
+    key: "status",
     width: 120,
-    render: (status: User['status']) => getStatusBadge(status),
+    render: (status: User["status"]) => getStatusBadge(status),
   },
   {
     title: <></>,
-    dataIndex: 'action',
-    key: 'action',
+    dataIndex: "action",
+    key: "action",
     width: 140,
     render: (_: string, user: User) => (
       <div className="flex items-center justify-end gap-3 pe-3">
-        <Tooltip size="sm" content={'Edit User'} placement="top" color="invert">
+        <Tooltip size="sm" content={"Edit User"} placement="top" color="invert">
           <ActionIcon
             as="span"
             size="sm"
@@ -177,7 +177,7 @@ export const getColumns = ({
             <PencilIcon className="h-4 w-4" />
           </ActionIcon>
         </Tooltip>
-        <Tooltip size="sm" content={'View User'} placement="top" color="invert">
+        <Tooltip size="sm" content={"View User"} placement="top" color="invert">
           <ActionIcon
             as="span"
             size="sm"

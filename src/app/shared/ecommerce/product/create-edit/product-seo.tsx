@@ -1,7 +1,7 @@
-import { useFormContext } from 'react-hook-form';
-import { Input } from 'rizzui';
-import cn from '@core/utils/class-names';
-import FormGroup from '@/app/shared/form-group';
+import { useFormContext } from "react-hook-form";
+import { Input } from "rizzui";
+import cn from "@/src/utils/class-names";
+import FormGroup from "@/app/shared/form-group";
 
 export default function ProductSeo({ className }: { className?: string }) {
   const {
@@ -18,26 +18,26 @@ export default function ProductSeo({ className }: { className?: string }) {
       <Input
         label="Page Title"
         placeholder="page title"
-        {...register('pageTitle')}
+        {...register("pageTitle")}
         error={errors.pageTitle?.message as string}
       />
       <Input
         label="Meta Keywords"
         placeholder="meta keywords"
-        {...register('metaKeywords')}
+        {...register("metaKeywords")}
         error={errors.metaKeywords?.message as string}
       />
       <Input
         label="Meta Description"
         placeholder="meta description"
-        {...register('metaDescription')}
+        {...register("metaDescription")}
         error={errors.metaDescription?.message as string}
       />
       <Input
         label="Product URL"
         type="url"
         placeholder="https://"
-        {...register('productUrl')}
+        {...register("productUrl")}
         error={errors.productUrl?.message as string}
       />
     </FormGroup>

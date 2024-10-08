@@ -1,37 +1,37 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { DatePicker } from '@core/ui/datepicker';
-import WidgetCard from '@core/components/cards/widget-card';
+import { useState } from "react";
+import { DatePicker } from "@/src/ui/datepicker";
+import WidgetCard from "@/src/components/cards/widget-card";
 import {
   RadialBarChart,
   RadialBar,
   Legend,
   ResponsiveContainer,
-} from 'recharts';
-import cn from '@core/utils/class-names';
-import { useMedia } from '@core/hooks/use-media';
+} from "recharts";
+import cn from "@/src/utils/class-names";
+import { useMedia } from "@/src/hooks/use-media";
 
 const data = [
   {
-    name: 'Youtube',
+    name: "Youtube",
     sales: 31.47,
-    fill: '#FF0000',
+    fill: "#FF0000",
   },
   {
-    name: 'Instagram',
+    name: "Instagram",
     sales: 26.69,
-    fill: '#E1306C',
+    fill: "#E1306C",
   },
   {
-    name: 'Twitter',
+    name: "Twitter",
     sales: 15.69,
-    fill: '#1DA1F2',
+    fill: "#1DA1F2",
   },
   {
-    name: 'Facebook',
+    name: "Facebook",
     sales: 8.22,
-    fill: '#4267B2',
+    fill: "#4267B2",
   },
 ];
 
@@ -40,11 +40,11 @@ export default function PromotionalSales({
 }: {
   className?: string;
 }) {
-  const isMobile = useMedia('(max-width: 480px)', false);
+  const isMobile = useMedia("(max-width: 480px)", false);
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   return (
     <WidgetCard
-      title={'Promotional Sales'}
+      title={"Promotional Sales"}
       action={
         <DatePicker
           selected={startDate}
@@ -54,13 +54,13 @@ export default function PromotionalSales({
           showMonthYearPicker
           popperPlacement="bottom-end"
           inputProps={{
-            variant: 'text',
-            inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+            variant: "text",
+            inputClassName: "p-0 px-1 h-auto [&_input]:text-ellipsis",
           }}
           className="w-36"
         />
       }
-      className={cn('@container', className)}
+      className={cn("@container", className)}
     >
       <div className="h-96 w-full pb-4 pt-4 @sm:h-96 @xl:pb-0">
         <ResponsiveContainer
@@ -76,7 +76,7 @@ export default function PromotionalSales({
             className="rtl:[&_.recharts-legend-item>svg]:ml-1"
           >
             <RadialBar
-              label={{ fill: '#ffffff', position: 'insideStart' }}
+              label={{ fill: "#ffffff", position: "insideStart" }}
               background
               dataKey="sales"
               className="[&_.recharts-radial-bar-background-sector]:fill-gray-100"

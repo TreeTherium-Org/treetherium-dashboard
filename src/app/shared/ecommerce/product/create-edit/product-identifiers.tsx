@@ -1,8 +1,8 @@
-import { useFormContext } from 'react-hook-form';
-import { Input } from 'rizzui';
-import cn from '@core/utils/class-names';
-import FormGroup from '@/app/shared/form-group';
-import CustomFields from '@/app/shared/ecommerce/product/create-edit/custom-fields';
+import { useFormContext } from "react-hook-form";
+import { Input } from "rizzui";
+import cn from "@/src/utils/class-names";
+import FormGroup from "@/app/shared/form-group";
+import CustomFields from "@/app/shared/ecommerce/product/create-edit/custom-fields";
 
 interface ProductIdentifiersProps {
   className?: string;
@@ -25,25 +25,25 @@ export default function ProductIdentifiers({
       <Input
         label="Global Trade Item Number"
         placeholder="12345"
-        {...register('tradeNumber')}
+        {...register("tradeNumber")}
         error={errors.tradeNumber?.message as string}
       />
       <Input
         label="Manufacturer Part Number"
         placeholder="145782"
-        {...register('manufacturerNumber')}
+        {...register("manufacturerNumber")}
         error={errors.manufacturerNumber?.message as string}
       />
       <Input
         label="Brand Name"
         placeholder="brand name"
-        {...register('brand')}
+        {...register("brand")}
         error={errors.brand?.message as string}
       />
       <Input
         label="Product UPC/EAN "
         placeholder="145782"
-        {...register('upcEan')}
+        {...register("upcEan")}
         error={errors.upcEan?.message as string}
       />
       <CustomFields />

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Title, ActionIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { PiXBold } from 'react-icons/pi';
+import { Title, ActionIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { PiXBold } from "react-icons/pi";
 
 type DrawerHeaderProps = {
   heading: string;
@@ -18,7 +18,7 @@ export default function DrawerHeader({
   return (
     <div
       className={cn(
-        'mb-4 flex items-center justify-between border-b border-muted px-4 py-[14px]',
+        "mb-4 flex items-center justify-between border-b border-muted px-4 py-[14px]",
         headerClassName
       )}
     >

@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import { ActionIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { PiTextIndent } from 'react-icons/pi';
+import { ActionIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { PiTextIndent } from "react-icons/pi";
 import {
   useBerylliumSidebars,
   getActiveMainMenuIndex,
-} from '@/layouts/beryllium/beryllium-utils';
+} from "@/layouts/beryllium/beryllium-utils";
 import {
   berylliumMenuItems,
   MenuItemsType,
   berylliumMenuItemAtom,
-} from '@/layouts/beryllium/beryllium-fixed-menu-items';
-import { useAtom, useSetAtom } from 'jotai';
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import SimpleBar from '@core/ui/simplebar';
-import { useWindowSize } from '@core/hooks/use-window-size';
+} from "@/layouts/beryllium/beryllium-fixed-menu-items";
+import { useAtom, useSetAtom } from "jotai";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import SimpleBar from "@/src/ui/simplebar";
+import { useWindowSize } from "@/src/hooks/use-window-size";
 
 function MenuItem({ menu }: { menu: MenuItemsType }) {
   const { expandedLeft, setExpandedLeft } = useBerylliumSidebars();
@@ -39,8 +39,8 @@ function MenuItem({ menu }: { menu: MenuItemsType }) {
     >
       <span
         className={cn(
-          'rounded-3xl bg-gray-0/0 px-4 py-2 text-white transition-colors duration-200 group-hover:bg-gray-0 group-hover:text-gray-900 dark:group-hover:bg-gray-100',
-          isActive && 'bg-gray-0 text-gray-900 dark:bg-gray-100'
+          "rounded-3xl bg-gray-0/0 px-4 py-2 text-white transition-colors duration-200 group-hover:bg-gray-0 group-hover:text-gray-900 dark:group-hover:bg-gray-100",
+          isActive && "bg-gray-0 text-gray-900 dark:bg-gray-100"
         )}
       >
         <Icon className="h-auto w-6" />

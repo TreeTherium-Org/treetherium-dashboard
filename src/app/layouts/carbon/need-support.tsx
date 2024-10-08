@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Title, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { PiXBold } from 'react-icons/pi';
-import useSessionStorage from 'react-use/lib/useSessionStorage';
+import { Title, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { PiXBold } from "react-icons/pi";
+import useSessionStorage from "react-use/lib/useSessionStorage";
 
 interface SupportProps {
   className?: string;
@@ -20,7 +20,7 @@ export default function NeedSupport({
   suffixIcon,
   prefixIcon,
 }: SupportProps) {
-  const [value, setValue] = useSessionStorage('need-support', true);
+  const [value, setValue] = useSessionStorage("need-support", true);
 
   if (!value) {
     return null;
@@ -29,7 +29,7 @@ export default function NeedSupport({
   return (
     <div
       className={cn(
-        'flex flex-col gap-2 rounded-lg bg-gray-100 px-4 py-3.5',
+        "flex flex-col gap-2 rounded-lg bg-gray-100 px-4 py-3.5",
         className
       )}
     >

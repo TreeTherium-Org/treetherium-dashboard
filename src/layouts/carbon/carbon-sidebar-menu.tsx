@@ -1,16 +1,16 @@
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React, { ElementType, Fragment, useState } from 'react';
-import { carbonMenuItems } from '@/layouts/carbon/carbon-menu-items';
-import { Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { PiCaretDownBold } from 'react-icons/pi';
-import Menu from '@core/ui/carbon-menu/dropdown/menu';
-import StatusBadge from '@core/components/get-status-badge';
-import { SortableList } from '@core/components/dnd-sortable/dnd-sortable-list';
-import { useColorPresetName } from '@/layouts/settings/use-theme-color';
-import { DragEndEvent } from '@dnd-kit/core';
-import { arrayMove } from '@dnd-kit/sortable';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React, { ElementType, Fragment, useState } from "react";
+import { carbonMenuItems } from "@/layouts/carbon/carbon-menu-items";
+import { Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { PiCaretDownBold } from "react-icons/pi";
+import Menu from "@/src/ui/carbon-menu/dropdown/menu";
+import StatusBadge from "@/src/components/get-status-badge";
+import { SortableList } from "@/src/components/dnd-sortable/dnd-sortable-list";
+import { useColorPresetName } from "@/layouts/settings/use-theme-color";
+import { DragEndEvent } from "@dnd-kit/core";
+import { arrayMove } from "@dnd-kit/sortable";
 
 export function CarbonSidebarMenu() {
   const pathname = usePathname();
@@ -47,7 +47,7 @@ export function CarbonSidebarMenu() {
             );
             const isDropdownOpen = Boolean(pathnameExistInDropdowns);
             return (
-              <Fragment key={'sortable-menu' + item.name + '-' + index}>
+              <Fragment key={"sortable-menu" + item.name + "-" + index}>
                 <SortableList.Item id={item.id}>
                   <Menu
                     trigger="hover"
@@ -58,26 +58,26 @@ export function CarbonSidebarMenu() {
                     <Menu.Trigger>
                       <div
                         className={cn(
-                          'group relative mx-3.5 flex grow cursor-pointer items-center justify-between overflow-hidden rounded-md px-3 py-2.5 font-medium transition-all hover:ps-7 lg:my-1 2xl:my-2 2xl:me-5',
+                          "group relative mx-3.5 flex grow cursor-pointer items-center justify-between overflow-hidden rounded-md px-3 py-2.5 font-medium transition-all hover:ps-7 lg:my-1 2xl:my-2 2xl:me-5",
                           isDropdownOpen
-                            ? 'bg-primary text-gray-0'
-                            : 'text-gray-700 transition-all duration-200 hover:bg-gray-100 dark:text-gray-700/90 dark:hover:text-gray-700'
+                            ? "bg-primary text-gray-0"
+                            : "text-gray-700 transition-all duration-200 hover:bg-gray-100 dark:text-gray-700/90 dark:hover:text-gray-700"
                         )}
                       >
                         <span className="flex items-center">
                           <SortableList.DragHandle
                             className={cn(
-                              'inset-t-0 absolute me-1 h-5 w-5 -translate-x-7 text-gray-900 transition-all group-hover:-translate-x-6 [&>svg]:h-[20px] [&>svg]:w-[20px]',
-                              isDropdownOpen ? 'text-gray-0' : 'text-gray-900'
+                              "inset-t-0 absolute me-1 h-5 w-5 -translate-x-7 text-gray-900 transition-all group-hover:-translate-x-6 [&>svg]:h-[20px] [&>svg]:w-[20px]",
+                              isDropdownOpen ? "text-gray-0" : "text-gray-900"
                             )}
                           />
                           {Icon && (
                             <span
                               className={cn(
-                                'me-2 inline-flex h-6 w-6 items-center justify-center rounded-md transition-all [&>svg]:h-[24px] [&>svg]:w-[24px]',
+                                "me-2 inline-flex h-6 w-6 items-center justify-center rounded-md transition-all [&>svg]:h-[24px] [&>svg]:w-[24px]",
                                 isDropdownOpen
-                                  ? 'text-gray-0'
-                                  : 'text-gray-400 dark:text-gray-500 dark:group-hover:text-gray-700'
+                                  ? "text-gray-0"
+                                  : "text-gray-400 dark:text-gray-500 dark:group-hover:text-gray-700"
                               )}
                             >
                               <Icon />
@@ -90,8 +90,8 @@ export function CarbonSidebarMenu() {
                           <PiCaretDownBold
                             strokeWidth={3}
                             className={cn(
-                              'h-3.5 w-3.5 -rotate-90 transition-transform duration-200 rtl:rotate-90',
-                              isDropdownOpen ? 'text-gray-0' : 'text-gray-900'
+                              "h-3.5 w-3.5 -rotate-90 transition-transform duration-200 rtl:rotate-90",
+                              isDropdownOpen ? "text-gray-0" : "text-gray-900"
                             )}
                           />
                         </div>
@@ -112,11 +112,11 @@ export function CarbonSidebarMenu() {
 
                         return (
                           <Menu.Item
-                            key={'dropdown' + dropdownItem?.name + index}
+                            key={"dropdown" + dropdownItem?.name + index}
                             className={cn(
-                              'px-0 py-0 transition-all data-[hover=true]:dark:bg-gray-200',
+                              "px-0 py-0 transition-all data-[hover=true]:dark:bg-gray-200",
                               isChildDropdownActive &&
-                                'bg-gray-100 dark:bg-gray-200'
+                                "bg-gray-100 dark:bg-gray-200"
                             )}
                           >
                             {dropdownItem?.subMenuItems?.length ? (
@@ -130,20 +130,20 @@ export function CarbonSidebarMenu() {
                                   <Menu.Trigger>
                                     <li
                                       className={cn(
-                                        'group relative flex cursor-pointer items-center justify-between rounded-md px-3.5 py-2 font-medium',
+                                        "group relative flex cursor-pointer items-center justify-between rounded-md px-3.5 py-2 font-medium",
                                         isChildDropdownActive
-                                          ? 'before:top-2/5 rounded-md bg-gray-100 text-primary before:absolute before:start-0 before:block before:h-4/5 before:w-1 before:rounded-ee-md before:rounded-se-md before:bg-primary dark:bg-gray-200 2xl:before:start-0'
-                                          : 'text-gray-700 transition-all duration-200 hover:bg-gray-100 dark:text-gray-700/90 hover:dark:bg-gray-200 dark:hover:text-gray-700'
+                                          ? "before:top-2/5 rounded-md bg-gray-100 text-primary before:absolute before:start-0 before:block before:h-4/5 before:w-1 before:rounded-ee-md before:rounded-se-md before:bg-primary dark:bg-gray-200 2xl:before:start-0"
+                                          : "text-gray-700 transition-all duration-200 hover:bg-gray-100 dark:text-gray-700/90 hover:dark:bg-gray-200 dark:hover:text-gray-700"
                                       )}
                                     >
                                       <span className="flex items-center">
                                         {DropdownIcon && (
                                           <span
                                             className={cn(
-                                              'me-2 inline-flex h-5 w-5 items-center justify-center rounded-md [&>svg]:h-[20px] [&>svg]:w-[20px]',
+                                              "me-2 inline-flex h-5 w-5 items-center justify-center rounded-md [&>svg]:h-[20px] [&>svg]:w-[20px]",
                                               isChildDropdownActive
-                                                ? 'text-primary'
-                                                : 'text-gray-400 dark:text-gray-500 dark:group-hover:text-gray-700'
+                                                ? "text-primary"
+                                                : "text-gray-400 dark:text-gray-500 dark:group-hover:text-gray-700"
                                             )}
                                           >
                                             <DropdownIcon />
@@ -155,10 +155,10 @@ export function CarbonSidebarMenu() {
                                       <PiCaretDownBold
                                         strokeWidth={3}
                                         className={cn(
-                                          'h-3.5 w-3.5 -rotate-90 transition-transform duration-200 rtl:rotate-90',
+                                          "h-3.5 w-3.5 -rotate-90 transition-transform duration-200 rtl:rotate-90",
                                           isChildDropdownActive
-                                            ? 'text-primary'
-                                            : 'text-gray-900'
+                                            ? "text-primary"
+                                            : "text-gray-900"
                                         )}
                                       />
                                     </li>
@@ -173,7 +173,7 @@ export function CarbonSidebarMenu() {
                                         return (
                                           <Menu.Item
                                             key={
-                                              'sub-menu' +
+                                              "sub-menu" +
                                               subMenuItem?.name +
                                               index
                                             }
@@ -182,10 +182,10 @@ export function CarbonSidebarMenu() {
                                             <Link
                                               href={subMenuItem?.href}
                                               className={cn(
-                                                'relative flex w-full items-center justify-between rounded-md px-3.5 py-2 font-medium capitalize text-gray-900',
+                                                "relative flex w-full items-center justify-between rounded-md px-3.5 py-2 font-medium capitalize text-gray-900",
                                                 isChildActive
-                                                  ? 'text-primary'
-                                                  : 'text-gray-900 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-200'
+                                                  ? "text-primary"
+                                                  : "text-gray-900 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-200"
                                               )}
                                             >
                                               <span className="flex items-center truncate">
@@ -243,20 +243,20 @@ function MenuLink({ item, isChildActive }: MenuItemsProps) {
     <Link
       href={item?.href}
       className={cn(
-        'relative flex w-full items-center justify-between rounded-md px-3.5 py-2 font-medium capitalize text-gray-900',
+        "relative flex w-full items-center justify-between rounded-md px-3.5 py-2 font-medium capitalize text-gray-900",
         isChildActive
-          ? 'before:top-2/5 bg-gray-100 text-primary before:absolute before:-start-2.5 before:block before:h-4/5 before:w-1 before:rounded-ee-md before:rounded-se-md before:bg-primary dark:bg-gray-200 2xl:before:-start-2.5'
-          : 'text-gray-900 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-700/90 dark:hover:bg-gray-200'
+          ? "before:top-2/5 bg-gray-100 text-primary before:absolute before:-start-2.5 before:block before:h-4/5 before:w-1 before:rounded-ee-md before:rounded-se-md before:bg-primary dark:bg-gray-200 2xl:before:-start-2.5"
+          : "text-gray-900 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-700/90 dark:hover:bg-gray-200"
       )}
     >
       <div className="flex items-center truncate">
         {Icon && (
           <span
             className={cn(
-              'me-3 inline-flex h-5 w-5 items-center justify-center rounded-md [&>svg]:h-[20px] [&>svg]:w-[20px]',
+              "me-3 inline-flex h-5 w-5 items-center justify-center rounded-md [&>svg]:h-[20px] [&>svg]:w-[20px]",
               isChildActive
-                ? 'text-primary'
-                : 'text-gray-400 dark:text-gray-500 dark:group-hover:text-gray-700'
+                ? "text-primary"
+                : "text-gray-400 dark:text-gray-500 dark:group-hover:text-gray-700"
             )}
           >
             <Icon />

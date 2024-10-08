@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
-import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import { Input, Button, ActionIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
-import FormGroup from '@/app/shared/form-group';
-import { useCallback } from 'react';
+import dynamic from "next/dynamic";
+import { Controller, useFieldArray, useFormContext } from "react-hook-form";
+import { Input, Button, ActionIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
+import FormGroup from "@/app/shared/form-group";
+import { useCallback } from "react";
 import {
   variantOption,
   productVariants,
-} from '@/app/shared/ecommerce/product/create-edit/form-utils';
-import TrashIcon from '@core/components/icons/trash';
-import SelectLoader from '@core/components/loader/select-loader';
-import { PiPlusBold } from 'react-icons/pi';
-const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
+} from "@/app/shared/ecommerce/product/create-edit/form-utils";
+import TrashIcon from "@/src/components/icons/trash";
+import SelectLoader from "@/src/components/loader/select-loader";
+import { PiPlusBold } from "react-icons/pi";
+const Select = dynamic(() => import("rizzui").then((mod) => mod.Select), {
   ssr: false,
   loading: () => <SelectLoader />,
 });
@@ -27,12 +27,12 @@ export default function ProductVariants({ className }: { className?: string }) {
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'productVariants',
+    name: "productVariants",
   });
 
   const addVariant = useCallback(() => append([...productVariants]), [append]);
 
-  console.log('fields', fields);
+  console.log("fields", fields);
 
   return (
     <FormGroup
@@ -62,7 +62,7 @@ export default function ProductVariants({ className }: { className?: string }) {
             label="Variant Value"
             placeholder="150.00"
             className="flex-grow"
-            prefix={'$'}
+            prefix={"$"}
             {...register(`productVariants.${index}.value`)}
           />
           {fields.length > 1 && (

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Collapse, Title, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { PiCaretDownBold, PiTagLight } from 'react-icons/pi';
+import { Collapse, Title, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { PiCaretDownBold, PiTagLight } from "react-icons/pi";
 
 export default function ProductDetailsDescription() {
   return (
@@ -19,8 +19,8 @@ export default function ProductDetailsDescription() {
           <div className="flex shrink-0 items-center justify-center">
             <PiCaretDownBold
               className={cn(
-                'h-[18px] w-[18px] transform transition-transform duration-300',
-                open && 'rotate-180'
+                "h-[18px] w-[18px] transform transition-transform duration-300",
+                open && "rotate-180"
               )}
             />
           </div>

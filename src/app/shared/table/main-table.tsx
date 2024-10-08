@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { isEmpty } from 'lodash';
-import { Fragment } from 'react';
-import cn from '@core/utils/class-names';
-import { Empty, Loader, Text, Title } from 'rizzui';
+import { isEmpty } from "lodash";
+import { Fragment } from "react";
+import cn from "@/src/utils/class-names";
+import { Empty, Loader, Text, Title } from "rizzui";
 import {
   Table,
   TableBody,
@@ -11,17 +11,17 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from './table';
-import { getColumnOptions } from './util';
-import { flexRender } from '@tanstack/react-table';
-import { useScrollPosition } from '@core/hooks/use-Scroll-position';
-import { PiCaretDownFill, PiCaretUpFill } from 'react-icons/pi';
+} from "./table";
+import { getColumnOptions } from "./util";
+import { flexRender } from "@tanstack/react-table";
+import { useScrollPosition } from "@/src/hooks/use-Scroll-position";
+import { PiCaretDownFill, PiCaretUpFill } from "react-icons/pi";
 import {
   CustomBodyCellProps,
   CustomHeaderCellProps,
   MainTableProps,
   PinnedRowProps,
-} from './main-table-types';
+} from "./main-table-types";
 
 export default function MainTable<TData extends Record<string, any>>({
   table,
@@ -76,7 +76,7 @@ export default function MainTable<TData extends Record<string, any>>({
       <div
         ref={containerRef}
         className={cn(
-          'custom-scrollbar w-full max-w-full overflow-x-auto',
+          "custom-scrollbar w-full max-w-full overflow-x-auto",
           classNames?.container
         )}
       >
@@ -216,18 +216,18 @@ export function TableHeadBasic<TData extends Record<string, any>>({
             key={header.id}
             colSpan={header.colSpan}
             style={{
-              left: isLeftPinned ? header.column.getStart('left') : undefined,
+              left: isLeftPinned ? header.column.getStart("left") : undefined,
               right: isRightPinned
-                ? header.column.getAfter('right')
+                ? header.column.getAfter("right")
                 : undefined,
               width: header.getSize(),
             }}
             className={cn(
-              'group',
-              isPinned && canPin && 'sticky z-10',
-              !isPinned && canResize && 'relative',
-              isPinned && isLeftScrollable && 'sticky-right',
-              isPinned && isRightScrollable && 'sticky-left'
+              "group",
+              isPinned && canPin && "sticky z-10",
+              !isPinned && canResize && "relative",
+              isPinned && isLeftScrollable && "sticky-right",
+              isPinned && isRightScrollable && "sticky-left"
             )}
           >
             {header.isPlaceholder
@@ -245,7 +245,7 @@ export function TableHeadBasic<TData extends Record<string, any>>({
                   asc: <PiCaretUpFill size={14} />,
                   desc: <PiCaretDownFill size={14} />,
                 }[header.column.getIsSorted() as string] ??
-                  (header.column.columnDef.header !== '' && (
+                  (header.column.columnDef.header !== "" && (
                     <PiCaretDownFill size={14} />
                   ))}
               </button>
@@ -282,15 +282,15 @@ export function TableCellBasic<TData extends Record<string, any>>({
   return (
     <TableCell
       style={{
-        left: isLeftPinned ? cell!.column.getStart('left') : undefined,
-        right: isRightPinned ? cell.column.getAfter('right') : undefined,
+        left: isLeftPinned ? cell!.column.getStart("left") : undefined,
+        right: isRightPinned ? cell.column.getAfter("right") : undefined,
         width: cell.column.getSize(),
       }}
       className={cn(
-        isPinned && canPin && 'sticky z-10',
-        !isPinned && canResize && 'relative',
-        isPinned && isLeftScrollable && 'sticky-right',
-        isPinned && isRightScrollable && 'sticky-left'
+        isPinned && canPin && "sticky z-10",
+        !isPinned && canResize && "relative",
+        isPinned && isLeftScrollable && "sticky-right",
+        isPinned && isRightScrollable && "sticky-left"
       )}
     >
       {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -305,14 +305,14 @@ export function PinnedRow<TData extends Record<string, any>>({
   isLeftScrollable,
   isRightScrollable,
 }: PinnedRowProps<TData>) {
-  const isTopPinned = row.getIsPinned() === 'top';
-  const isBottomPinned = row.getIsPinned() === 'bottom';
+  const isTopPinned = row.getIsPinned() === "top";
+  const isBottomPinned = row.getIsPinned() === "bottom";
   return (
     <TableRow
       className={cn(
-        'sticky z-20 bg-white dark:bg-gray-50',
-        isTopPinned && '-top-px shadow-[0px_2px_2px_0px_#0000000D]',
-        isBottomPinned && '-bottom-0.5 shadow-[rgba(0,0,0,0.24)_0px_3px_8px]'
+        "sticky z-20 bg-white dark:bg-gray-50",
+        isTopPinned && "-top-px shadow-[0px_2px_2px_0px_#0000000D]",
+        isBottomPinned && "-bottom-0.5 shadow-[rgba(0,0,0,0.24)_0px_3px_8px]"
       )}
     >
       {row.getVisibleCells().map((cell) => {

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { DatePicker, DatePickerProps } from '@core/ui/datepicker';
+import { DatePicker, DatePickerProps } from "@/src/ui/datepicker";
 
 export default function DateFiled({
   onClear,
-  placeholderText = 'Select date',
+  placeholderText = "Select date",
   inputProps,
   ...props
 }: DatePickerProps & { onClear?: () => void }) {
@@ -14,7 +14,7 @@ export default function DateFiled({
         monthsShown={1}
         placeholderText={placeholderText}
         inputProps={{
-          inputClassName: 'h-9 [&_input]:text-ellipsis',
+          inputClassName: "h-9 [&_input]:text-ellipsis",
           ...inputProps,
         }}
         className="w-72"

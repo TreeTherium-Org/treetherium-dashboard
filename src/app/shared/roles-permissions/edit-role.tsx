@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { PiCheckBold, PiXBold } from 'react-icons/pi';
-import { Controller, SubmitHandler } from 'react-hook-form';
-import { permissions, roles } from '@/app/shared/roles-permissions/utils';
-import { useModal } from '@/app/shared/modal-views/use-modal';
+import { useState } from "react";
+import { PiCheckBold, PiXBold } from "react-icons/pi";
+import { Controller, SubmitHandler } from "react-hook-form";
+import { permissions, roles } from "@/app/shared/roles-permissions/utils";
+import { useModal } from "@/app/shared/modal-views/use-modal";
 import {
   ActionIcon,
   AdvancedCheckbox,
   Title,
   Button,
   CheckboxGroup,
-} from 'rizzui';
-import { PERMISSIONS } from '@/data/users-data';
-import { Form } from '@core/ui/form';
+} from "rizzui";
+import { PERMISSIONS } from "@/data/users-data";
+import { Form } from "@/src/ui/form";
 import {
   RolePermissionInput,
   rolePermissionSchema,
-} from '@/validators/edit-role.schema';
+} from "@/validators/edit-role.schema";
 
 export default function EditRole() {
   const { closeModal } = useModal();
@@ -27,7 +27,7 @@ export default function EditRole() {
     // set timeout ony required to display loading state of the create category button
     setLoading(true);
     setTimeout(() => {
-      console.log('data', data);
+      console.log("data", data);
       setLoading(false);
       closeModal();
     }, 600);

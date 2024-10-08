@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { RefObject, useState } from 'react';
-import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import { Title, Text, Popover, Avatar, Badge } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { routes } from '@/config/routes';
-import { useMedia } from '@core/hooks/use-media';
-import SimpleBar from '@core/ui/simplebar';
-import { PiCheck } from 'react-icons/pi';
-import { messagesData } from '@/data/messages';
+import Link from "next/link";
+import { RefObject, useState } from "react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import { Title, Text, Popover, Avatar, Badge } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { routes } from "@/config/routes";
+import { useMedia } from "@/src/hooks/use-media";
+import SimpleBar from "@/src/ui/simplebar";
+import { PiCheck } from "react-icons/pi";
+import { messagesData } from "@/data/messages";
 
 dayjs.extend(relativeTime);
 
@@ -40,13 +40,13 @@ function MessagesList({
               key={item.name + item.id}
               className="group grid cursor-pointer grid-cols-[auto_minmax(0,1fr)] gap-2.5 rounded-md px-2 py-2.5 pe-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-50"
             >
-              <div className={cn('relative', item.avatar.length > 1 && 'me-1')}>
+              <div className={cn("relative", item.avatar.length > 1 && "me-1")}>
                 <Avatar
                   src={item.avatar[0]}
                   name={item.name}
                   className={cn(
                     item.avatar.length > 1 &&
-                      'relative -end-1 -top-0.5 !h-9 !w-9'
+                      "relative -end-1 -top-0.5 !h-9 !w-9"
                   )}
                 />
                 {item.avatar.length > 1 && (
@@ -99,14 +99,14 @@ export default function MessagesDropdown({
 }: {
   children: JSX.Element & { ref?: RefObject<any> };
 }) {
-  const isMobile = useMedia('(max-width: 480px)', false);
+  const isMobile = useMedia("(max-width: 480px)", false);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Popover
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       shadow="sm"
-      placement={isMobile ? 'bottom' : 'bottom-end'}
+      placement={isMobile ? "bottom" : "bottom-end"}
     >
       <Popover.Trigger>{children}</Popover.Trigger>
       <Popover.Content className="z-[9999] pb-6 pe-6 ps-0 pt-5 dark:bg-gray-100 [&>svg]:hidden [&>svg]:dark:fill-gray-100 sm:[&>svg]:inline-flex">

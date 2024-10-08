@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import cn from '@core/utils/class-names';
-import Link from 'next/link';
-import Logo from '@core/components/logo';
-import ProfileCardMenu from '@/layouts/carbon/profile-card-menu';
-import { PiDotsThreeVerticalBold, PiHeadsetBold } from 'react-icons/pi';
-import dynamic from 'next/dynamic';
-import SimpleBar from 'simplebar-react';
-import WorkSpaceSwitcher from '@/layouts/carbon/work-space-switcher';
-import { CarbonSidebarMenu } from './carbon-sidebar-menu';
+import cn from "@/src/utils/class-names";
+import Link from "next/link";
+import Logo from "@/src/components/logo";
+import ProfileCardMenu from "@/layouts/carbon/profile-card-menu";
+import { PiDotsThreeVerticalBold, PiHeadsetBold } from "react-icons/pi";
+import dynamic from "next/dynamic";
+import SimpleBar from "simplebar-react";
+import WorkSpaceSwitcher from "@/layouts/carbon/work-space-switcher";
+import { CarbonSidebarMenu } from "./carbon-sidebar-menu";
 
-const NeedSupport = dynamic(() => import('@/layouts/carbon/need-support'), {
+const NeedSupport = dynamic(() => import("@/layouts/carbon/need-support"), {
   ssr: false,
 });
 
@@ -18,13 +18,13 @@ export function CarbonSidebar({ className }: { className?: string }) {
   return (
     <aside
       className={cn(
-        'fixed bottom-0 start-0 z-50 h-full w-[270px] border-e-2 border-gray-100 bg-white dark:bg-gray-100/50 2xl:w-72',
+        "fixed bottom-0 start-0 z-50 h-full w-[270px] border-e-2 border-gray-100 bg-white dark:bg-gray-100/50 2xl:w-72",
         className
       )}
     >
       <div className="sticky top-0 z-40 bg-gray-0/10 px-6 pb-5 pt-5 dark:bg-gray-100/5 2xl:px-8 2xl:pt-6">
         <Link
-          href={'/'}
+          href={"/"}
           aria-label="Site Logo"
           className="text-gray-800 hover:text-gray-900"
         >
@@ -39,7 +39,7 @@ export function CarbonSidebar({ className }: { className?: string }) {
 
       <SimpleBar
         className={cn(
-          'h-[calc(100%-265px)] [&_.simplebar-content]:flex [&_.simplebar-content]:h-full [&_.simplebar-content]:flex-col [&_.simplebar-content]:justify-between'
+          "h-[calc(100%-265px)] [&_.simplebar-content]:flex [&_.simplebar-content]:h-full [&_.simplebar-content]:flex-col [&_.simplebar-content]:justify-between"
         )}
       >
         <CarbonSidebarMenu />
@@ -64,11 +64,11 @@ export function CarbonSidebar({ className }: { className?: string }) {
           icon={
             <PiDotsThreeVerticalBold
               className={cn(
-                'h-7 w-7 text-gray-400 transition-all group-hover:text-primary'
+                "h-7 w-7 text-gray-400 transition-all group-hover:text-primary"
               )}
             />
           }
-          className={cn('mt-5 px-0 py-0')}
+          className={cn("mt-5 px-0 py-0")}
           buttonClassName="border-0 !border-t !border-gray-200 pt-5 px-0 rounded-none"
         />
       </div>

@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useMemo, useState } from 'react';
-import { getColumns } from '@/app/shared/account-settings/logged-in-devices/columns';
-import { useTable } from '@core/hooks/use-table';
-import { useColumn } from '@core/hooks/use-column';
-import { Button } from 'rizzui';
-import TableFooter from '@/app/shared/table-footer';
-import ControlledTable from '@/app/shared/controlled-table/index';
-import { exportToCSV } from '@core/utils/export-to-csv';
+import { useMemo, useState } from "react";
+import { getColumns } from "@/app/shared/account-settings/logged-in-devices/columns";
+import { useTable } from "@/src/hooks/use-table";
+import { useColumn } from "@/src/hooks/use-column";
+import { Button } from "rizzui";
+import TableFooter from "@/app/shared/table-footer";
+import ControlledTable from "@/app/shared/controlled-table/index";
+import { exportToCSV } from "@/src/utils/export-to-csv";
 
 export default function LoggedInDevices({
   className,
@@ -67,7 +67,7 @@ export default function LoggedInDevices({
   function handleExportData() {
     exportToCSV(
       selectedData,
-      'ID,User,Email,Status,Teams',
+      "ID,User,Email,Status,Teams",
       `logged_in_devices_${selectedData.length}`
     );
   }
@@ -102,8 +102,8 @@ export default function LoggedInDevices({
               onClick={() => handleExportData()}
               className="dark:bg-gray-300 dark:text-gray-800"
             >
-              Download {selectedRowKeys.length}{' '}
-              {selectedRowKeys.length > 1 ? 'Files' : 'File'}
+              Download {selectedRowKeys.length}{" "}
+              {selectedRowKeys.length > 1 ? "Files" : "File"}
             </Button>
           </TableFooter>
         }

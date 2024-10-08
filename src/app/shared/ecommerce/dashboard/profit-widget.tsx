@@ -1,57 +1,57 @@
-'use client';
+"use client";
 
-import { Button, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import WidgetCard from '@core/components/cards/widget-card';
-import ButtonGroupAction from '@core/components/charts/button-group-action';
+import { Button, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import WidgetCard from "@/src/components/cards/widget-card";
+import ButtonGroupAction from "@/src/components/charts/button-group-action";
 import {
   AreaChart,
   Area,
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
-} from 'recharts';
-import { CustomTooltip } from '@core/components/charts/custom-tooltip';
-import { PiInfoFill } from 'react-icons/pi';
+} from "recharts";
+import { CustomTooltip } from "@/src/components/charts/custom-tooltip";
+import { PiInfoFill } from "react-icons/pi";
 
 const data = [
   {
-    month: 'Jan',
+    month: "Jan",
     totalSales: 95,
   },
   {
-    month: 'Mar',
+    month: "Mar",
     totalSales: 70,
   },
   {
-    month: 'May',
+    month: "May",
     totalSales: 113,
   },
   {
-    month: 'Jul',
+    month: "Jul",
     totalSales: 159,
   },
   {
-    month: 'Sep',
+    month: "Sep",
     totalSales: 105,
   },
   {
-    month: 'Nov',
+    month: "Nov",
     totalSales: 140,
   },
 ];
 
-const filterOptions = ['5 D', '2 W', '1 M', '6 M', '1 Y'];
+const filterOptions = ["5 D", "2 W", "1 M", "6 M", "1 Y"];
 
 export default function ProfitWidget({ className }: { className?: string }) {
   function handleFilterBy(data: string) {
-    console.log('Profit Filter:', data);
+    console.log("Profit Filter:", data);
   }
 
   return (
     <WidgetCard
-      title={'Total Profit'}
-      description={'$8,950.00'}
+      title={"Total Profit"}
+      description={"$8,950.00"}
       titleClassName="text-gray-500 font-normal font-inter !text-sm"
       descriptionClassName="text-lg font-semibold sm:text-xl 3xl:text-2xl text-gray-900 font-lexend mt-1"
       action={
@@ -60,7 +60,7 @@ export default function ProfitWidget({ className }: { className?: string }) {
         </Button>
       }
       headerClassName="mb-6"
-      className={cn('flex flex-col', className)}
+      className={cn("flex flex-col", className)}
     >
       <div className="grid flex-grow grid-cols-1 gap-3">
         <ButtonGroupAction
@@ -103,7 +103,7 @@ export default function ProfitWidget({ className }: { className?: string }) {
             </AreaChart>
           </ResponsiveContainer>
           <Text className="text-gray-500 @sm:mt-2.5">
-            <PiInfoFill className="inline-flex h-auto w-4 text-gray-500/80 dark:text-gray-600" />{' '}
+            <PiInfoFill className="inline-flex h-auto w-4 text-gray-500/80 dark:text-gray-600" />{" "}
             Total profit without tax included.
           </Text>
         </div>

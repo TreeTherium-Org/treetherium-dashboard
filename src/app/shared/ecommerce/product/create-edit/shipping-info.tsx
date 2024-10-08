@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useCallback } from 'react';
-import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import { Input, Switch, Button, ActionIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
-import FormGroup from '@/app/shared/form-group';
-import { locationShipping } from '@/app/shared/ecommerce/product/create-edit/form-utils';
-import TrashIcon from '@core/components/icons/trash';
-import { PiPlusBold } from 'react-icons/pi';
+import { useCallback } from "react";
+import { Controller, useFieldArray, useFormContext } from "react-hook-form";
+import { Input, Switch, Button, ActionIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
+import FormGroup from "@/app/shared/form-group";
+import { locationShipping } from "@/app/shared/ecommerce/product/create-edit/form-utils";
+import TrashIcon from "@/src/components/icons/trash";
+import { PiPlusBold } from "react-icons/pi";
 
 export default function ShippingInfo({ className }: { className?: string }) {
   const {
@@ -18,7 +18,7 @@ export default function ShippingInfo({ className }: { className?: string }) {
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: 'locationShipping',
+    name: "locationShipping",
   });
 
   const addCustomField = useCallback(
@@ -49,9 +49,9 @@ export default function ShippingInfo({ className }: { className?: string }) {
       <Input
         label="Shipping Price"
         placeholder="150.00"
-        {...register('shippingPrice')}
+        {...register("shippingPrice")}
         error={errors.shippingPrice?.message as string}
-        prefix={'$'}
+        prefix={"$"}
         type="number"
       />
       <Controller

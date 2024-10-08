@@ -1,13 +1,13 @@
-import Image from 'next/image';
-import { PiMinus, PiPlus, PiTrash } from 'react-icons/pi';
-import { toCurrency } from '@core/utils/to-currency';
-import { CartItem } from '@/types';
-import Link from 'next/link';
-import { routes } from '@/config/routes';
-import { generateSlug } from '@core/utils/generate-slug';
-import SimpleBar from '@core/ui/simplebar';
-import { Empty, Title } from 'rizzui';
-import cn from '@core/utils/class-names';
+import Image from "next/image";
+import { PiMinus, PiPlus, PiTrash } from "react-icons/pi";
+import { toCurrency } from "@/src/utils/to-currency";
+import { CartItem } from "@/types";
+import Link from "next/link";
+import { routes } from "@/config/routes";
+import { generateSlug } from "@/src/utils/generate-slug";
+import SimpleBar from "@/src/ui/simplebar";
+import { Empty, Title } from "rizzui";
+import cn from "@/src/utils/class-names";
 
 export default function OrderProducts({
   items,
@@ -35,13 +35,13 @@ export default function OrderProducts({
   }
 
   return (
-    <SimpleBar className={cn('h-[calc(100vh_-_170px)] pb-3', className)}>
-      <div className={cn('grid gap-3.5', className)}>
+    <SimpleBar className={cn("h-[calc(100vh_-_170px)] pb-3", className)}>
+      <div className={cn("grid gap-3.5", className)}>
         {items.map((item) => (
           <div
             key={item.id}
             className={cn(
-              'group relative flex items-center justify-between',
+              "group relative flex items-center justify-between",
               itemClassName
             )}
           >
@@ -143,7 +143,7 @@ function RemoveItem({
 }) {
   return (
     <button
-      className={cn('', className)}
+      className={cn("", className)}
       onClick={() => clearItemFromCart(product.id)}
     >
       <PiTrash className="h-6 w-6" />

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Controller, useFormContext } from 'react-hook-form';
-import { PhoneNumber } from '@core/ui/phone-input';
-import { Input, Title } from 'rizzui';
-import cn from '@core/utils/class-names';
+import { Controller, useFormContext } from "react-hook-form";
+import { PhoneNumber } from "@/src/ui/phone-input";
+import { Input, Title } from "rizzui";
+import cn from "@/src/utils/class-names";
 
 interface AddressInfoProps {
   type: string;
@@ -24,7 +24,7 @@ export default function AddressInfo({
 
   return (
     <div
-      className={cn('grid grid-cols-2 gap-3 @lg:gap-4 @2xl:gap-5', className)}
+      className={cn("grid grid-cols-2 gap-3 @lg:gap-4 @2xl:gap-5", className)}
     >
       {title && (
         <Title as="h3" className="col-span-full font-semibold">

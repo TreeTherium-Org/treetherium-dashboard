@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { routes } from '@/config/routes';
-import { Button, Title } from 'rizzui';
-import ProductModernCard from '@core/components/cards/product-modern-card';
-import { similarProducts } from '@/data/similar-products-data';
+import Link from "next/link";
+import { routes } from "@/config/routes";
+import { Button, Title } from "rizzui";
+import ProductModernCard from "@/src/components/cards/product-modern-card";
+import { similarProducts } from "@/data/similar-products-data";
 
 export default function ProductDetailsRelatedProducts() {
   return (

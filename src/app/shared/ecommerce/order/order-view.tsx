@@ -1,57 +1,57 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useAtomValue } from 'jotai';
-import isEmpty from 'lodash/isEmpty';
-import { PiCheckBold } from 'react-icons/pi';
+import Image from "next/image";
+import { useAtomValue } from "jotai";
+import isEmpty from "lodash/isEmpty";
+import { PiCheckBold } from "react-icons/pi";
 import {
   billingAddressAtom,
   orderNoteAtom,
   shippingAddressAtom,
-} from '@/store/checkout';
-import OrderViewProducts from '@/app/shared/ecommerce/order/order-products/order-view-products';
-import { useCart } from '@/store/quick-cart/cart.context';
-import { Title, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { toCurrency } from '@core/utils/to-currency';
-import { formatDate } from '@core/utils/format-date';
-import usePrice from '@core/hooks/use-price';
+} from "@/store/checkout";
+import OrderViewProducts from "@/app/shared/ecommerce/order/order-products/order-view-products";
+import { useCart } from "@/store/quick-cart/cart.context";
+import { Title, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { toCurrency } from "@/src/utils/to-currency";
+import { formatDate } from "@/src/utils/format-date";
+import usePrice from "@/src/hooks/use-price";
 
 const orderStatus = [
-  { id: 1, label: 'Order Pending' },
-  { id: 2, label: 'Order Processing' },
-  { id: 3, label: 'Order At Local Facility' },
-  { id: 4, label: 'Order Out For Delivery' },
-  { id: 5, label: 'Order Completed' },
+  { id: 1, label: "Order Pending" },
+  { id: 2, label: "Order Processing" },
+  { id: 3, label: "Order At Local Facility" },
+  { id: 4, label: "Order Out For Delivery" },
+  { id: 5, label: "Order Completed" },
 ];
 
 const transitions = [
   {
     id: 1,
     paymentMethod: {
-      name: 'MasterCard',
+      name: "MasterCard",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/payment/master.png',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/payment/master.png",
     },
-    price: '$1575.00',
+    price: "$1575.00",
   },
   {
     id: 2,
     paymentMethod: {
-      name: 'PayPal',
+      name: "PayPal",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/payment/paypal.png',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/payment/paypal.png",
     },
-    price: '$75.00',
+    price: "$75.00",
   },
   {
     id: 2,
     paymentMethod: {
-      name: 'Stripe',
+      name: "Stripe",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/payment/stripe.png',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/payment/stripe.png",
     },
-    price: '$375.00',
+    price: "$375.00",
   },
 ];
 
@@ -78,7 +78,7 @@ function WidgetCard({
       </Title>
       <div
         className={cn(
-          'rounded-lg border border-muted px-5 @sm:px-7 @5xl:rounded-xl',
+          "rounded-lg border border-muted px-5 @sm:px-7 @5xl:rounded-xl",
           childrenWrapperClass
         )}
       >
@@ -106,8 +106,8 @@ export default function OrderView() {
       <div className="flex flex-wrap justify-center border-b border-t border-gray-300 py-4 font-medium text-gray-700 @5xl:justify-start">
         <span className="my-2 border-r border-muted px-5 py-0.5 first:ps-0 last:border-r-0">
           {/* October 22, 2022 at 10:30 pm */}
-          {formatDate(new Date(), 'MMMM D, YYYY')} at{' '}
-          {formatDate(new Date(), 'h:mm A')}
+          {formatDate(new Date(), "MMMM D, YYYY")} at{" "}
+          {formatDate(new Date(), "h:mm A")}
         </span>
         <span className="my-2 border-r border-muted px-5 py-0.5 first:ps-0 last:border-r-0">
           {totalItems} Items
@@ -229,9 +229,9 @@ export default function OrderView() {
                   className={cn(
                     "relative ps-6 text-sm font-medium before:absolute before:-start-[9px] before:top-px before:h-5 before:w-5 before:-translate-x-px before:rounded-full before:bg-gray-100 before:content-[''] after:absolute after:-start-px after:top-5 after:h-10 after:w-0.5 after:content-[''] last:after:hidden",
                     currentOrderStatus > item.id
-                      ? 'before:bg-primary after:bg-primary'
-                      : 'after:hidden',
-                    currentOrderStatus === item.id && 'before:bg-primary'
+                      ? "before:bg-primary after:bg-primary"
+                      : "after:hidden",
+                    currentOrderStatus === item.id && "before:bg-primary"
                   )}
                 >
                   {currentOrderStatus >= item.id ? (
@@ -286,8 +286,8 @@ export default function OrderView() {
               {billingAddress?.customerName}
             </Title>
             <Text as="p" className="mb-2 leading-loose last:mb-0">
-              {billingAddress?.street}, {billingAddress?.city},{' '}
-              {billingAddress?.state}, {billingAddress?.zip},{' '}
+              {billingAddress?.street}, {billingAddress?.city},{" "}
+              {billingAddress?.state}, {billingAddress?.zip},{" "}
               {billingAddress?.country}
             </Text>
           </WidgetCard>
@@ -303,8 +303,8 @@ export default function OrderView() {
                 {shippingAddress?.customerName}
               </Title>
               <Text as="p" className="mb-2 leading-loose last:mb-0">
-                {shippingAddress?.street}, {shippingAddress?.city},{' '}
-                {shippingAddress?.state}, {shippingAddress?.zip},{' '}
+                {shippingAddress?.street}, {shippingAddress?.city},{" "}
+                {shippingAddress?.state}, {shippingAddress?.zip},{" "}
                 {shippingAddress?.country}
               </Text>
             </WidgetCard>

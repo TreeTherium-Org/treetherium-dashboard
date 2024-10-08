@@ -1,8 +1,8 @@
-import FormGroup from '@/app/shared/form-group';
-import { Checkbox, Input } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { DatePicker } from '@core/ui/datepicker';
-import { Controller, useFormContext } from 'react-hook-form';
+import FormGroup from "@/app/shared/form-group";
+import { Checkbox, Input } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { DatePicker } from "@/src/ui/datepicker";
+import { Controller, useFormContext } from "react-hook-form";
 
 export default function DeliveryEvent({ className }: { className?: string }) {
   const {
@@ -33,7 +33,7 @@ export default function DeliveryEvent({ className }: { className?: string }) {
         label="Date Field Name"
         placeholder="Date Field Name"
         className="col-span-full"
-        {...register('dateFieldName')}
+        {...register("dateFieldName")}
         error={errors.dateFieldName?.message as string}
       />
       <Controller
@@ -54,7 +54,7 @@ export default function DeliveryEvent({ className }: { className?: string }) {
         control={control}
         render={({ field: { value, onChange, onBlur } }) => (
           <DatePicker
-            inputProps={{ label: 'Available date' }}
+            inputProps={{ label: "Available date" }}
             placeholderText="Select Date"
             dateFormat="dd/MM/yyyy"
             onChange={onChange}
@@ -68,7 +68,7 @@ export default function DeliveryEvent({ className }: { className?: string }) {
         control={control}
         render={({ field: { value, onChange, onBlur } }) => (
           <DatePicker
-            inputProps={{ label: 'End date' }}
+            inputProps={{ label: "End date" }}
             placeholderText="Select Date"
             dateFormat="dd/MM/yyyy"
             onChange={onChange}

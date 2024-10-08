@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import WidgetCard from '@core/components/cards/widget-card';
-import { DatePicker } from '@core/ui/datepicker';
-import { Badge, Text } from 'rizzui';
+import { useState } from "react";
+import WidgetCard from "@/src/components/cards/widget-card";
+import { DatePicker } from "@/src/ui/datepicker";
+import { Badge, Text } from "rizzui";
 import {
   XAxis,
   YAxis,
@@ -12,69 +12,69 @@ import {
   ResponsiveContainer,
   AreaChart,
   Area,
-} from 'recharts';
-import { CustomTooltip } from '@core/components/charts/custom-tooltip';
-import { useMedia } from '@core/hooks/use-media';
-import SimpleBar from '@core/ui/simplebar';
+} from "recharts";
+import { CustomTooltip } from "@/src/components/charts/custom-tooltip";
+import { useMedia } from "@/src/hooks/use-media";
+import SimpleBar from "@/src/ui/simplebar";
 
 const data = [
   {
-    month: 'Jan',
+    month: "Jan",
     newCustomer: 2000,
     oldCustomer: 1000,
   },
   {
-    month: 'Feb',
+    month: "Feb",
     newCustomer: 4200,
     oldCustomer: 2798,
   },
   {
-    month: 'Mar',
+    month: "Mar",
     newCustomer: 5000,
     oldCustomer: 4000,
   },
   {
-    month: 'Apr',
+    month: "Apr",
     newCustomer: 5780,
     oldCustomer: 3908,
   },
   {
-    month: 'May',
+    month: "May",
     newCustomer: 4890,
     oldCustomer: 2500,
   },
   {
-    month: 'Jun',
+    month: "Jun",
     newCustomer: 8000,
     oldCustomer: 5200,
   },
   {
-    month: 'Jul',
+    month: "Jul",
     newCustomer: 4890,
     oldCustomer: 6500,
   },
   {
-    month: 'Aug',
+    month: "Aug",
     newCustomer: 3780,
     oldCustomer: 4908,
   },
   {
-    month: 'Sep',
+    month: "Sep",
     newCustomer: 7800,
     oldCustomer: 2800,
   },
   {
-    month: 'Oct',
+    month: "Oct",
     newCustomer: 5780,
     oldCustomer: 1908,
   },
   {
-    month: 'Nov',
+    month: "Nov",
     newCustomer: 2780,
     oldCustomer: 3908,
   },
   {
-    month: 'Dec',
+    month: "Dec",
     newCustomer: 7500,
     oldCustomer: 3000,
   },
@@ -85,18 +85,18 @@ export default function RepeatCustomerRate({
 }: {
   className?: string;
 }) {
-  const isTablet = useMedia('(max-width: 820px)', false);
+  const isTablet = useMedia("(max-width: 820px)", false);
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   return (
     <WidgetCard
-      title={'Repeat Customer Rate'}
+      title={"Repeat Customer Rate"}
       description={
         <>
           <Badge renderAsDot className="ms-1 bg-[#10b981]" /> New
           <Text as="span" className="hidden xs:inline-flex">
             Customer
           </Text>
-          <Badge renderAsDot className="me-1 ms-4 bg-[#0470f2]" /> Old{' '}
+          <Badge renderAsDot className="me-1 ms-4 bg-[#0470f2]" /> Old{" "}
           <Text as="span" className="hidden xs:inline-flex">
             Customer
           </Text>
@@ -110,7 +110,7 @@ export default function RepeatCustomerRate({
           dateFormat="yyyy"
           placeholderText="Select Year"
           showYearPicker
-          inputProps={{ variant: 'text', inputClassName: 'p-0 px-1 h-auto' }}
+          inputProps={{ variant: "text", inputClassName: "p-0 px-1 h-auto" }}
           popperPlacement="bottom-end"
           className="w-[100px]"
         />
@@ -122,7 +122,7 @@ export default function RepeatCustomerRate({
           <ResponsiveContainer
             width="100%"
             height="100%"
-            {...(isTablet && { minWidth: '700px' })}
+            {...(isTablet && { minWidth: "700px" })}
           >
             <AreaChart
               data={data}

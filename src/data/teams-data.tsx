@@ -1,55 +1,55 @@
-import GithubIcon from '@core/components/icons/github';
-import TeamsIcon from '@core/components/icons/teams';
-import FigmaIcon from '@core/components/icons/figma';
-import NotionIcon from '@core/components/icons/notion';
-import SlackIcon from '@core/components/icons/slack';
-import AirtableIcon from '@core/components/icons/airtable';
-import TelegramIcon from '@core/components/icons/telegram';
+import GithubIcon from "@/src/components/icons/github";
+import TeamsIcon from "@/src/components/icons/teams";
+import FigmaIcon from "@/src/components/icons/figma";
+import NotionIcon from "@/src/components/icons/notion";
+import SlackIcon from "@/src/components/icons/slack";
+import AirtableIcon from "@/src/components/icons/airtable";
+import TelegramIcon from "@/src/components/icons/telegram";
 
 export const teams = [
   {
-    name: 'Teams',
+    name: "Teams",
     icon: <TeamsIcon className="h-9 w-9" />,
-    url: 'https://teams.com/RedQ',
-    content: 'Streamline software projects, sprints, tasks, and bug tracking.',
+    url: "https://teams.com/RedQ",
+    content: "Streamline software projects, sprints, tasks, and bug tracking.",
   },
   {
-    name: 'Github',
+    name: "Github",
     icon: <GithubIcon className="h-9 w-9" />,
-    url: 'https://github.com/RedQ',
-    content: 'Link pull requests and automate workflows.',
+    url: "https://github.com/RedQ",
+    content: "Link pull requests and automate workflows.",
   },
   {
-    name: 'Figma',
+    name: "Figma",
     icon: <FigmaIcon className="h-9 w-9" />,
-    url: 'https://figma.com/redQ',
-    content: 'Embed file previews in projects.',
+    url: "https://figma.com/redQ",
+    content: "Embed file previews in projects.",
   },
   {
-    name: 'Notion',
+    name: "Notion",
     icon: <NotionIcon className="h-9 w-9 dark:opacity-75 dark:invert" />,
-    url: 'https://notion.com/redQ',
-    content: 'Embed notion pages and notes in projects.',
+    url: "https://notion.com/redQ",
+    content: "Embed notion pages and notes in projects.",
   },
   {
-    name: 'Slack',
+    name: "Slack",
     icon: <SlackIcon className="h-9 w-9" />,
-    url: 'https://slack.com/redQ',
+    url: "https://slack.com/redQ",
     content:
-      'Send notifications to channels and create projects from messages.',
+      "Send notifications to channels and create projects from messages.",
   },
   {
-    name: 'Airtable',
+    name: "Airtable",
     icon: <AirtableIcon className="h-9 w-9" />,
-    url: 'https://slack.com/redQ',
+    url: "https://slack.com/redQ",
     content:
-      'Manage your projects using airtable a cloud collaboration service.',
+      "Manage your projects using airtable a cloud collaboration service.",
   },
   {
-    name: 'Telegram',
+    name: "Telegram",
     icon: <TelegramIcon className="h-9 w-9" />,
-    url: 'https://slack.com/redQ',
+    url: "https://slack.com/redQ",
     content:
-      'Send messages through a globally accessible freemium, cloud-based and centralized instant messaging service.',
+      "Send messages through a globally accessible freemium, cloud-based and centralized instant messaging service.",
   },
 ];

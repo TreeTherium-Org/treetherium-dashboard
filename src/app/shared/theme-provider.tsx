@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Provider } from 'jotai';
-import { siteConfig } from '@/config/site.config';
-import hideRechartsConsoleError from '@core/utils/recharts-console-error';
-import { ThemeProvider as NextThemeProvider } from 'next-themes';
+import { Provider } from "jotai";
+import { siteConfig } from "@/config/site.config";
+import hideRechartsConsoleError from "@/src/utils/recharts-console-error";
+import { ThemeProvider as NextThemeProvider } from "next-themes";
 
 hideRechartsConsoleError();
 

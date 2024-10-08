@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { PiLockSimple } from 'react-icons/pi';
-import { Controller, SubmitHandler } from 'react-hook-form';
+import { useState } from "react";
+import { PiLockSimple } from "react-icons/pi";
+import { Controller, SubmitHandler } from "react-hook-form";
 import {
   usePatternFormat,
   Text,
@@ -9,13 +9,13 @@ import {
   Button,
   NumberInput,
   NumberInputProps,
-} from 'rizzui';
-import { useModal } from '@/app/shared/modal-views/use-modal';
-import { Form } from '@core/ui/form';
+} from "rizzui";
+import { useModal } from "@/app/shared/modal-views/use-modal";
+import { Form } from "@/src/ui/form";
 import {
   creditCardSchema,
   CreditCardSchema,
-} from '@/validators/credit-card.schema';
+} from "@/validators/credit-card.schema";
 
 type CardExpiryType = NumberInputProps & {
   isMask?: boolean;
@@ -32,9 +32,9 @@ export default function AddBillingCardModalView() {
     closeModal();
     setTimeout(() => {
       setLoading(false);
-      console.log(' data ->', data);
+      console.log(" data ->", data);
       setReset({
-        cardHolder: '',
+        cardHolder: "",
       });
     }, 600);
   };
@@ -89,7 +89,7 @@ export function BillingForm({ register, control, errors }: any) {
   function CardExpiry({ isMask = false, ...props }: CardExpiryType) {
     const { format } = usePatternFormat({
       ...props,
-      format: '##/##',
+      format: "##/##",
     });
     const _format = (val: string) => {
       let month = val.substring(0, 2);
@@ -99,9 +99,9 @@ export function BillingForm({ register, control, errors }: any) {
         month = `0${month[0]}`;
       } else if (month.length === 2) {
         if (Number(month) === 0) {
-          month = '01';
+          month = "01";
         } else if (Number(month) > 12) {
-          month = '12';
+          month = "12";
         }
       }
       return isMask && format ? format(`${month}${year}`) : `${month}/${year}`;
@@ -116,7 +116,7 @@ export function BillingForm({ register, control, errors }: any) {
         label="Card Holder"
         placeholder="John Doe"
         labelClassName="text-sm font-medium text-gray-900"
-        {...register('cardHolder')}
+        {...register("cardHolder")}
         error={errors?.cardHolder?.message}
       />
       <Controller
@@ -131,9 +131,9 @@ export function BillingForm({ register, control, errors }: any) {
             customInput={Input as React.ComponentType<unknown>}
             onChange={onChange}
             {...{
-              label: 'Card Number',
-              variant: 'outline',
-              labelClassName: 'text-sm font-medium text-gray-900',
+              label: "Card Number",
+              variant: "outline",
+              labelClassName: "text-sm font-medium text-gray-900",
               error: errors?.cardNumber?.message,
             }}
           />
@@ -148,14 +148,14 @@ export function BillingForm({ register, control, errors }: any) {
               isMask
               formatType="custom"
               placeholder="MM/YY"
-              mask={['M', 'M', 'Y', 'Y']}
+              mask={["M", "M", "Y", "Y"]}
               allowEmptyFormatting
               customInput={Input as React.ComponentType<unknown>}
               onChange={onChange}
               {...{
-                label: 'Expiry Date',
-                variant: 'outline',
-                labelClassName: 'text-sm font-medium text-gray-900',
+                label: "Expiry Date",
+                variant: "outline",
+                labelClassName: "text-sm font-medium text-gray-900",
                 error: errors?.expiryDate?.message,
               }}
             />
@@ -168,15 +168,15 @@ export function BillingForm({ register, control, errors }: any) {
             <NumberInput
               formatType="pattern"
               format="###"
-              mask={['C', 'V', 'C']}
+              mask={["C", "V", "C"]}
               allowEmptyFormatting
               customInput={Input as React.ComponentType<unknown>}
               onChange={onChange}
               value={value}
               {...{
-                label: 'CVC',
-                variant: 'outline',
-                labelClassName: 'text-sm font-medium text-gray-900',
+                label: "CVC",
+                variant: "outline",
+                labelClassName: "text-sm font-medium text-gray-900",
                 error: errors?.cvc?.message,
               }}
             />

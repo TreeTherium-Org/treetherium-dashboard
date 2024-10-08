@@ -1,10 +1,10 @@
-'use client';
-import React from 'react';
-import cn from '@core/utils/class-names';
-import { NavMenuTrigger, NavMenuTriggerWrapper } from './nav-menu-trigger';
-import { NavMenuContent, NavMenuContentWrapper } from './nav-menu-content';
-import { useNavMenu } from './nav-menu-context';
-import { ItemRef } from './nav-menu-types';
+"use client";
+import React from "react";
+import cn from "@/src/utils/class-names";
+import { NavMenuTrigger, NavMenuTriggerWrapper } from "./nav-menu-trigger";
+import { NavMenuContent, NavMenuContentWrapper } from "./nav-menu-content";
+import { useNavMenu } from "./nav-menu-context";
+import { ItemRef } from "./nav-menu-types";
 
 type NavMenuItemProps = {
   children: React.ReactNode;
@@ -26,7 +26,7 @@ export function NavMenuItem({ children }: NavMenuItemProps) {
   );
 }
 
-NavMenuItem.displayName = 'NavMenuItem';
+NavMenuItem.displayName = "NavMenuItem";
 
 type NavMenuItemWrapperProps = {
   className?: string;
@@ -99,7 +99,7 @@ export function NavMenuItemWrapper(props: NavMenuItemWrapperProps) {
 
   return (
     <nav
-      className={cn('relative', className)}
+      className={cn("relative", className)}
       ref={wrapperRef}
       onMouseLeave={() => set({ hovering: null })}
     >

@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
-import { useColumn } from '@core/hooks/use-column';
-import ControlledTable from '@/app/shared/controlled-table/index';
-import { categories } from '@/data/product-categories';
-import { useCallback, useMemo, useState } from 'react';
-import { useTable } from '@core/hooks/use-table';
-import { getColumns } from '@/app/shared/ecommerce/category/category-list/columns';
+import dynamic from "next/dynamic";
+import { useColumn } from "@/src/hooks/use-column";
+import ControlledTable from "@/app/shared/controlled-table/index";
+import { categories } from "@/data/product-categories";
+import { useCallback, useMemo, useState } from "react";
+import { useTable } from "@/src/hooks/use-table";
+import { getColumns } from "@/app/shared/ecommerce/category/category-list/columns";
 // dynamic import
 const TableFooter = dynamic(
-  () => import('@/app/shared/ecommerce/category/category-list/table-footer'),
+  () => import("@/app/shared/ecommerce/category/category-list/table-footer"),
   { ssr: false }
 );
 
@@ -87,7 +87,7 @@ export default function CategoryTable() {
       filterOptions={{
         searchTerm,
         onSearchClear: () => {
-          handleSearch('');
+          handleSearch("");
         },
         onSearchChange: (event) => {
           handleSearch(event.target.value);

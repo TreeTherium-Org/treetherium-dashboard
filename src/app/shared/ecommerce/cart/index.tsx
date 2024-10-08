@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { SubmitHandler } from 'react-hook-form';
-import { Form } from '@core/ui/form';
-import { useRouter } from 'next/navigation';
-import { routes } from '@/config/routes';
-import { recentlyProducts, recommendationProducts } from '@/data/shop-products';
-import CartProduct from '@/app/shared/ecommerce/cart/cart-product';
-import { useCart } from '@/store/quick-cart/cart.context';
-import usePrice from '@core/hooks/use-price';
-import { Empty, EmptyProductBoxIcon, Title, Text, Input, Button } from 'rizzui';
-import ProductCarousel from '@/app/shared/product-carousel';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { SubmitHandler } from "react-hook-form";
+import { Form } from "@/src/ui/form";
+import { useRouter } from "next/navigation";
+import { routes } from "@/config/routes";
+import { recentlyProducts, recommendationProducts } from "@/data/shop-products";
+import CartProduct from "@/app/shared/ecommerce/cart/cart-product";
+import { useCart } from "@/store/quick-cart/cart.context";
+import usePrice from "@/src/hooks/use-price";
+import { Empty, EmptyProductBoxIcon, Title, Text, Input, Button } from "rizzui";
+import ProductCarousel from "@/app/shared/product-carousel";
 
 type FormValues = {
   couponCode: string;
@@ -23,7 +23,7 @@ function CheckCoupon() {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
-    setReset({ couponCode: '' });
+    setReset({ couponCode: "" });
   };
 
   return (
@@ -31,7 +31,7 @@ function CheckCoupon() {
       resetValues={reset}
       onSubmit={onSubmit}
       useFormProps={{
-        defaultValues: { couponCode: '' },
+        defaultValues: { couponCode: "" },
       }}
       className="w-full"
     >
@@ -44,13 +44,13 @@ function CheckCoupon() {
               inputClassName="text-sm"
               className="w-full"
               label={<Text>Do you have a promo code?</Text>}
-              {...register('couponCode')}
+              {...register("couponCode")}
               error={errors.couponCode?.message}
             />
             <Button
               type="submit"
               className="ms-3"
-              disabled={watch('couponCode') ? false : true}
+              disabled={watch("couponCode") ? false : true}
             >
               Apply
             </Button>
@@ -145,10 +145,10 @@ export default function CartPageWrapper() {
       </div>
 
       <ProductCarousel
-        title={'Recommendations'}
+        title={"Recommendations"}
         data={recommendationProducts}
       />
-      <ProductCarousel title={'Recently Viewed'} data={recentlyProducts} />
+      <ProductCarousel title={"Recently Viewed"} data={recentlyProducts} />
     </div>
   );
 }

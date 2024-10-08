@@ -1,5 +1,5 @@
-import { AdvancedRadio, type AdvancedRadioProps } from 'rizzui';
-import cn from '@core/utils/class-names';
+import { AdvancedRadio, type AdvancedRadioProps } from "rizzui";
+import cn from "@/src/utils/class-names";
 
 export default function RadioBox({
   value,
@@ -11,7 +11,7 @@ export default function RadioBox({
     <AdvancedRadio
       value={value}
       className={cn(
-        'group flex h-16 w-full items-center justify-center rounded-lg text-sm font-medium capitalize text-gray-800 hover:cursor-pointer',
+        "group flex h-16 w-full items-center justify-center rounded-lg text-sm font-medium capitalize text-gray-800 hover:cursor-pointer",
         className
       )}
       {...props}

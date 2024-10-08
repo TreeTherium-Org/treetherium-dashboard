@@ -1,20 +1,20 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { routes } from '@/config/routes';
-import { Button } from 'rizzui';
-import WelcomeBanner from '@core/components/banners/welcome';
-import StatCards from '@/app/shared/ecommerce/dashboard/stat-cards';
-import ProfitWidget from '@/app/shared/ecommerce/dashboard/profit-widget';
-import SalesReport from '@/app/shared/ecommerce/dashboard/sales-report';
-import BestSellers from '@/app/shared/ecommerce/dashboard/best-sellers';
-import RepeatCustomerRate from '@/app/shared/ecommerce/dashboard/repeat-customer-rate';
-import UserLocation from '@/app/shared/ecommerce/dashboard/user-location';
-import PromotionalSales from '@/app/shared/ecommerce/dashboard/promotional-sales';
-import RecentOrder from '@/app/shared/ecommerce/dashboard/recent-order';
-import StockReport from '@/app/shared/ecommerce/dashboard/stock-report';
-import { PiPlusBold } from 'react-icons/pi';
-import welcomeImg from '@public/TT-logo.png';
-import HandWaveIcon from '@core/components/icons/hand-wave';
+import Link from "next/link";
+import Image from "next/image";
+import { routes } from "@/config/routes";
+import { Button } from "rizzui";
+import WelcomeBanner from "@/src/components/banners/welcome";
+import StatCards from "@/app/shared/ecommerce/dashboard/stat-cards";
+import ProfitWidget from "@/app/shared/ecommerce/dashboard/profit-widget";
+import SalesReport from "@/app/shared/ecommerce/dashboard/sales-report";
+import BestSellers from "@/app/shared/ecommerce/dashboard/best-sellers";
+import RepeatCustomerRate from "@/app/shared/ecommerce/dashboard/repeat-customer-rate";
+import UserLocation from "@/app/shared/ecommerce/dashboard/user-location";
+import PromotionalSales from "@/app/shared/ecommerce/dashboard/promotional-sales";
+import RecentOrder from "@/app/shared/ecommerce/dashboard/recent-order";
+import StockReport from "@/app/shared/ecommerce/dashboard/stock-report";
+import { PiPlusBold } from "react-icons/pi";
+import welcomeImg from "@public/TT-logo.png";
+import HandWaveIcon from "@/src/components/icons/hand-wave";
 
 export default function EcommerceDashboard() {
   return (
@@ -23,12 +23,12 @@ export default function EcommerceDashboard() {
         <WelcomeBanner
           title={
             <>
-              Good Morning, <br /> Cameron{' '}
+              Good Morning, <br /> Cameron{" "}
               <HandWaveIcon className="inline-flex h-8 w-8" />
             </>
           }
           description={
-            'Here’s What happening on your store today. See the statistics at once.'
+            "Here’s What happening on your store today. See the statistics at once."
           }
           media={
             <div className="absolute -bottom-6 end-4 hidden w-[300px] @2xl:block lg:w-[320px] 2xl:-bottom-7 2xl:w-[330px]">

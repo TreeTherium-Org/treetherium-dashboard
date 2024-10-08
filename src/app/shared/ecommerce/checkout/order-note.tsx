@@ -1,6 +1,6 @@
-import { useFormContext } from 'react-hook-form';
-import { Textarea } from 'rizzui';
-import cn from '@core/utils/class-names';
+import { useFormContext } from "react-hook-form";
+import { Textarea } from "rizzui";
+import cn from "@/src/utils/class-names";
 
 interface OrderNoteProps {
   className?: string;
@@ -13,12 +13,12 @@ export default function OrderNote({ className }: OrderNoteProps) {
   } = useFormContext();
   return (
     <div
-      className={cn('border-t border-muted pt-4 @xs:pt-6 @5xl:pt-7', className)}
+      className={cn("border-t border-muted pt-4 @xs:pt-6 @5xl:pt-7", className)}
     >
       <Textarea
         label="Order Note (optional)"
         placeholder="Notes about your order, e.g. special notes for delivery."
-        {...register('note')}
+        {...register("note")}
         error={errors.note?.message as string}
         textareaClassName="h-20"
       />

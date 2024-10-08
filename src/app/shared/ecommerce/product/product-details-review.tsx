@@ -1,47 +1,47 @@
-'use client';
+"use client";
 
-import { PiCaretDownBold } from 'react-icons/pi';
-import { Collapse } from 'rizzui';
-import cn from '@core/utils/class-names';
-import ReviewCard from '@core/components/cards/review-card';
-import ProductReviewForm from './product-review-form';
-import RatingProgressBar from '@core/components/rating-progress-bar';
+import { PiCaretDownBold } from "react-icons/pi";
+import { Collapse } from "rizzui";
+import cn from "@/src/utils/class-names";
+import ReviewCard from "@/src/components/cards/review-card";
+import ProductReviewForm from "./product-review-form";
+import RatingProgressBar from "@/src/components/rating-progress-bar";
 
 const reviewData = [
   {
     id: 1,
     rating: 4,
     description:
-      'Satisfactory in every way. Service and quality were top notch',
-    name: 'Ronald Richards',
-    date: '7 June, 2023',
+      "Satisfactory in every way. Service and quality were top notch",
+    name: "Ronald Richards",
+    date: "7 June, 2023",
     images: [
-      'https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/1.webp',
-      'https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/2.webp',
-      'https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/3.webp',
+      "https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/1.webp",
+      "https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/2.webp",
+      "https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/3.webp",
     ],
   },
   {
     id: 2,
     rating: 5,
     description:
-      'I recently purchased the Nike MaxComfort sneakers, and I must say, I am thoroughly impressed! These shoes are the perfect blend of style and comfort.',
-    name: 'Floyd Miles',
-    date: '12 June, 2023',
+      "I recently purchased the Nike MaxComfort sneakers, and I must say, I am thoroughly impressed! These shoes are the perfect blend of style and comfort.",
+    name: "Floyd Miles",
+    date: "12 June, 2023",
     images: [
-      'https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/4.webp',
-      'https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/5.webp',
+      "https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/4.webp",
+      "https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/5.webp",
     ],
   },
   {
     id: 3,
     rating: 3,
     description:
-      'The first thing that caught my eye was the sleek design. The modern and trendy look makes them versatile enough to wear with any outfit.',
-    name: 'Marvin McKinney',
-    date: '15 June, 2023',
+      "The first thing that caught my eye was the sleek design. The modern and trendy look makes them versatile enough to wear with any outfit.",
+    name: "Marvin McKinney",
+    date: "15 June, 2023",
     images: [
-      'https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/2.webp',
+      "https://isomorphic-furyroad.s3.amazonaws.com/public/products/review/2.webp",
     ],
   },
 ];
@@ -119,8 +119,8 @@ export default function ProductDetailsReview() {
             <div className="flex shrink-0 items-center justify-center">
               <PiCaretDownBold
                 className={cn(
-                  'h-[18px] w-[18px] transform transition-transform duration-300',
-                  open && 'rotate-180'
+                  "h-[18px] w-[18px] transform transition-transform duration-300",
+                  open && "rotate-180"
                 )}
               />
             </div>

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Title } from 'rizzui';
-import RangeSlider from '@core/ui/range-slider';
+import { useEffect, useState } from "react";
+import { Title } from "rizzui";
+import RangeSlider from "@/src/ui/range-slider";
 
 // Price rating component
 export default function PriceFilter({
@@ -18,8 +18,8 @@ export default function PriceFilter({
   });
 
   useEffect(() => {
-    if (state.price.length && typeof state.price === 'string') {
-      const priceArr = state.price.split(',');
+    if (state.price.length && typeof state.price === "string") {
+      const priceArr = state.price.split(",");
 
       setPrice({
         min: parseInt(priceArr[0]),
@@ -86,7 +86,7 @@ export default function PriceFilter({
           value={[price.min, price.max]}
           onChange={(value: any) => {
             handleRangeChange(value);
-            applyFilter('price', value);
+            applyFilter("price", value);
           }}
         />
       </div>

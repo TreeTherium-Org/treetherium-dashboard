@@ -1,5 +1,5 @@
-import { routes } from '@/config/routes';
-import { DUMMY_ID } from '@/config/constants';
+import { routes } from "@/config/routes";
+import { DUMMY_ID } from "@/config/constants";
 import {
   PiCurrencyCircleDollarFill,
   PiShoppingCart,
@@ -47,303 +47,303 @@ import {
   PiShapesDuotone,
   PiCodesandboxLogoDuotone,
   PiSparkleDuotone,
-} from 'react-icons/pi';
-import ProjectWriteIcon from '@core/components/icons/project-write';
-import CrmDashIcon from '@core/components/icons/crm-icon';
+} from "react-icons/pi";
+import ProjectWriteIcon from "@/src/components/icons/project-write";
+import CrmDashIcon from "@/src/components/icons/crm-icon";
 
 // Note: do not add href in the label object, it is rendering as label
 export const menuItems = [
   // label start
   {
-    name: 'Overview',
+    name: "Overview",
   },
   // label end
   {
-    name: 'File Manager',
-    href: '/',
+    name: "File Manager",
+    href: "/",
     icon: <PiFolder />,
   },
   {
-    name: 'Appointment',
+    name: "Appointment",
     href: routes.appointment.dashboard,
     icon: <PiCalendarDuotone />,
   },
   {
-    name: 'Executive',
+    name: "Executive",
     href: routes.executive.dashboard,
     icon: <PiBriefcase />,
   },
   {
-    name: 'Project',
+    name: "Project",
     href: routes.project.dashboard,
     icon: <ProjectWriteIcon />,
   },
   {
-    name: 'CRM',
+    name: "CRM",
     href: routes.crm.dashboard,
     icon: <CrmDashIcon />,
-    badge: 'NEW',
+    badge: "NEW",
   },
   {
-    name: 'Social Media',
+    name: "Social Media",
     href: routes.socialMedia.dashboard,
     icon: <PiSparkleDuotone />,
   },
   {
-    name: 'Job Board',
+    name: "Job Board",
     href: routes.jobBoard.dashboard,
     icon: <PiShapes />,
   },
   {
-    name: 'Financial',
+    name: "Financial",
     href: routes.financial.dashboard,
     icon: <PiCurrencyCircleDollarFill />,
   },
   {
-    name: 'Logistics',
+    name: "Logistics",
     href: routes.logistics.dashboard,
     icon: <PiPackage />,
   },
   {
-    name: 'E-Commerce',
+    name: "E-Commerce",
     href: routes.eCommerce.dashboard,
     icon: <PiShoppingCart />,
   },
   {
-    name: 'Analytics',
+    name: "Analytics",
     href: routes.analytics,
     icon: <PiChartBar />,
   },
   {
-    name: 'Support',
+    name: "Support",
     href: routes.support.dashboard,
     icon: <PiHeadset />,
   },
 
   // label start
   {
-    name: 'Apps Kit',
+    name: "Apps Kit",
   },
   // label end
   {
-    name: 'E-Commerce',
-    href: '#',
+    name: "E-Commerce",
+    href: "#",
     icon: <PiShoppingCart />,
     dropdownItems: [
       {
-        name: 'Products',
+        name: "Products",
         href: routes.eCommerce.products,
-        badge: '',
+        badge: "",
       },
       {
-        name: 'Product Details',
+        name: "Product Details",
         href: routes.eCommerce.productDetails(DUMMY_ID),
       },
       {
-        name: 'Create Product',
+        name: "Create Product",
         href: routes.eCommerce.createProduct,
       },
       {
-        name: 'Edit Product',
+        name: "Edit Product",
         href: routes.eCommerce.ediProduct(DUMMY_ID),
       },
       {
-        name: 'Categories',
+        name: "Categories",
         href: routes.eCommerce.categories,
       },
       {
-        name: 'Create Category',
+        name: "Create Category",
         href: routes.eCommerce.createCategory,
       },
       {
-        name: 'Edit Category',
+        name: "Edit Category",
         href: routes.eCommerce.editCategory(DUMMY_ID),
       },
       {
-        name: 'Orders',
+        name: "Orders",
         href: routes.eCommerce.orders,
       },
       {
-        name: 'Order Details',
+        name: "Order Details",
         href: routes.eCommerce.orderDetails(DUMMY_ID),
       },
       {
-        name: 'Create Order',
+        name: "Create Order",
         href: routes.eCommerce.createOrder,
       },
       {
-        name: 'Edit Order',
+        name: "Edit Order",
         href: routes.eCommerce.editOrder(DUMMY_ID),
       },
       {
-        name: 'Reviews',
+        name: "Reviews",
         href: routes.eCommerce.reviews,
       },
       {
-        name: 'Shop',
+        name: "Shop",
         href: routes.eCommerce.shop,
       },
       {
-        name: 'Cart',
+        name: "Cart",
         href: routes.eCommerce.cart,
       },
       {
-        name: 'Checkout & Payment',
+        name: "Checkout & Payment",
         href: routes.eCommerce.checkout,
       },
     ],
   },
   {
-    name: 'Support',
-    href: '#',
+    name: "Support",
+    href: "#",
     icon: <PiHeadset />,
     dropdownItems: [
       {
-        name: 'Inbox',
+        name: "Inbox",
         href: routes.support.inbox,
       },
       {
-        name: 'Snippets',
+        name: "Snippets",
         href: routes.support.snippets,
       },
       {
-        name: 'Templates',
+        name: "Templates",
         href: routes.support.templates,
       },
     ],
   },
   {
-    name: 'Invoice',
-    href: '#',
+    name: "Invoice",
+    href: "#",
     icon: <PiCurrencyDollar />,
     dropdownItems: [
       {
-        name: 'List',
+        name: "List",
         href: routes.invoice.home,
       },
       {
-        name: 'Details',
+        name: "Details",
         href: routes.invoice.details(DUMMY_ID),
       },
       {
-        name: 'Create',
+        name: "Create",
         href: routes.invoice.create,
       },
       {
-        name: 'Edit',
+        name: "Edit",
         href: routes.invoice.edit(DUMMY_ID),
       },
     ],
   },
   {
-    name: 'Logistics',
-    href: '#',
+    name: "Logistics",
+    href: "#",
     icon: <PiPackage />,
     dropdownItems: [
       {
-        name: 'Shipment List',
+        name: "Shipment List",
         href: routes.logistics.shipmentList,
       },
       {
-        name: 'Shipment Details',
+        name: "Shipment Details",
         href: routes.logistics.shipmentDetails(DUMMY_ID),
       },
       {
-        name: 'Create Shipment',
+        name: "Create Shipment",
         href: routes.logistics.createShipment,
       },
       {
-        name: 'Edit Shipment',
+        name: "Edit Shipment",
         href: routes.logistics.editShipment(DUMMY_ID),
       },
       {
-        name: 'Customer Profile',
+        name: "Customer Profile",
         href: routes.logistics.customerProfile,
       },
       {
-        name: 'Tracking',
+        name: "Tracking",
         href: routes.logistics.tracking(DUMMY_ID),
       },
     ],
   },
   {
-    name: 'Job Feeds',
+    name: "Job Feeds",
     href: routes.jobBoard.jobFeed,
     icon: <PiShapesDuotone />,
   },
   {
-    name: 'Appointment',
+    name: "Appointment",
     href: routes.appointment.appointmentList,
     icon: <PiCalendarDuotone />,
   },
   {
-    name: 'File Manager',
+    name: "File Manager",
     href: routes.file.manager,
     icon: <PiFolder />,
   },
   {
-    name: 'Event Calendar',
+    name: "Event Calendar",
     href: routes.eventCalendar,
     icon: <PiCalendarPlus />,
   },
   {
-    name: 'Roles & Permissions',
+    name: "Roles & Permissions",
     href: routes.rolesPermissions,
     icon: <PiFolderLock />,
   },
   {
-    name: 'Point of Sale',
+    name: "Point of Sale",
     href: routes.pos.index,
     icon: <PiCreditCard />,
   },
   {
-    name: 'Invoice Builder',
+    name: "Invoice Builder",
     href: routes.invoice.builder,
     icon: <PiNewspaperClippingDuotone />,
   },
   {
-    name: 'Image Viewer',
+    name: "Image Viewer",
     href: routes.imageViewer,
     icon: <PiCodesandboxLogoDuotone />,
-    badge: 'NEW',
+    badge: "NEW",
   },
   // label start
   {
-    name: 'Search & Filters',
+    name: "Search & Filters",
   },
   {
-    name: 'Real Estate',
+    name: "Real Estate",
     href: routes.searchAndFilter.realEstate,
     icon: <PiHouseLine />,
   },
   {
-    name: 'Flight Booking',
+    name: "Flight Booking",
     href: routes.searchAndFilter.flight,
     icon: <PiAirplaneTilt />,
   },
   {
-    name: 'NFT',
+    name: "NFT",
     href: routes.searchAndFilter.nft,
     icon: <PiPokerChip />,
   },
   // label end
   // label start
   {
-    name: 'Widgets',
+    name: "Widgets",
   },
   // label end
   {
-    name: 'Cards',
+    name: "Cards",
     href: routes.widgets.cards,
     icon: <PiSquaresFour />,
   },
   {
-    name: 'Icons',
+    name: "Icons",
     href: routes.widgets.icons,
     icon: <PiFeather />,
   },
   {
-    name: 'Charts',
+    name: "Charts",
     href: routes.widgets.charts,
     icon: <PiChartLineUp />,
   },
@@ -353,260 +353,260 @@ export const menuItems = [
   //   icon: <PiImage />,
   // },
   {
-    name: 'Maps',
+    name: "Maps",
     href: routes.widgets.maps,
     icon: <PiMapPinLine />,
   },
   // label start
   {
-    name: 'Forms',
+    name: "Forms",
   },
   // label end
   {
-    name: 'Account Settings',
+    name: "Account Settings",
     href: routes.forms.profileSettings,
     icon: <PiUserGear />,
   },
   {
-    name: 'Notification Preference',
+    name: "Notification Preference",
     href: routes.forms.notificationPreference,
     icon: <PiBellSimpleRinging />,
   },
   {
-    name: 'Personal Information',
+    name: "Personal Information",
     href: routes.forms.personalInformation,
     icon: <PiUser />,
   },
   {
-    name: 'Newsletter',
+    name: "Newsletter",
     href: routes.forms.newsletter,
     icon: <PiEnvelopeSimpleOpen />,
   },
   {
-    name: 'Multi Step',
+    name: "Multi Step",
     href: routes.multiStep,
     icon: <PiSteps />,
   },
   {
-    name: 'Payment Checkout',
+    name: "Payment Checkout",
     href: routes.eCommerce.checkout,
     icon: <PiCreditCard />,
   },
   // label start
   {
-    name: 'Tables',
+    name: "Tables",
   },
   // label end
   {
-    name: 'Basic',
+    name: "Basic",
     href: routes.tables.basic,
     icon: <PiGridFour />,
   },
   {
-    name: 'Collapsible',
+    name: "Collapsible",
     href: routes.tables.collapsible,
     icon: <PiCaretCircleUpDown />,
   },
   {
-    name: 'Enhanced',
+    name: "Enhanced",
     href: routes.tables.enhanced,
     icon: <PiTable />,
   },
   {
-    name: 'Sticky Header',
+    name: "Sticky Header",
     href: routes.tables.stickyHeader,
     icon: <PiBrowser />,
   },
   {
-    name: 'Pagination',
+    name: "Pagination",
     href: routes.tables.pagination,
     icon: <PiListNumbers />,
   },
   {
-    name: 'Search',
+    name: "Search",
     href: routes.tables.search,
     icon: <PiHourglassSimple />,
   },
   {
-    name: 'TanStack Table',
-    href: '#',
+    name: "TanStack Table",
+    href: "#",
     icon: <PiTableDuotone />,
     dropdownItems: [
       {
-        name: 'Basic',
+        name: "Basic",
         href: routes.tables.tanTable,
       },
       {
-        name: 'Resizable',
+        name: "Resizable",
         href: routes.tables.tanTableResizable,
       },
       {
-        name: 'Collapsible',
+        name: "Collapsible",
         href: routes.tables.tanTableCollapsible,
       },
       {
-        name: 'Drag & Drop',
+        name: "Drag & Drop",
         href: routes.tables.tanTableDnD,
       },
       {
-        name: 'Pinning',
+        name: "Pinning",
         href: routes.tables.tanTablePinning,
       },
       {
-        name: 'Enhanced',
+        name: "Enhanced",
         href: routes.tables.tanTableEnhanced,
       },
     ],
   },
   // label start
   {
-    name: 'Pages',
+    name: "Pages",
   },
   {
-    name: 'Profile',
+    name: "Profile",
     href: routes.profile,
     icon: <PiUserCircle />,
   },
   {
-    name: 'Welcome',
+    name: "Welcome",
     href: routes.welcome,
     icon: <PiShootingStar />,
   },
   {
-    name: 'Coming soon',
+    name: "Coming soon",
     href: routes.comingSoon,
     icon: <PiRocketLaunch />,
   },
   {
-    name: 'Access Denied',
+    name: "Access Denied",
     href: routes.accessDenied,
     icon: <PiFolderLock />,
   },
   {
-    name: 'Not Found',
+    name: "Not Found",
     href: routes.notFound,
     icon: <PiBinoculars />,
   },
   {
-    name: 'Maintenance',
+    name: "Maintenance",
     href: routes.maintenance,
     icon: <PiHammer />,
   },
   {
-    name: 'Blank',
+    name: "Blank",
     href: routes.blank,
     icon: <PiNoteBlank />,
   },
 
   // label start
   {
-    name: 'Authentication',
+    name: "Authentication",
   },
   // label end
   {
-    name: 'Sign Up',
-    href: '#',
+    name: "Sign Up",
+    href: "#",
     icon: <PiUserPlus />,
     dropdownItems: [
       {
-        name: 'Modern Sign up',
+        name: "Modern Sign up",
         href: routes.auth.signUp1,
       },
       {
-        name: 'Vintage Sign up',
+        name: "Vintage Sign up",
         href: routes.auth.signUp2,
       },
       {
-        name: 'Trendy Sign up',
+        name: "Trendy Sign up",
         href: routes.auth.signUp3,
       },
       {
-        name: 'Elegant Sign up',
+        name: "Elegant Sign up",
         href: routes.auth.signUp4,
       },
       {
-        name: 'Classic Sign up',
+        name: "Classic Sign up",
         href: routes.auth.signUp5,
       },
     ],
   },
   {
-    name: 'Sign In',
-    href: '#',
+    name: "Sign In",
+    href: "#",
     icon: <PiShieldCheck />,
     dropdownItems: [
       {
-        name: 'Modern Sign in',
+        name: "Modern Sign in",
         href: routes.auth.signIn1,
       },
       {
-        name: 'Vintage Sign in',
+        name: "Vintage Sign in",
         href: routes.auth.signIn2,
       },
       {
-        name: 'Trendy Sign in',
+        name: "Trendy Sign in",
         href: routes.auth.signIn3,
       },
       {
-        name: 'Elegant Sign in',
+        name: "Elegant Sign in",
         href: routes.auth.signIn4,
       },
       {
-        name: 'Classic Sign in',
+        name: "Classic Sign in",
         href: routes.auth.signIn5,
       },
     ],
   },
   {
-    name: 'Forgot Password',
-    href: '#',
+    name: "Forgot Password",
+    href: "#",
     icon: <PiLockKey />,
     dropdownItems: [
       {
-        name: 'Modern Forgot password',
+        name: "Modern Forgot password",
         href: routes.auth.forgotPassword1,
       },
       {
-        name: 'Vintage Forgot password',
+        name: "Vintage Forgot password",
         href: routes.auth.forgotPassword2,
       },
       {
-        name: 'Trendy Forgot password',
+        name: "Trendy Forgot password",
         href: routes.auth.forgotPassword3,
       },
       {
-        name: 'Elegant Forgot password',
+        name: "Elegant Forgot password",
         href: routes.auth.forgotPassword4,
       },
       {
-        name: 'Classic Forgot password',
+        name: "Classic Forgot password",
         href: routes.auth.forgotPassword5,
       },
     ],
   },
   {
-    name: 'OTP Pages',
-    href: '#',
+    name: "OTP Pages",
+    href: "#",
     icon: <PiChatCenteredDots />,
     dropdownItems: [
       {
-        name: 'Modern OTP page',
+        name: "Modern OTP page",
         href: routes.auth.otp1,
       },
       {
-        name: 'Vintage OTP page',
+        name: "Vintage OTP page",
         href: routes.auth.otp2,
       },
       {
-        name: 'Trendy OTP page',
+        name: "Trendy OTP page",
         href: routes.auth.otp3,
       },
       {
-        name: 'Elegant OTP page',
+        name: "Elegant OTP page",
         href: routes.auth.otp4,
       },
       {
-        name: 'Classic OTP page',
+        name: "Classic OTP page",
         href: routes.auth.otp5,
       },
     ],

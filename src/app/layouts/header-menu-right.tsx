@@ -1,10 +1,10 @@
-import { Badge, ActionIcon } from 'rizzui';
-import MessagesDropdown from '@/layouts/messages-dropdown';
-import ProfileMenu from '@/layouts/profile-menu';
-import SettingsButton from '@/layouts/settings-button';
-import RingBellSolidIcon from '@core/components/icons/ring-bell-solid';
-import ChatSolidIcon from '@core/components/icons/chat-solid';
-import NotificationDropdown from './notification-dropdown';
+import { Badge, ActionIcon } from "rizzui";
+import MessagesDropdown from "@/layouts/messages-dropdown";
+import ProfileMenu from "@/layouts/profile-menu";
+import SettingsButton from "@/layouts/settings-button";
+import RingBellSolidIcon from "@/src/components/icons/ring-bell-solid";
+import ChatSolidIcon from "@/src/components/icons/chat-solid";
+import NotificationDropdown from "./notification-dropdown";
 
 export default function HeaderMenuRight() {
   return (

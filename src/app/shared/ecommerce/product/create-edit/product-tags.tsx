@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Input, Button } from 'rizzui';
-import cn from '@core/utils/class-names';
-import FormGroup from '@/app/shared/form-group';
-import { useFormContext } from 'react-hook-form';
-import { PiTagBold, PiXBold } from 'react-icons/pi';
+import { useState } from "react";
+import { Input, Button } from "rizzui";
+import cn from "@/src/utils/class-names";
+import FormGroup from "@/app/shared/form-group";
+import { useFormContext } from "react-hook-form";
+import { PiTagBold, PiXBold } from "react-icons/pi";
 
 export default function ProductTags({ className }: { className?: string }) {
   const [tags, setTags] = useState<string[]>([]);
@@ -28,15 +28,15 @@ interface ItemCrudProps {
 
 function ItemCrud({ name, items, setItems }: ItemCrudProps): JSX.Element {
   const { register, setValue } = useFormContext();
-  const [itemText, setItemText] = useState<string>('');
+  const [itemText, setItemText] = useState<string>("");
 
   function handleItemAdd(): void {
-    if (itemText.trim() !== '') {
+    if (itemText.trim() !== "") {
       const newItem: string = itemText;
 
       setItems([...items, newItem]);
-      setValue('tags', [...items, newItem]);
-      setItemText('');
+      setValue("tags", [...items, newItem]);
+      setItemText("");
     }
   }
 
@@ -55,7 +55,7 @@ function ItemCrud({ name, items, setItems }: ItemCrudProps): JSX.Element {
           prefix={<PiTagBold className="h-4 w-4" />}
           className="w-full"
         />
-        <input type="hidden" {...register('tags', { value: items })} />
+        <input type="hidden" {...register("tags", { value: items })} />
         <Button
           onClick={handleItemAdd}
           className="ms-4 shrink-0 text-sm @lg:ms-5"

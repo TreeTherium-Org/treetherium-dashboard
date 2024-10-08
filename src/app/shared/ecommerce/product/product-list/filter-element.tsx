@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { PiTrashDuotone } from 'react-icons/pi';
-import StatusField from '@/app/shared/controlled-table/status-field';
-import { Button, Badge, Text } from 'rizzui';
-import DateFiled from '@/app/shared/controlled-table/date-field';
-import PriceField from '@/app/shared/controlled-table/price-field';
-import { getDateRangeStateValues } from '@core/utils/get-formatted-date';
+import React from "react";
+import { PiTrashDuotone } from "react-icons/pi";
+import StatusField from "@/app/shared/controlled-table/status-field";
+import { Button, Badge, Text } from "rizzui";
+import DateFiled from "@/app/shared/controlled-table/date-field";
+import PriceField from "@/app/shared/controlled-table/price-field";
+import { getDateRangeStateValues } from "@/src/utils/get-formatted-date";
 
 const statusOptions = [
   {
-    value: 'publish',
-    label: 'Publish',
+    value: "publish",
+    label: "Publish",
   },
   {
-    value: 'pending',
-    label: 'Pending',
+    value: "pending",
+    label: "Pending",
   },
   {
-    value: 'draft',
-    label: 'Draft',
+    value: "draft",
+    label: "Draft",
   },
 ];
 
@@ -39,30 +39,30 @@ export default function FilterElement({
   return (
     <>
       <PriceField
-        value={filters['price']}
-        onChange={(data) => updateFilter('price', data)}
+        value={filters["price"]}
+        onChange={(data) => updateFilter("price", data)}
       />
       <DateFiled
-        selected={getDateRangeStateValues(filters['createdAt'][0])}
-        startDate={getDateRangeStateValues(filters['createdAt'][0]) as Date}
-        endDate={getDateRangeStateValues(filters['createdAt'][1]) as Date}
+        selected={getDateRangeStateValues(filters["createdAt"][0])}
+        startDate={getDateRangeStateValues(filters["createdAt"][0]) as Date}
+        endDate={getDateRangeStateValues(filters["createdAt"][1]) as Date}
         onChange={(date: any) => {
-          updateFilter('createdAt', date);
+          updateFilter("createdAt", date);
         }}
         className="w-full"
         selectsRange
         placeholderText="Select created date"
         inputProps={{
-          label: 'Created Date',
-          labelClassName: 'font-medium text-gray-700',
+          label: "Created Date",
+          labelClassName: "font-medium text-gray-700",
         }}
       />
       <StatusField
         label="Status"
         options={statusOptions}
-        value={filters['status']}
+        value={filters["status"]}
         onChange={(value: string) => {
-          updateFilter('status', value);
+          updateFilter("status", value);
         }}
         getOptionValue={(option: { value: any }) => option.value}
         getOptionDisplayValue={(option: { value: any }) =>
@@ -89,7 +89,7 @@ export default function FilterElement({
 
 function renderOptionDisplayValue(value: string) {
   switch (value.toLowerCase()) {
-    case 'pending':
+    case "pending":
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
@@ -98,7 +98,7 @@ function renderOptionDisplayValue(value: string) {
           </Text>
         </div>
       );
-    case 'publish':
+    case "publish":
       return (
         <div className="flex items-center">
           <Badge color="success" renderAsDot />

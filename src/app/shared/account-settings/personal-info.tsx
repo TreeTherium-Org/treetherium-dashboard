@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../../../firebase'; // Assuming you have your firebase config here
-import dynamic from 'next/dynamic';
-import toast from 'react-hot-toast';
-import { SubmitHandler, Controller } from 'react-hook-form';
-import { PiClock } from 'react-icons/pi';
-import { Form } from '@core/ui/form';
-import { Loader, Text, Input } from 'rizzui';
-import FormGroup from '@/app/shared/form-group';
-import FormFooter from '@core/components/form-footer';
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../../firebase"; // Assuming you have your firebase config here
+import dynamic from "next/dynamic";
+import toast from "react-hot-toast";
+import { SubmitHandler, Controller } from "react-hook-form";
+import { PiClock } from "react-icons/pi";
+import { Form } from "@/src/ui/form";
+import { Loader, Text, Input } from "rizzui";
+import FormGroup from "@/app/shared/form-group";
+import FormFooter from "@/src/components/form-footer";
 import {
   defaultValues,
   personalInfoFormSchema,
   PersonalInfoFormTypes,
-} from '@/validators/personal-info.schema';
-import UploadZone from '@core/ui/file-upload/upload-zone';
-import { countries, roles, timezones } from '@/data/forms/my-details';
-import AvatarUpload from '@core/ui/file-upload/avatar-upload';
+} from "@/validators/personal-info.schema";
+import UploadZone from "@/src/ui/file-upload/upload-zone";
+import { countries, roles, timezones } from "@/data/forms/my-details";
+import AvatarUpload from "@/src/ui/file-upload/avatar-upload";
 
-const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
+const Select = dynamic(() => import("rizzui").then((mod) => mod.Select), {
   ssr: false,
   loading: () => (
     <div className="grid h-10 place-content-center">
@@ -29,29 +29,29 @@ const Select = dynamic(() => import('rizzui').then((mod) => mod.Select), {
   ),
 });
 
-const QuillEditor = dynamic(() => import('@core/ui/quill-editor'), {
+const QuillEditor = dynamic(() => import("@/src/ui/quill-editor"), {
   ssr: false,
 });
 
 export default function PersonalInfoView() {
   const [email, setEmail] = useState<string | null>(null);
-  const userId = 'USER_ID'; // Replace this with the actual user ID
+  const userId = "USER_ID"; // Replace this with the actual user ID
 
   // Fetch user's email from Firestore
   useEffect(() => {
     const fetchUserEmail = async () => {
       try {
-        const docRef = doc(db, 'staff', userId);
+        const docRef = doc(db, "staff", userId);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
           const userData = docSnap.data();
           setEmail(userData.email); // Assuming the field is called 'email'
         } else {
-          console.log('No such document!');
+          console.log("No such document!");
         }
       } catch (error) {
-        console.error('Error fetching user email:', error);
+        console.error("Error fetching user email:", error);
       }
     };
 
@@ -60,7 +60,7 @@ export default function PersonalInfoView() {
 
   const onSubmit: SubmitHandler<PersonalInfoFormTypes> = (data) => {
     toast.success(<Text as="b">Successfully added!</Text>);
-    console.log('Profile settings data ->', {
+    console.log("Profile settings data ->", {
       ...data,
     });
   };
@@ -71,7 +71,7 @@ export default function PersonalInfoView() {
       onSubmit={onSubmit}
       className="@container"
       useFormProps={{
-        mode: 'onChange',
+        mode: "onChange",
         defaultValues,
       }}
     >
@@ -91,13 +91,13 @@ export default function PersonalInfoView() {
               >
                 <Input
                   placeholder="First Name"
-                  {...register('first_name')}
+                  {...register("first_name")}
                   error={errors.first_name?.message}
                   className="flex-grow"
                 />
                 <Input
                   placeholder="Last Name"
-                  {...register('last_name')}
+                  {...register("last_name")}
                   error={errors.last_name?.message}
                   className="flex-grow"
                 />
@@ -108,7 +108,7 @@ export default function PersonalInfoView() {
                 className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
               >
                 <Text className="text-gray-500">
-                  {email ? email : 'Loading...'}
+                  {email ? email : "Loading..."}
                 </Text>
               </FormGroup>
 
@@ -145,7 +145,7 @@ export default function PersonalInfoView() {
                       className="col-span-full"
                       getOptionValue={(option) => option.value}
                       displayValue={(selected) =>
-                        roles?.find((r) => r.value === selected)?.label ?? ''
+                        roles?.find((r) => r.value === selected)?.label ?? ""
                       }
                       error={errors?.role?.message as string}
                     />
@@ -172,7 +172,7 @@ export default function PersonalInfoView() {
                       getOptionValue={(option) => option.value}
                       displayValue={(selected) =>
                         countries?.find((con) => con.value === selected)
-                          ?.label ?? ''
+                          ?.label ?? ""
                       }
                       error={errors?.country?.message as string}
                     />
@@ -200,7 +200,7 @@ export default function PersonalInfoView() {
                       getOptionValue={(option) => option.value}
                       displayValue={(selected) =>
                         timezones?.find((tmz) => tmz.value === selected)
-                          ?.label ?? ''
+                          ?.label ?? ""
                       }
                       error={errors?.timezone?.message as string}
                     />
@@ -209,10 +209,7 @@ export default function PersonalInfoView() {
               </FormGroup>
             </div>
 
-            <FormFooter
-              altBtnText="Cancel"
-              submitBtnText="Save"
-            />
+            <FormFooter altBtnText="Cancel" submitBtnText="Save" />
           </>
         );
       }}

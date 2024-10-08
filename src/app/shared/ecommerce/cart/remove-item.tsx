@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { Placement } from '@floating-ui/react';
-import { PiTrashBold, PiTrashFill } from 'react-icons/pi';
-import { ActionIcon, Popover, Title, Text, Button } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { useCart } from '@/store/quick-cart/cart.context';
+import { Placement } from "@floating-ui/react";
+import { PiTrashBold, PiTrashFill } from "react-icons/pi";
+import { ActionIcon, Popover, Title, Text, Button } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { useCart } from "@/store/quick-cart/cart.context";
 
 interface RemoveItemProps {
   productID: number;
@@ -32,7 +32,7 @@ export default function RemoveItem({
       </Popover.Trigger>
       <Popover.Content
         className={cn(
-          'z-50 dark:bg-gray-100 dark:[&>svg]:fill-gray-100',
+          "z-50 dark:bg-gray-100 dark:[&>svg]:fill-gray-100",
           className
         )}
       >

@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Table, { HeaderCell } from '@/app/shared/table';
-import { useCart } from '@/store/quick-cart/cart.context';
-import { Title, Text } from 'rizzui';
-import { toCurrency } from '@core/utils/to-currency';
-import { CartItem } from '@/types';
+import Image from "next/image";
+import Table, { HeaderCell } from "@/app/shared/table";
+import { useCart } from "@/store/quick-cart/cart.context";
+import { Title, Text } from "rizzui";
+import { toCurrency } from "@/src/utils/to-currency";
+import { CartItem } from "@/types";
 
 const columns = [
   {
     title: <HeaderCell title="Product" />,
-    dataIndex: 'product',
-    key: 'product',
+    dataIndex: "product",
+    key: "product",
     width: 250,
     render: (_: any, row: CartItem) => (
       <div className="flex items-center">
@@ -34,8 +34,8 @@ const columns = [
   },
   {
     title: <HeaderCell title="Product Price" align="right" />,
-    dataIndex: 'price',
-    key: 'price',
+    dataIndex: "price",
+    key: "price",
     width: 200,
     render: (price: string) => (
       <Text className="text-end text-sm">{toCurrency(price)}</Text>
@@ -43,8 +43,8 @@ const columns = [
   },
   {
     title: <HeaderCell title="Quantity" align="center" />,
-    dataIndex: 'quantity',
-    key: 'quantity',
+    dataIndex: "quantity",
+    key: "quantity",
     width: 150,
     render: (quantity: number) => (
       <Text className="text-center text-sm font-semibold">{quantity}</Text>
@@ -53,8 +53,8 @@ const columns = [
 
   {
     title: <HeaderCell title="Price" align="right" />,
-    dataIndex: 'price',
-    key: 'price',
+    dataIndex: "price",
+    key: "price",
     width: 200,
     render: (price: number, row: CartItem) => (
       <Text className="text-end text-sm">

@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import React, { Fragment } from 'react';
-import { useNavMenu } from './nav-menu-context';
-import cn from '@core/utils/class-names';
-import { ItemTriggerRef, NavMenuTriggerProps } from './nav-menu-types';
+import React, { Fragment } from "react";
+import { useNavMenu } from "./nav-menu-context";
+import cn from "@/src/utils/class-names";
+import { ItemTriggerRef, NavMenuTriggerProps } from "./nav-menu-types";
 
 export const NavMenuTrigger = React.forwardRef<
   HTMLButtonElement,
   NavMenuTriggerProps
->(({ triggerType = 'hover', className, children, ...props }, ref) => {
+>(({ triggerType = "hover", className, children, ...props }, ref) => {
   /*
     REASON OF IGNORING TS ERROR: Noted below. 
     */
@@ -16,16 +16,16 @@ export const NavMenuTrigger = React.forwardRef<
   const { index, ...restProps } = props;
 
   const { handleMouseEnter: trigger } = useNavMenu();
-  const NavMenuButton: React.ElementType = 'li' as React.ElementType;
+  const NavMenuButton: React.ElementType = "li" as React.ElementType;
 
   function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     props.onClick && props.onClick(e);
-    triggerType === 'click' && trigger(index as number, e.currentTarget);
+    triggerType === "click" && trigger(index as number, e.currentTarget);
   }
 
   function handleMouseEnter(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     props.onMouseEnter && props.onMouseEnter(e);
-    triggerType === 'hover' && trigger(index as number, e.currentTarget);
+    triggerType === "hover" && trigger(index as number, e.currentTarget);
   }
 
   return (
@@ -33,7 +33,7 @@ export const NavMenuTrigger = React.forwardRef<
       ref={ref}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
-      className={cn('cursor-pointer', className)}
+      className={cn("cursor-pointer", className)}
       {...restProps}
     >
       {children}
@@ -41,7 +41,7 @@ export const NavMenuTrigger = React.forwardRef<
   );
 });
 
-NavMenuTrigger.displayName = 'NavMenuTrigger';
+NavMenuTrigger.displayName = "NavMenuTrigger";
 
 type NavMenuTriggerWrapperProps = {
   items: (ItemTriggerRef | null | undefined)[];
@@ -67,7 +67,7 @@ export function NavMenuTriggerWrapper({
 
   return (
     <menu
-      className={cn('nav-menu-trigger-wrapper flex gap-6', menuClassName)}
+      className={cn("nav-menu-trigger-wrapper flex gap-6", menuClassName)}
       ref={wrapperRef}
     >
       {items.map((item, index: number) => {

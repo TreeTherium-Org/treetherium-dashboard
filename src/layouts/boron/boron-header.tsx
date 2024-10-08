@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import HamburgerButton from '@/layouts/hamburger-button';
-import SearchWidget from '@/app/shared/search/search';
-import BoronSidebar from '@/layouts/boron/boron-sidebar';
-import Logo from '@core/components/logo';
-import HeaderMenuRight from '@/layouts/boron/boron-header-menu-right';
-import StickyHeader from '@/layouts/sticky-header';
-import cn from '@core/utils/class-names';
-import { useColorPresetName } from '@/layouts/settings/use-theme-color';
-import { useTheme } from 'next-themes';
+import Link from "next/link";
+import HamburgerButton from "@/layouts/hamburger-button";
+import SearchWidget from "@/app/shared/search/search";
+import BoronSidebar from "@/layouts/boron/boron-sidebar";
+import Logo from "@/src/components/logo";
+import HeaderMenuRight from "@/layouts/boron/boron-header-menu-right";
+import StickyHeader from "@/layouts/sticky-header";
+import cn from "@/src/utils/class-names";
+import { useColorPresetName } from "@/layouts/settings/use-theme-color";
+import { useTheme } from "next-themes";
 
 export default function BoronHeader() {
   const { theme } = useTheme();
@@ -23,7 +23,7 @@ export default function BoronHeader() {
           view={<BoronSidebar className="static w-full 2xl:w-full" />}
         />
         <Link
-          href={'/'}
+          href={"/"}
           aria-label="Site Logo"
           className="me-4 w-9 shrink-0 text-gray-900 hover:text-gray-800 lg:me-5 xl:hidden"
         >
@@ -31,7 +31,7 @@ export default function BoronHeader() {
         </Link>
         <div className="hidden w-[270px] xl:inline-block 2xl:w-72">
           <Link
-            href={'/'}
+            href={"/"}
             aria-label="Site Logo"
             className="w-[155px] text-gray-900 hover:text-gray-800"
           >
@@ -41,10 +41,10 @@ export default function BoronHeader() {
 
         <SearchWidget
           className={cn(
-            'text-gray-100 xl:border-gray-300/40 xl:outline-gray-700 xl:hover:border-gray-200 xl:hover:outline-gray-0 dark:xl:border-gray-200 dark:xl:outline-gray-200 dark:xl:hover:border-gray-900 dark:xl:hover:outline-gray-900 [&_.magnifying-glass]:text-gray-300 dark:[&_.magnifying-glass]:text-gray-600',
-            colorPresetName === 'black' &&
-              theme === 'light' &&
-              '[&_.search-command]:bg-gray-0 [&_.search-command]:text-gray-900'
+            "text-gray-100 xl:border-gray-300/40 xl:outline-gray-700 xl:hover:border-gray-200 xl:hover:outline-gray-0 dark:xl:border-gray-200 dark:xl:outline-gray-200 dark:xl:hover:border-gray-900 dark:xl:hover:outline-gray-900 [&_.magnifying-glass]:text-gray-300 dark:[&_.magnifying-glass]:text-gray-600",
+            colorPresetName === "black" &&
+              theme === "light" &&
+              "[&_.search-command]:bg-gray-0 [&_.search-command]:text-gray-900"
           )}
           placeholderClassName="group-hover:text-gray-200 duration-150 dark:group-hover:text-gray-200 text-gray-300 dark:text-gray-600"
         />

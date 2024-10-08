@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React from 'react';
-import dynamic from 'next/dynamic';
-import isEmpty from 'lodash/isEmpty';
-import { Title, Loader } from 'rizzui';
-import cn from '@core/utils/class-names';
-import type { TableFilterProps } from '@/app/shared/controlled-table/table-filter';
-import type { TablePaginationProps } from '@/app/shared/controlled-table/table-pagination';
-import Table, { TableProps } from '../table';
+import React from "react";
+import dynamic from "next/dynamic";
+import isEmpty from "lodash/isEmpty";
+import { Title, Loader } from "rizzui";
+import cn from "@/src/utils/class-names";
+import type { TableFilterProps } from "@/app/shared/controlled-table/table-filter";
+import type { TablePaginationProps } from "@/app/shared/controlled-table/table-pagination";
+import Table, { TableProps } from "../table";
 const TableFilter = dynamic(
-  () => import('@/app/shared/controlled-table/table-filter'),
+  () => import("@/app/shared/controlled-table/table-filter"),
   { ssr: false }
 );
 const TablePagination = dynamic(
-  () => import('@/app/shared/controlled-table/table-pagination'),
+  () => import("@/app/shared/controlled-table/table-pagination"),
   { ssr: false }
 );
 

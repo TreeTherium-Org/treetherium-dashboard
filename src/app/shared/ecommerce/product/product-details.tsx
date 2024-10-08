@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useParams } from 'next/navigation';
-import ProductDetailsRelatedProducts from '@/app/shared/ecommerce/product/product-details-related-products';
-import ProductDetailsDescription from '@/app/shared/ecommerce/product/product-details-description';
-import ProductDeliveryOptions from '@/app/shared/ecommerce/product/product-delivery-options';
-import ProductDetailsGallery from '@/app/shared/ecommerce/product/product-details-gallery';
-import ProductDetailsSummery from '@/app/shared/ecommerce/product/product-details-summery';
-import ProductDetailsReview from '@/app/shared/ecommerce/product/product-details-review';
-import { modernProductsGrid } from '@/data/shop-products';
-import { generateSlug } from '@core/utils/generate-slug';
+import { useParams } from "next/navigation";
+import ProductDetailsRelatedProducts from "@/app/shared/ecommerce/product/product-details-related-products";
+import ProductDetailsDescription from "@/app/shared/ecommerce/product/product-details-description";
+import ProductDeliveryOptions from "@/app/shared/ecommerce/product/product-delivery-options";
+import ProductDetailsGallery from "@/app/shared/ecommerce/product/product-details-gallery";
+import ProductDetailsSummery from "@/app/shared/ecommerce/product/product-details-summery";
+import ProductDetailsReview from "@/app/shared/ecommerce/product/product-details-review";
+import { modernProductsGrid } from "@/data/shop-products";
+import { generateSlug } from "@/src/utils/generate-slug";
 
 export default function ProductDetails() {
   const params = useParams();

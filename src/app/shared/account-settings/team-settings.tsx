@@ -1,31 +1,31 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Button, Title } from 'rizzui';
-import LoggedInDevices from '@/app/shared/account-settings/logged-in-devices/table';
-import HorizontalFormBlockWrapper from '@/app/shared/account-settings/horiozontal-block';
-import GithubIcon from '@core/components/icons/github';
-import TeamsIcon from '@core/components/icons/teams';
-import FigmaIcon from '@core/components/icons/figma';
-import AddTeamMemberModalView from '@/app/shared/account-settings/modal/add-team-member';
-import { useModal } from '@/app/shared/modal-views/use-modal';
-import { loggedInDeviceData } from '@/data/logged-in-device';
-import { PiPlusBold } from 'react-icons/pi';
+import Link from "next/link";
+import { Button, Title } from "rizzui";
+import LoggedInDevices from "@/app/shared/account-settings/logged-in-devices/table";
+import HorizontalFormBlockWrapper from "@/app/shared/account-settings/horiozontal-block";
+import GithubIcon from "@/src/components/icons/github";
+import TeamsIcon from "@/src/components/icons/teams";
+import FigmaIcon from "@/src/components/icons/figma";
+import AddTeamMemberModalView from "@/app/shared/account-settings/modal/add-team-member";
+import { useModal } from "@/app/shared/modal-views/use-modal";
+import { loggedInDeviceData } from "@/data/logged-in-device";
+import { PiPlusBold } from "react-icons/pi";
 
 const currentActiveTeams = [
   {
-    name: 'GitHub',
-    url: 'https://github.com/RedQ',
+    name: "GitHub",
+    url: "https://github.com/RedQ",
     icon: <GithubIcon className="h-6 w-6" />,
   },
   {
-    name: 'Teams',
-    url: 'https://teams.microsoft.com/redQ',
+    name: "Teams",
+    url: "https://teams.microsoft.com/redQ",
     icon: <TeamsIcon className="h-6 w-6" />,
   },
   {
-    name: 'Figma',
-    url: 'https://figma.com/redQ',
+    name: "Figma",
+    url: "https://figma.com/redQ",
     icon: <FigmaIcon className="h-6 w-6" />,
   },
 ];

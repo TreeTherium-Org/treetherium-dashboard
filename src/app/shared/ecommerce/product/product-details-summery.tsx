@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import toast from 'react-hot-toast';
-import isEmpty from 'lodash/isEmpty';
-import { PiShoppingCartSimple } from 'react-icons/pi';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { Product } from '@/types';
-import { Button, Title, Text } from 'rizzui';
-import { toCurrency } from '@core/utils/to-currency';
-import GetSize from '@/app/shared/ecommerce/product/get-size';
-import { calculatePercentage } from '@core/utils/calculate-percentage';
-import { GetColor } from '@/app/shared/ecommerce/product/get-color';
-import WishlistButton from '@/app/shared/ecommerce/product/wishlist-button';
-import { useCart } from '@/store/quick-cart/cart.context';
+import { useState } from "react";
+import toast from "react-hot-toast";
+import isEmpty from "lodash/isEmpty";
+import { PiShoppingCartSimple } from "react-icons/pi";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { Product } from "@/types";
+import { Button, Title, Text } from "rizzui";
+import { toCurrency } from "@/src/utils/to-currency";
+import GetSize from "@/app/shared/ecommerce/product/get-size";
+import { calculatePercentage } from "@/src/utils/calculate-percentage";
+import { GetColor } from "@/app/shared/ecommerce/product/get-color";
+import WishlistButton from "@/app/shared/ecommerce/product/wishlist-button";
+import { useCart } from "@/store/quick-cart/cart.context";
 import {
   ProductDetailsInput,
   productDetailsSchema,
-} from '@/validators/product-details.schema';
-import { generateCartProduct } from '@/store/quick-cart/generate-cart-product';
+} from "@/validators/product-details.schema";
+import { generateCartProduct } from "@/store/quick-cart/generate-cart-product";
 
 export default function ProductDetailsSummery({
   product,
@@ -29,7 +29,7 @@ export default function ProductDetailsSummery({
   const [isLoading, setLoading] = useState(false);
 
   const methods = useForm<ProductDetailsInput>({
-    mode: 'onChange',
+    mode: "onChange",
     // defaultValues: defaultValues(order),
     resolver: zodResolver(productDetailsSchema),
   });
@@ -44,7 +44,7 @@ export default function ProductDetailsSummery({
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      console.log('createOrder data ->', data);
+      console.log("createOrder data ->", data);
       addItemToCart(item, 1);
       toast.success(<Text as="b">Product added to the cart</Text>);
     }, 600);
@@ -104,7 +104,7 @@ export default function ProductDetailsSummery({
               isLoading={isLoading}
               className="h-12 text-sm lg:h-14 lg:text-base"
             >
-              <PiShoppingCartSimple className="me-2 h-5 w-5 lg:h-[22px] lg:w-[22px]" />{' '}
+              <PiShoppingCartSimple className="me-2 h-5 w-5 lg:h-[22px] lg:w-[22px]" />{" "}
               Add To Cart
             </Button>
             <WishlistButton />

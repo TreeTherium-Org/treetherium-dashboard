@@ -1,37 +1,37 @@
-'use client';
+"use client";
 
 import {
   useForm,
   useWatch,
   FormProvider,
   type SubmitHandler,
-} from 'react-hook-form';
-import { useSetAtom } from 'jotai';
-import toast from 'react-hot-toast';
-import isEmpty from 'lodash/isEmpty';
-import { useRouter } from 'next/navigation';
-import { zodResolver } from '@hookform/resolvers/zod';
-import DifferentBillingAddress from '@/app/shared/ecommerce/order/order-form/different-billing-address';
-import { orderData } from '@/app/shared/ecommerce/order/order-form/form-utils';
-import AddressInfo from '@/app/shared/ecommerce/order/order-form/address-info';
-import ShippingMethod from '@/app/shared/ecommerce/checkout/shipping-method';
-import PaymentMethod from '@/app/shared/ecommerce/checkout/payment-method';
-import OrderSummery from '@/app/shared/ecommerce/checkout/order-summery';
-import OrderNote from '@/app/shared/ecommerce/checkout/order-note';
-import { DUMMY_ID } from '@/config/constants';
-import { routes } from '@/config/routes';
-import { Text } from 'rizzui';
-import cn from '@core/utils/class-names';
+} from "react-hook-form";
+import { useSetAtom } from "jotai";
+import toast from "react-hot-toast";
+import isEmpty from "lodash/isEmpty";
+import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import DifferentBillingAddress from "@/app/shared/ecommerce/order/order-form/different-billing-address";
+import { orderData } from "@/app/shared/ecommerce/order/order-form/form-utils";
+import AddressInfo from "@/app/shared/ecommerce/order/order-form/address-info";
+import ShippingMethod from "@/app/shared/ecommerce/checkout/shipping-method";
+import PaymentMethod from "@/app/shared/ecommerce/checkout/payment-method";
+import OrderSummery from "@/app/shared/ecommerce/checkout/order-summery";
+import OrderNote from "@/app/shared/ecommerce/checkout/order-note";
+import { DUMMY_ID } from "@/config/constants";
+import { routes } from "@/config/routes";
+import { Text } from "rizzui";
+import cn from "@/src/utils/class-names";
 import {
   billingAddressAtom,
   orderNoteAtom,
   shippingAddressAtom,
-} from '@/store/checkout';
+} from "@/store/checkout";
 import {
   CreateOrderInput,
   orderFormSchema,
-} from '@/validators/create-order.schema';
-import { useState } from 'react';
+} from "@/validators/create-order.schema";
+import { useState } from "react";
 
 // main order form component for create and update order
 export default function CheckoutPageWrapper({
@@ -46,7 +46,7 @@ export default function CheckoutPageWrapper({
   const setShippingAddress = useSetAtom(shippingAddressAtom);
 
   const methods = useForm({
-    mode: 'onChange',
+    mode: "onChange",
     resolver: zodResolver(orderFormSchema),
     defaultValues: {
       sameShippingAddress: orderData.sameShippingAddress,
@@ -56,7 +56,7 @@ export default function CheckoutPageWrapper({
 
   const sameShippingAddress = useWatch({
     control: methods.control,
-    name: 'sameShippingAddress',
+    name: "sameShippingAddress",
   });
 
   const onSubmit: SubmitHandler<CreateOrderInput> = (data) => {
@@ -75,7 +75,7 @@ export default function CheckoutPageWrapper({
 
     setTimeout(() => {
       setLoading(false);
-      console.log('checkout_data', data);
+      console.log("checkout_data", data);
       router.push(routes.eCommerce.orderDetails(DUMMY_ID));
       toast.success(<Text as="b">Order placed successfully!</Text>);
     }, 600);
@@ -89,7 +89,7 @@ export default function CheckoutPageWrapper({
         // @ts-ignore
         onSubmit={methods.handleSubmit(onSubmit)}
         className={cn(
-          'isomorphic-form isomorphic-form mx-auto flex w-full max-w-[1536px] flex-grow flex-col @container [&_label.block>span]:font-medium',
+          "isomorphic-form isomorphic-form mx-auto flex w-full max-w-[1536px] flex-grow flex-col @container [&_label.block>span]:font-medium",
           className
         )}
       >

@@ -1,22 +1,22 @@
-'use client'; // Mark this as a Client Component
+"use client"; // Mark this as a Client Component
 
-//LAYOUT PAGE 
-import { useRouter } from 'next/navigation'; // Import useRouter from next/navigation
-import { handleGoogleSignIn } from '../../auth/firebaseAuthUtils'; // Import the shared Google sign-in function.
-import Image from 'next/image'; // Import Next.js Image component
-import Link from 'next/link';
-import { Button, Title } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { PiArrowLeftBold } from 'react-icons/pi';
-import { FcGoogle } from 'react-icons/fc';
-import OrSeparation from './or-separation';
+//LAYOUT PAGE
+import { useRouter } from "next/navigation"; // Import useRouter from next/navigation
+import { handleGoogleSignIn } from "../../auth/firebaseAuthUtils"; // Import the shared Google sign-in function.
+import Image from "next/image"; // Import Next.js Image component
+import Link from "next/link";
+import { Button, Title } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { PiArrowLeftBold } from "react-icons/pi";
+import { FcGoogle } from "react-icons/fc";
+import OrSeparation from "./or-separation";
 
 export default function AuthWrapperThree({
   children,
   title,
   isSocialLoginActive = false,
   isSignIn = false,
-  className = '',
+  className = "",
 }: {
   children: React.ReactNode;
   title: React.ReactNode;
@@ -30,7 +30,7 @@ export default function AuthWrapperThree({
     <>
       <div className="relative flex min-h-screen w-full flex-col justify-center bg-gradient-to-tr from-[#2b3d1d] to-[#A3A830] p-4 md:p-12 lg:p-28">
         <Link
-          href={'/'}
+          href={"/"}
           className="mb:pb-3 start-4 z-10 flex items-center justify-center pb-6 pt-3 text-sm font-medium text-white/80 hover:text-white md:absolute md:top-1/2 md:-translate-y-1/2 md:rounded-full"
         >
           <PiArrowLeftBold />
@@ -38,13 +38,19 @@ export default function AuthWrapperThree({
         </Link>
         <div
           className={cn(
-            'mx-auto w-full max-w-md rounded-xl bg-white px-4 py-9 dark:bg-gray-50 sm:px-6 md:max-w-xl md:px-10 md:py-12 lg:max-w-[700px] lg:px-16 xl:rounded-2xl 3xl:rounded-3xl',
+            "mx-auto w-full max-w-md rounded-xl bg-white px-4 py-9 dark:bg-gray-50 sm:px-6 md:max-w-xl md:px-10 md:py-12 lg:max-w-[700px] lg:px-16 xl:rounded-2xl 3xl:rounded-3xl",
             className
           )}
         >
           <div className="flex flex-col items-center">
-            <Link href={'/'} className="mb-7 inline-block w-[80px] lg:mb-9">
-              <Image src="/TT-logo.png" alt="TT-Logo" width={80} height={80} className="dark:invert" />
+            <Link href={"/"} className="mb-7 inline-block w-[80px] lg:mb-9">
+              <Image
+                src="/TT-logo.png"
+                alt="TT-Logo"
+                width={80}
+                height={80}
+                className="dark:invert"
+              />
             </Link>
             <Title
               as="h2"
@@ -56,8 +62,8 @@ export default function AuthWrapperThree({
           {isSocialLoginActive && (
             <>
               <div className="flex flex-col gap-4 pb-6 md:flex-row md:gap-6 md:pb-7">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="h-11 w-full"
                   onClick={() => handleGoogleSignIn(router)} // Pass the router to the handleGoogleSignIn function.
                 >
@@ -66,7 +72,7 @@ export default function AuthWrapperThree({
                 </Button>
               </div>
               <OrSeparation
-                title={`Or, Sign ${isSignIn ? 'in' : 'up'} with your email`}
+                title={`Or, Sign ${isSignIn ? "in" : "up"} with your email`}
                 isCenter
                 className="mb-4"
               />

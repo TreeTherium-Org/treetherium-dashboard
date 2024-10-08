@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { ActionIcon, Title, Button } from 'rizzui';
-import { useDrawer } from '@/app/shared/drawer-views/use-drawer';
-import RatingFilter from '@/app/shared/ecommerce/shop/shop-filters/rating-filter';
-import PriceFilter from '@/app/shared/ecommerce/shop/shop-filters/price-filter';
-import GenderSpecificFilter from '@/app/shared/ecommerce/shop/shop-filters/gender-specific-filter';
-import { useFilterControls } from '@core/hooks/use-filter-control';
+import { ActionIcon, Title, Button } from "rizzui";
+import { useDrawer } from "@/app/shared/drawer-views/use-drawer";
+import RatingFilter from "@/app/shared/ecommerce/shop/shop-filters/rating-filter";
+import PriceFilter from "@/app/shared/ecommerce/shop/shop-filters/price-filter";
+import GenderSpecificFilter from "@/app/shared/ecommerce/shop/shop-filters/gender-specific-filter";
+import { useFilterControls } from "@/src/hooks/use-filter-control";
 import {
   initialState,
   categoriesData,
   brandsData,
   colorsData,
-} from '@/app/shared/ecommerce/shop/shop-filters/filter-utils';
-import FilterWithSearch from '@core/components/filter-with-search';
-import { PiXBold } from 'react-icons/pi';
-import hasSearchedParams from '@core/utils/has-searched-params';
+} from "@/app/shared/ecommerce/shop/shop-filters/filter-utils";
+import FilterWithSearch from "@/src/components/filter-with-search";
+import { PiXBold } from "react-icons/pi";
+import hasSearchedParams from "@/src/utils/has-searched-params";
 
 export default function ShopFilters() {
   const { state, applyFilter, clearFilter, reset } = useFilterControls<

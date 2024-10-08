@@ -1,6 +1,6 @@
-import { routes } from '@/config/routes';
-import { DUMMY_ID } from '@/config/constants';
-import { IconType } from 'react-icons/lib';
+import { routes } from "@/config/routes";
+import { DUMMY_ID } from "@/config/constants";
+import { IconType } from "react-icons/lib";
 import {
   PiAirplaneTiltDuotone,
   PiAppStoreLogoDuotone,
@@ -50,10 +50,10 @@ import {
   PiNewspaperClippingDuotone,
   PiCodesandboxLogoDuotone,
   PiSparkleDuotone,
-} from 'react-icons/pi';
-import { atom } from 'jotai';
-import ProjectWriteIcon from '@core/components/icons/project-write';
-import CrmDashIcon from '@core/components/icons/crm-icon';
+} from "react-icons/pi";
+import { atom } from "jotai";
+import ProjectWriteIcon from "@/src/components/icons/project-write";
+import CrmDashIcon from "@/src/components/icons/crm-icon";
 
 export interface SubMenuItemType {
   name: string;
@@ -81,427 +81,427 @@ export interface MenuItemsType {
 
 export const carbonMenuItems: MenuItemsType[] = [
   {
-    id: '1',
-    name: 'Dashboard',
-    title: 'Overview',
+    id: "1",
+    name: "Dashboard",
+    title: "Overview",
     icon: PiBrowserDuotone,
     menuItems: [
       {
-        name: 'File Manager',
-        href: '/',
+        name: "File Manager",
+        href: "/",
         icon: PiFolder,
       },
       {
-        name: 'Appointment',
+        name: "Appointment",
         href: routes.appointment.dashboard,
         icon: PiCalendarDuotone,
       },
       {
-        name: 'Executive',
+        name: "Executive",
         href: routes.executive.dashboard,
         icon: PiBriefcaseDuotone,
       },
       {
-        name: 'Project',
+        name: "Project",
         href: routes.project.dashboard,
         icon: ProjectWriteIcon,
       },
       {
-        name: 'CRM',
+        name: "CRM",
         href: routes.crm.dashboard,
         icon: CrmDashIcon,
-        badge: 'NEW',
+        badge: "NEW",
       },
       {
-        name: 'Social Media',
+        name: "Social Media",
         href: routes.socialMedia.dashboard,
         icon: PiSparkleDuotone,
       },
       {
-        name: 'Job Board',
+        name: "Job Board",
         href: routes.jobBoard.dashboard,
         icon: PiShapesDuotone,
       },
       {
-        name: 'Financial',
+        name: "Financial",
         href: routes.financial.dashboard,
         icon: PiCurrencyCircleDollarDuotone,
       },
       {
-        name: 'Logistics',
+        name: "Logistics",
         href: routes.logistics.dashboard,
         icon: PiPackageDuotone,
       },
       {
-        name: 'E-Commerce',
+        name: "E-Commerce",
         href: routes.eCommerce.dashboard,
         icon: PiShoppingCartDuotone,
       },
       {
-        name: 'Analytics',
+        name: "Analytics",
         href: routes.analytics,
         icon: PiChartBarDuotone,
       },
       {
-        name: 'Support',
+        name: "Support",
         href: routes.support.dashboard,
         icon: PiHeadsetDuotone,
       },
     ],
   },
   {
-    id: '2',
-    name: 'Apps Kit',
-    title: 'Apps Kit',
+    id: "2",
+    name: "Apps Kit",
+    title: "Apps Kit",
     icon: PiAppStoreLogoDuotone,
     menuItems: [
       {
-        name: 'E-Commerce',
+        name: "E-Commerce",
         description: '"Shop Smart, Click Quick: Your One-Stop Solution!"',
-        href: '#',
+        href: "#",
         icon: PiShoppingCartDuotone,
         subMenuItems: [
           {
-            name: 'Products',
+            name: "Products",
             href: routes.eCommerce.products,
-            badge: '',
+            badge: "",
           },
           {
-            name: 'Product Details',
+            name: "Product Details",
             href: routes.eCommerce.productDetails(DUMMY_ID),
-            badge: '',
+            badge: "",
           },
           {
-            name: 'Create Product',
+            name: "Create Product",
             href: routes.eCommerce.createProduct,
           },
           {
-            name: 'Edit Product',
+            name: "Edit Product",
             href: routes.eCommerce.ediProduct(DUMMY_ID),
           },
           {
-            name: 'Categories',
+            name: "Categories",
             href: routes.eCommerce.categories,
           },
           {
-            name: 'Create Category',
+            name: "Create Category",
             href: routes.eCommerce.createCategory,
           },
           {
-            name: 'Edit Category',
+            name: "Edit Category",
             href: routes.eCommerce.editCategory(DUMMY_ID),
           },
           {
-            name: 'Orders',
+            name: "Orders",
             href: routes.eCommerce.orders,
           },
           {
-            name: 'Order Details',
+            name: "Order Details",
             href: routes.eCommerce.orderDetails(DUMMY_ID),
           },
           {
-            name: 'Create Order',
+            name: "Create Order",
             href: routes.eCommerce.createOrder,
           },
           {
-            name: 'Edit Order',
+            name: "Edit Order",
             href: routes.eCommerce.editOrder(DUMMY_ID),
           },
           {
-            name: 'Reviews',
+            name: "Reviews",
             href: routes.eCommerce.reviews,
           },
           {
-            name: 'Shop',
+            name: "Shop",
             href: routes.eCommerce.shop,
           },
           {
-            name: 'Cart',
+            name: "Cart",
             href: routes.eCommerce.cart,
           },
           {
-            name: 'Checkout & Payment',
+            name: "Checkout & Payment",
             href: routes.eCommerce.checkout,
           },
         ],
       },
       {
-        name: 'Support',
+        name: "Support",
         description: '"Effortless Assistance at your Fingertips!"',
-        href: '#',
+        href: "#",
         icon: PiHeadsetDuotone,
         subMenuItems: [
           {
-            name: 'Inbox',
+            name: "Inbox",
             href: routes.support.inbox,
           },
           {
-            name: 'Snippets',
+            name: "Snippets",
             href: routes.support.snippets,
           },
           {
-            name: 'Templates',
+            name: "Templates",
             href: routes.support.templates,
           },
         ],
       },
       {
-        name: 'Invoice',
-        description: 'Professional-looking invoices for each customer order',
-        href: '#',
+        name: "Invoice",
+        description: "Professional-looking invoices for each customer order",
+        href: "#",
         icon: PiCurrencyDollarDuotone,
         subMenuItems: [
           {
-            name: 'List',
+            name: "List",
             href: routes.invoice.home,
           },
           {
-            name: 'Details',
+            name: "Details",
             href: routes.invoice.details(DUMMY_ID),
           },
           {
-            name: 'Create',
+            name: "Create",
             href: routes.invoice.create,
           },
           {
-            name: 'Edit',
+            name: "Edit",
             href: routes.invoice.edit(DUMMY_ID),
           },
         ],
       },
       {
-        name: 'Logistics',
+        name: "Logistics",
         description:
           '"Streamline Shipments: Discover Efficiency with our Logistics!"',
-        href: '#',
+        href: "#",
         icon: PiPackageDuotone,
         subMenuItems: [
           {
-            name: 'Shipment List',
+            name: "Shipment List",
             href: routes.logistics.shipmentList,
           },
           {
-            name: 'Shipment Details',
+            name: "Shipment Details",
             href: routes.logistics.shipmentDetails(DUMMY_ID),
           },
           {
-            name: 'Create Shipment',
+            name: "Create Shipment",
             href: routes.logistics.createShipment,
           },
           {
-            name: 'Edit Shipment',
+            name: "Edit Shipment",
             href: routes.logistics.editShipment(DUMMY_ID),
           },
           {
-            name: 'Customer Profile',
+            name: "Customer Profile",
             href: routes.logistics.customerProfile,
           },
           {
-            name: 'Tracking',
+            name: "Tracking",
             href: routes.logistics.tracking(DUMMY_ID),
           },
         ],
       },
       {
-        name: 'Job Feeds',
+        name: "Job Feeds",
         href: routes.jobBoard.jobFeed,
         icon: PiShapesDuotone,
       },
       {
-        name: 'Appointment',
+        name: "Appointment",
         href: routes.appointment.appointmentList,
         icon: PiCalendarDuotone,
       },
       {
-        name: 'File Manager',
+        name: "File Manager",
         description:
           '"Organize, Access, and Share: Simplify your Digital World with us!"',
         href: routes.file.manager,
         icon: PiFileImageDuotone,
       },
       {
-        name: 'Event Calendar',
+        name: "Event Calendar",
         href: routes.eventCalendar,
         icon: PiCalendarPlusDuotone,
       },
       {
-        name: 'Roles & Permissions',
+        name: "Roles & Permissions",
         href: routes.rolesPermissions,
         icon: PiFolderLockDuotone,
       },
       {
-        name: 'Point of Sell',
+        name: "Point of Sell",
         href: routes.pos.index,
         icon: PiCreditCardDuotone,
       },
       {
-        name: 'Invoice Builder',
+        name: "Invoice Builder",
         href: routes.invoice.builder,
         icon: PiNewspaperClippingDuotone,
       },
       {
-        name: 'Image Viewer',
+        name: "Image Viewer",
         href: routes.imageViewer,
         icon: PiCodesandboxLogoDuotone,
-        badge: 'NEW',
+        badge: "NEW",
       },
     ],
   },
   {
-    id: '3',
-    name: 'Search',
-    title: 'Search & Filter',
+    id: "3",
+    name: "Search",
+    title: "Search & Filter",
     icon: PiUserCircleDuotone,
     menuItems: [
       {
-        name: 'Real Estate',
+        name: "Real Estate",
         href: routes.searchAndFilter.realEstate,
         icon: PiHouseLineDuotone,
-        badge: '',
+        badge: "",
       },
       {
-        name: 'Flight Booking',
+        name: "Flight Booking",
         href: routes.searchAndFilter.flight,
         icon: PiAirplaneTiltDuotone,
       },
       {
-        name: 'NFT',
+        name: "NFT",
         href: routes.searchAndFilter.nft,
         icon: PiPokerChipDuotone,
-        badge: '',
+        badge: "",
       },
     ],
   },
   {
-    id: '4',
-    name: 'Widgets',
-    title: 'Widgets',
+    id: "4",
+    name: "Widgets",
+    title: "Widgets",
     icon: PiPackageDuotone,
     menuItems: [
       {
-        name: 'Cards',
+        name: "Cards",
         href: routes.widgets.cards,
         icon: PiSquaresFourDuotone,
       },
       {
-        name: 'Icons',
+        name: "Icons",
         href: routes.widgets.icons,
         icon: PiFeatherDuotone,
       },
       {
-        name: 'Charts',
+        name: "Charts",
         href: routes.widgets.charts,
         icon: PiChartLineUpDuotone,
       },
       {
-        name: 'Maps',
+        name: "Maps",
         href: routes.widgets.maps,
         icon: PiMapPinLineDuotone,
       },
     ],
   },
   {
-    id: '5',
-    name: 'Forms',
-    title: 'Forms',
+    id: "5",
+    name: "Forms",
+    title: "Forms",
     icon: PiNotePencilDuotone,
     menuItems: [
       {
-        name: 'Account Settings',
+        name: "Account Settings",
         href: routes.forms.profileSettings,
         icon: PiUserGearDuotone,
       },
       {
-        name: 'Notification Preference',
+        name: "Notification Preference",
         href: routes.forms.notificationPreference,
         icon: PiBellSimpleRingingDuotone,
-        badge: '',
+        badge: "",
       },
       {
-        name: 'Personal Information',
+        name: "Personal Information",
         href: routes.forms.personalInformation,
         icon: PiUserCircleDuotone,
       },
       {
-        name: 'Newsletter',
+        name: "Newsletter",
         href: routes.forms.newsletter,
         icon: PiEnvelopeSimpleOpenDuotone,
       },
       {
-        name: 'Multi Step',
+        name: "Multi Step",
         href: routes.multiStep,
         icon: PiStepsDuotone,
       },
       {
-        name: 'Payment Checkout',
+        name: "Payment Checkout",
         href: routes.eCommerce.checkout,
         icon: PiCreditCardDuotone,
       },
     ],
   },
   {
-    id: '6',
-    name: 'Tables',
-    title: 'Tables',
+    id: "6",
+    name: "Tables",
+    title: "Tables",
     icon: PiTableDuotone,
     menuItems: [
       {
-        name: 'Basic',
+        name: "Basic",
         href: routes.tables.basic,
         icon: PiGridFourDuotone,
       },
       {
-        name: 'Collapsible',
+        name: "Collapsible",
         href: routes.tables.collapsible,
         icon: PiCaretCircleUpDownDuotone,
       },
       {
-        name: 'Enhanced',
+        name: "Enhanced",
         href: routes.tables.enhanced,
         icon: PiTableDuotone,
       },
       {
-        name: 'Sticky Header',
+        name: "Sticky Header",
         href: routes.tables.stickyHeader,
         icon: PiBrowserDuotone,
       },
       {
-        name: 'Pagination',
+        name: "Pagination",
         href: routes.tables.pagination,
         icon: PiListNumbersDuotone,
       },
       {
-        name: 'Search',
+        name: "Search",
         href: routes.tables.search,
         icon: PiHourglassSimpleDuotone,
       },
       {
-        name: 'TanStack Table',
+        name: "TanStack Table",
         href: routes.tables.tanTable,
         icon: PiTableDuotone,
         subMenuItems: [
           {
-            name: 'Basic',
+            name: "Basic",
             href: routes.tables.tanTable,
           },
           {
-            name: 'Resizable',
+            name: "Resizable",
             href: routes.tables.tanTableResizable,
           },
           {
-            name: 'Collapsible',
+            name: "Collapsible",
             href: routes.tables.tanTableCollapsible,
           },
           {
-            name: 'Drag & Drop',
+            name: "Drag & Drop",
             href: routes.tables.tanTableDnD,
           },
           {
-            name: 'Pinning',
+            name: "Pinning",
             href: routes.tables.tanTablePinning,
           },
           {
-            name: 'Enhanced',
+            name: "Enhanced",
             href: routes.tables.tanTableEnhanced,
           },
         ],
@@ -509,164 +509,164 @@ export const carbonMenuItems: MenuItemsType[] = [
     ],
   },
   {
-    id: '7',
-    name: 'Pages',
-    title: 'Pages',
+    id: "7",
+    name: "Pages",
+    title: "Pages",
     icon: PiCardsDuotone,
     menuItems: [
       {
-        name: 'Profile',
+        name: "Profile",
         href: routes.profile,
         icon: PiMagicWandDuotone,
       },
       {
-        name: 'Welcome',
+        name: "Welcome",
         href: routes.welcome,
         icon: PiShootingStarDuotone,
       },
       {
-        name: 'Coming Soon',
+        name: "Coming Soon",
         href: routes.comingSoon,
         icon: PiRocketLaunchDuotone,
       },
       {
-        name: 'Access Denied',
+        name: "Access Denied",
         href: routes.accessDenied,
         icon: PiFolderLockDuotone,
       },
       {
-        name: 'Not Found',
+        name: "Not Found",
         href: routes.notFound,
         icon: PiBinocularsDuotone,
       },
       {
-        name: 'Maintenance',
+        name: "Maintenance",
         href: routes.maintenance,
         icon: PiHammerDuotone,
       },
       {
-        name: 'Blank',
+        name: "Blank",
         href: routes.blank,
         icon: PiNoteBlankDuotone,
       },
     ],
   },
   {
-    id: '8',
-    name: 'Authentication',
-    title: 'Authentication',
+    id: "8",
+    name: "Authentication",
+    title: "Authentication",
     icon: PiShieldCheckeredDuotone,
     menuItems: [
       {
-        name: 'Sign Up',
+        name: "Sign Up",
         icon: PiUserPlusDuotone,
         description: '"Shop Smart, Click Quick: Your One-Stop Solution!"',
-        href: '#',
+        href: "#",
         subMenuItems: [
           {
-            name: 'Modern Sign Up',
+            name: "Modern Sign Up",
             href: routes.auth.signUp1,
           },
           {
-            name: 'Vintage Sign Up',
+            name: "Vintage Sign Up",
             href: routes.auth.signUp2,
           },
           {
-            name: 'Trendy Sign Up',
+            name: "Trendy Sign Up",
             href: routes.auth.signUp3,
           },
           {
-            name: 'Elegant Sign Up',
+            name: "Elegant Sign Up",
             href: routes.auth.signUp4,
           },
           {
-            name: 'Classic Sign Up',
+            name: "Classic Sign Up",
             href: routes.auth.signUp5,
           },
         ],
       },
       {
-        name: 'Sign In',
+        name: "Sign In",
         icon: PiShieldCheckeredDuotone,
         description: '"Effortless Assistance at your Fingertips!"',
-        href: '#',
+        href: "#",
         subMenuItems: [
           {
-            name: 'Modern Sign In',
+            name: "Modern Sign In",
             href: routes.auth.signIn1,
           },
           {
-            name: 'Vintage Sign In',
+            name: "Vintage Sign In",
             href: routes.auth.signIn2,
           },
           {
-            name: 'Trendy Sign In',
+            name: "Trendy Sign In",
             href: routes.auth.signIn3,
           },
           {
-            name: 'Elegant Sign In',
+            name: "Elegant Sign In",
             href: routes.auth.signIn4,
           },
           {
-            name: 'Classic Sign In',
+            name: "Classic Sign In",
             href: routes.auth.signIn5,
           },
         ],
       },
       {
-        name: 'Forgot Password',
+        name: "Forgot Password",
         icon: PiLockKeyDuotone,
         description:
           '"Streamline Shipments: Discover Efficiency with our Logistics!"',
-        href: '#',
+        href: "#",
         subMenuItems: [
           {
-            name: 'Modern Forgot Password',
+            name: "Modern Forgot Password",
             href: routes.auth.forgotPassword1,
           },
           {
-            name: 'Vintage Forgot Password',
+            name: "Vintage Forgot Password",
             href: routes.auth.forgotPassword2,
           },
           {
-            name: 'Trendy Forgot Password',
+            name: "Trendy Forgot Password",
             href: routes.auth.forgotPassword3,
           },
           {
-            name: 'Elegant Forgot Password',
+            name: "Elegant Forgot Password",
             href: routes.auth.forgotPassword4,
           },
           {
-            name: 'Classic Forgot Password',
+            name: "Classic Forgot Password",
             href: routes.auth.forgotPassword5,
           },
         ],
       },
       {
-        name: 'OTP Pages',
+        name: "OTP Pages",
         icon: PiChatCenteredDotsDuotone,
         description:
           '"Organize, Access, and Share: Simplify your Digital World with us!"',
-        href: '#',
+        href: "#",
         subMenuItems: [
           {
-            name: 'Modern OTP Page',
+            name: "Modern OTP Page",
             href: routes.auth.otp1,
           },
           {
-            name: 'Vintage OTP Page',
+            name: "Vintage OTP Page",
             href: routes.auth.otp2,
           },
           {
-            name: 'Trendy OTP Page',
+            name: "Trendy OTP Page",
             href: routes.auth.otp3,
           },
           {
-            name: 'Elegant OTP Page',
+            name: "Elegant OTP Page",
             href: routes.auth.otp4,
           },
           {
-            name: 'Classic OTP Page',
+            name: "Classic OTP Page",
             href: routes.auth.otp5,
           },
         ],

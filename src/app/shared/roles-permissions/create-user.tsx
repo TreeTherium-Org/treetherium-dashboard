@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { PiXBold } from 'react-icons/pi';
-import { Controller, SubmitHandler } from 'react-hook-form';
-import { Form } from '@core/ui/form';
-import { Input, Button, ActionIcon, Title, Select } from 'rizzui';
+import { useState } from "react";
+import { PiXBold } from "react-icons/pi";
+import { Controller, SubmitHandler } from "react-hook-form";
+import { Form } from "@/src/ui/form";
+import { Input, Button, ActionIcon, Title, Select } from "rizzui";
 import {
   CreateUserInput,
   createUserSchema,
-} from '@/validators/create-user.schema';
-import { useModal } from '@/app/shared/modal-views/use-modal';
+} from "@/validators/create-user.schema";
+import { useModal } from "@/app/shared/modal-views/use-modal";
 import {
   permissions,
   roles,
   statuses,
-} from '@/app/shared/roles-permissions/utils';
+} from "@/app/shared/roles-permissions/utils";
 export default function CreateUser() {
   const { closeModal } = useModal();
   const [reset, setReset] = useState({});
@@ -28,14 +28,14 @@ export default function CreateUser() {
     };
     setLoading(true);
     setTimeout(() => {
-      console.log('formattedData', formattedData);
+      console.log("formattedData", formattedData);
       setLoading(false);
       setReset({
-        fullName: '',
-        email: '',
-        role: '',
-        permissions: '',
-        status: '',
+        fullName: "",
+        email: "",
+        role: "",
+        permissions: "",
+        status: "",
       });
       closeModal();
     }, 600);
@@ -62,7 +62,7 @@ export default function CreateUser() {
             <Input
               label="Full Name"
               placeholder="Enter user's full name"
-              {...register('fullName')}
+              {...register("fullName")}
               className="col-span-full"
               error={errors.fullName?.message}
             />
@@ -71,7 +71,7 @@ export default function CreateUser() {
               label="Email"
               placeholder="Enter user's Email Address"
               className="col-span-full"
-              {...register('email')}
+              {...register("email")}
               error={errors.email?.message}
             />
 
@@ -112,7 +112,7 @@ export default function CreateUser() {
                   getOptionValue={(option) => option.value}
                   displayValue={(selected: string) =>
                     statuses.find((option) => option.value === selected)
-                      ?.label ?? ''
+                      ?.label ?? ""
                   }
                   dropdownClassName="!z-[1] h-auto"
                   inPortal={false}
@@ -134,7 +134,7 @@ export default function CreateUser() {
                   getOptionValue={(option) => option.value}
                   displayValue={(selected: string) =>
                     permissions.find((option) => option.value === selected)
-                      ?.label ?? ''
+                      ?.label ?? ""
                   }
                   dropdownClassName="!z-[1] h-auto"
                   inPortal={false}

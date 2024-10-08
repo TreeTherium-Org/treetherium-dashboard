@@ -1,5 +1,5 @@
-import { Title, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
+import { Title, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
 export default function HorizontalFormBlockWrapper({
   title,
   titleClassName,
@@ -19,20 +19,20 @@ export default function HorizontalFormBlockWrapper({
   return (
     <div
       className={cn(
-        'border-b border-dashed border-muted py-10 @5xl:grid @5xl:grid-cols-6',
+        "border-b border-dashed border-muted py-10 @5xl:grid @5xl:grid-cols-6",
         className
       )}
     >
       <div className="col-span-2 mb-6 @5xl:mb-0">
         <Title
           as="h5"
-          className={cn('mb-2 text-[17px] font-semibold', titleClassName)}
+          className={cn("mb-2 text-[17px] font-semibold", titleClassName)}
         >
           {title}
         </Title>
         <Text
           className={cn(
-            'mt-1 leading-relaxed text-gray-500',
+            "mt-1 leading-relaxed text-gray-500",
             descriptionClassName
           )}
         >
@@ -41,7 +41,7 @@ export default function HorizontalFormBlockWrapper({
       </div>
       <div
         className={cn(
-          'col-span-4 grid grid-cols-1 gap-4 @lg:gap-5 @3xl:grid-cols-2',
+          "col-span-4 grid grid-cols-1 gap-4 @lg:gap-5 @3xl:grid-cols-2",
           childrenWrapperClassName
         )}
       >

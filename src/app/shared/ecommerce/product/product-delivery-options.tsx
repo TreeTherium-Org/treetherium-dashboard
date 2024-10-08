@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { SubmitHandler } from 'react-hook-form';
-import { Form } from '@core/ui/form';
-import { Input, Button, Text, Collapse } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { useState } from 'react';
-import { PiCaretDownBold } from 'react-icons/pi';
+import { SubmitHandler } from "react-hook-form";
+import { Form } from "@/src/ui/form";
+import { Input, Button, Text, Collapse } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { useState } from "react";
+import { PiCaretDownBold } from "react-icons/pi";
 
 type FormValues = {
   pinCode: string;
@@ -15,7 +15,7 @@ function CheckDelivery() {
   const [reset, setReset] = useState({});
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
-    setReset({ pinCode: '' });
+    setReset({ pinCode: "" });
   };
 
   return (
@@ -23,7 +23,7 @@ function CheckDelivery() {
       resetValues={reset}
       onSubmit={onSubmit}
       useFormProps={{
-        defaultValues: { pinCode: '' },
+        defaultValues: { pinCode: "" },
       }}
     >
       {({ register, formState: { errors } }) => (
@@ -33,7 +33,7 @@ function CheckDelivery() {
               type="text"
               placeholder="Enter pin code"
               inputClassName="text-sm"
-              {...register('pinCode')}
+              {...register("pinCode")}
               error={errors.pinCode?.message}
             />
             <Button
@@ -69,8 +69,8 @@ export default function ProductDeliveryOptions() {
           <div className="flex shrink-0 items-center justify-center">
             <PiCaretDownBold
               className={cn(
-                'h-[18px] w-[18px] transform transition-transform duration-300',
-                open && 'rotate-180'
+                "h-[18px] w-[18px] transform transition-transform duration-300",
+                open && "rotate-180"
               )}
             />
           </div>

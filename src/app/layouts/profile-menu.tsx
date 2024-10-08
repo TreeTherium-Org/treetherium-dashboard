@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { Title, Text, Avatar, Button, Popover } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { routes } from '@/config/routes';
+import { Title, Text, Avatar, Button, Popover } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { routes } from "@/config/routes";
 //import { signOut } from 'next-auth/react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function ProfileMenu({
   buttonClassName,
@@ -22,14 +22,14 @@ export default function ProfileMenu({
       <Popover.Trigger>
         <button
           className={cn(
-            'w-9 shrink-0 rounded-full outline-none focus-visible:ring-[1.5px] focus-visible:ring-gray-400 focus-visible:ring-offset-2 active:translate-y-px sm:w-10',
+            "w-9 shrink-0 rounded-full outline-none focus-visible:ring-[1.5px] focus-visible:ring-gray-400 focus-visible:ring-offset-2 active:translate-y-px sm:w-10",
             buttonClassName
           )}
         >
           <Avatar
             src="https://isomorphic-furyroad.s3.amazonaws.com/public/avatars/avatar-11.webp"
             name="John Doe"
-            className={cn('!h-9 w-9 sm:!h-10 sm:!w-10', avatarClassName)}
+            className={cn("!h-9 w-9 sm:!h-10 sm:!w-10", avatarClassName)}
           />
           {!!username && (
             <span className="username hidden text-gray-200 dark:text-gray-700 md:inline-flex">
@@ -68,16 +68,16 @@ function ProfileMenuPopover({ children }: React.PropsWithChildren<{}>) {
 
 const menuItems = [
   {
-    name: 'My Profile',
+    name: "My Profile",
     href: routes.profile,
   },
   {
-    name: 'Account Settings',
+    name: "Account Settings",
     href: routes.forms.profileSettings,
   },
   {
-    name: 'Activity Log',
-    href: '#',
+    name: "Activity Log",
+    href: "#",
   },
 ];
 

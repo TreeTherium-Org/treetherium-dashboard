@@ -1,61 +1,61 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import Table, { HeaderCell } from '@/app/shared/table';
-import { Checkbox, Loader, Title, Text } from 'rizzui';
-import { useTable } from '@core/hooks/use-table';
-import DeletePopover from '@/app/shared/delete-popover';
+import React from "react";
+import Image from "next/image";
+import Table, { HeaderCell } from "@/app/shared/table";
+import { Checkbox, Loader, Title, Text } from "rizzui";
+import { useTable } from "@/src/hooks/use-table";
+import DeletePopover from "@/app/shared/delete-popover";
 
 const initialData = [
   {
     id: 1,
     product: {
-      name: 'Prada Bag',
+      name: "Prada Bag",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/1.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/1.webp",
     },
-    price: '$175.00',
+    price: "$175.00",
     quantity: 1,
   },
   {
     id: 2,
     product: {
-      name: 'Leather Bag',
+      name: "Leather Bag",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/2.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/2.webp",
     },
-    price: '$55.00',
+    price: "$55.00",
     quantity: 1,
   },
   {
     id: 3,
     product: {
-      name: 'Brown Purse',
+      name: "Brown Purse",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/3.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/3.webp",
     },
-    price: '$160.00',
+    price: "$160.00",
     quantity: 2,
   },
   {
     id: 4,
     product: {
-      name: 'Pink Purse',
+      name: "Pink Purse",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/4.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/4.webp",
     },
-    price: '$24.00',
+    price: "$24.00",
     quantity: 1,
   },
   {
     id: 5,
     product: {
-      name: 'Prada Clutch',
+      name: "Prada Clutch",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/5.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/5.webp",
     },
-    price: '$345.99',
+    price: "$345.99",
     quantity: 1,
   },
 ];
@@ -73,8 +73,8 @@ export const getColumns = ({
 }: Columns) => [
   {
     title: <></>,
-    dataIndex: 'checked',
-    key: 'checked',
+    dataIndex: "checked",
+    key: "checked",
     width: 28,
     render: () => (
       <div className="inline-flex w-9 justify-end">
@@ -84,8 +84,8 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Product" />,
-    dataIndex: 'product',
-    key: 'product',
+    dataIndex: "product",
+    key: "product",
     width: 250,
     render: (product: any) => (
       <div className="flex items-center">
@@ -110,8 +110,8 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Quantity" align="center" />,
-    dataIndex: 'quantity',
-    key: 'quantity',
+    dataIndex: "quantity",
+    key: "quantity",
     width: 200,
     render: (quantity: number) => (
       <Text className="text-center text-sm">{quantity}</Text>
@@ -119,15 +119,15 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Price" />,
-    dataIndex: 'price',
-    key: 'price',
+    dataIndex: "price",
+    key: "price",
     width: 150,
     render: (price: string) => <Text className="text-sm">{price}</Text>,
   },
   {
     title: <></>,
-    dataIndex: 'action',
-    key: 'action',
+    dataIndex: "action",
+    key: "action",
     width: 130,
     render: (_: string, row: any) => (
       <div className="flex items-center justify-end gap-3 pe-4">

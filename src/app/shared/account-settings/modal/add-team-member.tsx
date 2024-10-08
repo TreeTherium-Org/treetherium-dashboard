@@ -1,58 +1,58 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import toast from 'react-hot-toast';
-import { Controller, SubmitHandler } from 'react-hook-form';
-import { useModal } from '@/app/shared/modal-views/use-modal';
-import { Input, Text, Title, Button, Select } from 'rizzui';
-import { Form } from '@core/ui/form';
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { Controller, SubmitHandler } from "react-hook-form";
+import { useModal } from "@/app/shared/modal-views/use-modal";
+import { Input, Text, Title, Button, Select } from "rizzui";
+import { Form } from "@/src/ui/form";
 import {
   AddTeamMemberInput,
   addTeamMemberSchema,
-} from '@/validators/team-member.schema';
+} from "@/validators/team-member.schema";
 
 const role = [
   {
-    label: 'Product Designer',
-    value: 'product_designer',
+    label: "Product Designer",
+    value: "product_designer",
   },
   {
-    label: 'Software Engineer',
-    value: 'software_engineer',
+    label: "Software Engineer",
+    value: "software_engineer",
   },
 ];
 
 const countries = [
   {
-    label: 'United States',
-    value: 'usa',
+    label: "United States",
+    value: "usa",
   },
   {
-    label: 'Bangladesh',
-    value: 'bd',
+    label: "Bangladesh",
+    value: "bd",
   },
 ];
 
 const teams = [
   {
-    label: 'Design',
-    value: 'design',
+    label: "Design",
+    value: "design",
   },
   {
-    label: 'Human Resource',
-    value: 'human_resource',
+    label: "Human Resource",
+    value: "human_resource",
   },
   {
-    label: 'Operations',
-    value: 'operations',
+    label: "Operations",
+    value: "operations",
   },
   {
-    label: 'Finance',
-    value: 'finance',
+    label: "Finance",
+    value: "finance",
   },
   {
-    label: 'Product',
-    value: 'product',
+    label: "Product",
+    value: "product",
   },
 ];
 
@@ -72,13 +72,13 @@ export default function AddTeamMemberModalView() {
     closeModal();
     setTimeout(() => {
       setLoading(false);
-      console.log(' data ->', data);
+      console.log(" data ->", data);
       setReset({
-        first_name: '',
-        last_name: '',
-        email: '',
-        role: '',
-        country: '',
+        first_name: "",
+        last_name: "",
+        email: "",
+        role: "",
+        country: "",
       });
     }, 600);
   };
@@ -124,7 +124,7 @@ export function MemberForm({ register, control, errors }: any) {
           label="First Name"
           placeholder="John"
           labelClassName="text-sm font-medium text-gray-900"
-          {...register('first_name')}
+          {...register("first_name")}
           error={errors?.first_name?.message}
           className="flex-grow"
         />
@@ -133,7 +133,7 @@ export function MemberForm({ register, control, errors }: any) {
           label="Last Name"
           placeholder="Doe"
           labelClassName="text-sm font-medium text-gray-900"
-          {...register('last_name')}
+          {...register("last_name")}
           error={errors?.last_name?.message}
           className="flex-grow"
         />
@@ -143,7 +143,7 @@ export function MemberForm({ register, control, errors }: any) {
         label="Email"
         labelClassName="text-sm font-medium text-gray-900"
         placeholder="john@doe.io"
-        {...register('email')}
+        {...register("email")}
         error={errors.email?.message}
       />
       <Controller
@@ -161,7 +161,7 @@ export function MemberForm({ register, control, errors }: any) {
             value={value}
             getOptionValue={(option) => option.value}
             displayValue={(selected) =>
-              role?.find((r) => r.value === selected)?.label ?? ''
+              role?.find((r) => r.value === selected)?.label ?? ""
             }
             error={errors?.role?.message as string}
           />
@@ -182,7 +182,7 @@ export function MemberForm({ register, control, errors }: any) {
             value={value}
             getOptionValue={(option) => option.value}
             displayValue={(selected) =>
-              countries?.find((con) => con.value === selected)?.label ?? ''
+              countries?.find((con) => con.value === selected)?.label ?? ""
             }
             error={errors?.country?.message as string}
           />
@@ -202,7 +202,7 @@ export function MemberForm({ register, control, errors }: any) {
             value={value}
             getOptionValue={(option) => option.value}
             displayValue={(selected) =>
-              teams?.find((t) => t.value === selected)?.label ?? ''
+              teams?.find((t) => t.value === selected)?.label ?? ""
             }
             error={errors?.teams?.message as string}
           />

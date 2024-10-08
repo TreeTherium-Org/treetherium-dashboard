@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { useTheme } from 'next-themes';
-import { siteConfig } from '@/config/site.config';
-import { RadioGroup } from 'rizzui';
-import { updateThemeColor } from '@core/utils/update-theme-color';
-import { presetDark, presetLight } from '@/config/color-presets';
-import { useEffect } from 'react';
-import { useColorPresetName } from '@/layouts/settings/use-theme-color';
-import LightMode from '@core/components/icons/light-mode';
-import DarkMode from '@core/components/icons/dark-mode';
-import RadioBox from '@/layouts/settings/radio-box';
-import DrawerBlock from '@/layouts/settings/drawer-block';
+import { useTheme } from "next-themes";
+import { siteConfig } from "@/config/site.config";
+import { RadioGroup } from "rizzui";
+import { updateThemeColor } from "@/src/utils/update-theme-color";
+import { presetDark, presetLight } from "@/config/color-presets";
+import { useEffect } from "react";
+import { useColorPresetName } from "@/layouts/settings/use-theme-color";
+import LightMode from "@/src/components/icons/light-mode";
+import DarkMode from "@/src/components/icons/dark-mode";
+import RadioBox from "@/layouts/settings/radio-box";
+import DrawerBlock from "@/layouts/settings/drawer-block";
 
-const themeOptions = ['light', 'dark'];
+const themeOptions = ["light", "dark"];
 
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const { colorPresetName } = useColorPresetName();
 
   useEffect(() => {
-    if (theme === 'light' && colorPresetName === 'black') {
+    if (theme === "light" && colorPresetName === "black") {
       updateThemeColor(
         presetLight.lighter,
         presetLight.light,
@@ -28,7 +28,7 @@ export default function ThemeSwitcher() {
         presetLight.foreground
       );
     }
-    if (theme === 'dark' && colorPresetName === 'black') {
+    if (theme === "dark" && colorPresetName === "black") {
       updateThemeColor(
         presetDark.lighter,
         presetDark.light,
@@ -56,7 +56,7 @@ export default function ThemeSwitcher() {
             contentClassName="p-0 [&_.radio-active]:ring-primary/0 peer-checked:ring-0 border-0 ring-0 peer-checked:border-0 peer-checked:[&_.radio-active]:ring-primary/100 [&_.radio-active]:ring-2 peer-checked:text-primary"
           >
             <span className="radio-active mb-3 inline-flex rounded-lg ring-offset-4 ring-offset-background dark:ring-offset-gray-100">
-              {item === 'light' ? (
+              {item === "light" ? (
                 <LightMode aria-label="Light Mode" className="h-full w-full" />
               ) : (
                 <DarkMode aria-label="Dark Mode" className="h-full w-full" />

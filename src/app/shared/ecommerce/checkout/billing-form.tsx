@@ -1,6 +1,6 @@
-import { Controller } from 'react-hook-form';
-import { Input, Title, Radio } from 'rizzui';
-import { PhoneNumber } from '@core/ui/phone-input';
+import { Controller } from "react-hook-form";
+import { Input, Title, Radio } from "rizzui";
+import { PhoneNumber } from "@/src/ui/phone-input";
 
 export default function BillingForm({ register, errors, control }: any) {
   return (
@@ -12,13 +12,13 @@ export default function BillingForm({ register, errors, control }: any) {
         <Input
           label="First Name"
           placeholder="first name"
-          {...register('firstName')}
+          {...register("firstName")}
           error={errors.firstName?.message}
         />
         <Input
           label="Last Name"
           placeholder="last name"
-          {...register('lastName')}
+          {...register("lastName")}
           error={errors.lastName?.message}
         />
         <Controller
@@ -39,56 +39,56 @@ export default function BillingForm({ register, errors, control }: any) {
         <Input
           label="Company Name"
           placeholder="company name"
-          {...register('companyName')}
+          {...register("companyName")}
           error={errors.companyName?.message}
         />
         <Input
           label="Address Line 1"
           placeholder="address line 1"
-          {...register('addressOne')}
+          {...register("addressOne")}
           error={errors.addressOne?.message}
         />
         <Input
           label="Address Line 2"
           placeholder="address line 2"
-          {...register('addressTwo')}
+          {...register("addressTwo")}
           error={errors.addressTwo?.message}
         />
         <Input
           label="City"
           placeholder="city"
-          {...register('city')}
+          {...register("city")}
           error={errors.city?.message}
         />
         <Input
           label="Country"
           placeholder="country"
-          {...register('country')}
+          {...register("country")}
           error={errors.country?.message}
         />
         <Input
           label="Zip/Postcode"
           placeholder="zip/postcode"
-          {...register('zip')}
+          {...register("zip")}
           error={errors.zip?.message}
         />
         <Input
           label="State"
           placeholder="state"
-          {...register('state')}
+          {...register("state")}
           error={errors.state?.message}
         />
         <div className="flex flex-col space-y-5 pt-1 @sm:col-span-full">
           <Radio
             label="Shipping Address is the same as Billing Address"
             value="SameShippingAddress"
-            {...register('isSameShippingAddress')}
+            {...register("isSameShippingAddress")}
             inputClassName="dark:checked:!bg-gray-200 dark:checked:!border-muted dark:focus:ring-gray-200 dark:focus:ring-offset-gray-0"
           />
           <Radio
             label="Different Shipping Address"
             value="DifferentShippingAddress"
-            {...register('isSameShippingAddress')}
+            {...register("isSameShippingAddress")}
             inputClassName="dark:checked:!bg-gray-200 dark:checked:!border-muted dark:focus:ring-gray-200 dark:focus:ring-offset-gray-0"
           />
         </div>

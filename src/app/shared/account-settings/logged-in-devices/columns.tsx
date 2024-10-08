@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { HeaderCell } from '@/app/shared/table';
-import { Checkbox, Title, Text, Tooltip, ActionIcon, Badge } from 'rizzui';
-import cn from '@core/utils/class-names';
-import PencilIcon from '@core/components/icons/pencil';
-import DeletePopover from '@/app/shared/delete-popover';
+import Image from "next/image";
+import { HeaderCell } from "@/app/shared/table";
+import { Checkbox, Title, Text, Tooltip, ActionIcon, Badge } from "rizzui";
+import cn from "@/src/utils/class-names";
+import PencilIcon from "@/src/components/icons/pencil";
+import DeletePopover from "@/app/shared/delete-popover";
 
 const statusColors = {
-  Offline: '',
-  Active: 'success',
+  Offline: "",
+  Active: "success",
 } as { [key: string]: string };
 
 const chipsColors = {
-  Design: 'bg-orange-lighter text-orange-dark',
-  Product: 'bg-blue-lighter text-blue-dark',
-  'Software Engineering': 'bg-green-lighter text-green-dark',
-  Operations: 'bg-red-lighter text-red-dark',
-  Finance: 'bg-primary-lighter text-primary-dark',
-  'Human Resource': 'bg-secondary-lighter text-secondary-dark',
+  Design: "bg-orange-lighter text-orange-dark",
+  Product: "bg-blue-lighter text-blue-dark",
+  "Software Engineering": "bg-green-lighter text-green-dark",
+  Operations: "bg-red-lighter text-red-dark",
+  Finance: "bg-primary-lighter text-primary-dark",
+  "Human Resource": "bg-secondary-lighter text-secondary-dark",
 } as { [key: string]: string };
 
 type Columns = {
@@ -44,15 +44,15 @@ export const getColumns = ({
     title: (
       <div className="ps-2">
         <Checkbox
-          title={'Select All'}
+          title={"Select All"}
           onChange={handleSelectAll}
           checked={checkedItems.length === data.length}
           className="cursor-pointer"
         />
       </div>
     ),
-    dataIndex: 'checked',
-    key: 'checked',
+    dataIndex: "checked",
+    key: "checked",
     width: 30,
     render: (_: any, row: any) => (
       <div className="inline-flex ps-2">
@@ -66,9 +66,9 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Name" />,
-    onHeaderCell: () => onHeaderCellClick('user.name'),
-    dataIndex: 'user',
-    key: 'user',
+    onHeaderCell: () => onHeaderCellClick("user.name"),
+    dataIndex: "user",
+    key: "user",
     width: 400,
     render: ({ name, email, avatar }: any) => (
       <div className="flex items-center">
@@ -97,18 +97,18 @@ export const getColumns = ({
         title="Status"
         sortable
         ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'status'
+          sortConfig?.direction === "asc" && sortConfig?.key === "status"
         }
       />
     ),
-    onHeaderCell: () => onHeaderCellClick('status'),
-    dataIndex: 'status',
-    key: 'status',
+    onHeaderCell: () => onHeaderCellClick("status"),
+    dataIndex: "status",
+    key: "status",
     width: 200,
     render: (status: any) => {
       return (
         <>
-          {status === 'Offline' ? (
+          {status === "Offline" ? (
             <div className="inline-flex items-center justify-center gap-2 rounded-full bg-gray-100/80 px-2.5 py-1">
               <Badge renderAsDot />
               <span className="text-xs font-semibold text-gray-900">
@@ -133,8 +133,8 @@ export const getColumns = ({
         title={<span className="whitespace-nowrap">Email Address</span>}
       />
     ),
-    dataIndex: 'email',
-    key: 'email',
+    dataIndex: "email",
+    key: "email",
     width: 400,
     render: (email: string) => (
       <span className="mr-6 block whitespace-nowrap">{email}</span>
@@ -144,8 +144,8 @@ export const getColumns = ({
     title: (
       <HeaderCell title={<span className="whitespace-nowrap">Teams</span>} />
     ),
-    dataIndex: 'teams',
-    key: 'teams',
+    dataIndex: "teams",
+    key: "teams",
     width: 200,
     render: (value: any) => (
       <div className="flex gap-2 whitespace-nowrap">
@@ -155,7 +155,7 @@ export const getColumns = ({
               key={`chips-${index}`}
               as="span"
               className={cn(
-                'inline-flex items-center justify-center gap-2 rounded-full bg-green-lighter px-2.5 py-1 text-xs font-semibold',
+                "inline-flex items-center justify-center gap-2 rounded-full bg-green-lighter px-2.5 py-1 text-xs font-semibold",
                 chipsColors[item]
               )}
             >
@@ -173,14 +173,14 @@ export const getColumns = ({
         title={<span className="whitespace-nowrap">Actions</span>}
       />
     ),
-    dataIndex: 'action',
-    key: 'action',
+    dataIndex: "action",
+    key: "action",
     width: 120,
     render: (_: string, row: any) => (
       <div className="flex items-center justify-end gap-3 pe-4">
         <Tooltip
           size="sm"
-          content={'Edit Member'}
+          content={"Edit Member"}
           placement="top"
           color="invert"
         >

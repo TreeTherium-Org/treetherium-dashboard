@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import WidgetCard from '@core/components/cards/widget-card';
-import { DatePicker } from '@core/ui/datepicker';
+import { useState } from "react";
+import WidgetCard from "@/src/components/cards/widget-card";
+import { DatePicker } from "@/src/ui/datepicker";
 import {
   Bar,
   XAxis,
@@ -12,89 +12,89 @@ import {
   ResponsiveContainer,
   Area,
   ComposedChart,
-} from 'recharts';
-import { Badge } from 'rizzui';
-import { useMedia } from '@core/hooks/use-media';
-import { CustomYAxisTick } from '@core/components/charts/custom-yaxis-tick';
-import { CustomTooltip } from '@core/components/charts/custom-tooltip';
-import SimpleBar from '@core/ui/simplebar';
+} from "recharts";
+import { Badge } from "rizzui";
+import { useMedia } from "@/src/hooks/use-media";
+import { CustomYAxisTick } from "@/src/components/charts/custom-yaxis-tick";
+import { CustomTooltip } from "@/src/components/charts/custom-tooltip";
+import SimpleBar from "@/src/ui/simplebar";
 
 const data = [
   {
-    month: 'Jan',
+    month: "Jan",
     revenue: 5000,
     expense: 1500,
   },
   {
-    month: 'Feb',
+    month: "Feb",
     revenue: 4600,
     expense: 3798,
   },
   {
-    month: 'Mar',
+    month: "Mar",
     revenue: 5900,
     expense: 1300,
   },
   {
-    month: 'Apr',
+    month: "Apr",
     revenue: 5780,
     expense: 3908,
   },
   {
-    month: 'May',
+    month: "May",
     revenue: 4890,
     expense: 2500,
   },
   {
-    month: 'Jun',
+    month: "Jun",
     revenue: 8000,
     expense: 3200,
   },
   {
-    month: 'Jul',
+    month: "Jul",
     revenue: 4890,
     expense: 2500,
   },
   {
-    month: 'Aug',
+    month: "Aug",
     revenue: 3780,
     expense: 3908,
   },
   {
-    month: 'Sep',
+    month: "Sep",
     revenue: 7800,
     expense: 2800,
   },
   {
-    month: 'Oct',
+    month: "Oct",
     revenue: 5780,
     expense: 1908,
   },
   {
-    month: 'Nov',
+    month: "Nov",
     revenue: 2780,
     expense: 3908,
   },
   {
-    month: 'Dec',
+    month: "Dec",
     revenue: 7500,
     expense: 3000,
   },
 ];
 
 export default function SalesReport({ className }: { className?: string }) {
-  const isTablet = useMedia('(max-width: 820px)', false);
+  const isTablet = useMedia("(max-width: 820px)", false);
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   return (
     <WidgetCard
-      title={'Sales Report'}
+      title={"Sales Report"}
       description={
         <>
           <Badge renderAsDot className="me-0.5 bg-[#282ECA]" /> Revenue
           <Badge
             renderAsDot
             className="me-0.5 ms-4 bg-[#B8C3E9] dark:bg-[#7c88b2]"
-          />{' '}
+          />{" "}
           Expense
         </>
       }
@@ -106,7 +106,7 @@ export default function SalesReport({ className }: { className?: string }) {
           dateFormat="yyyy"
           placeholderText="Select Year"
           showYearPicker
-          inputProps={{ variant: 'text', inputClassName: 'p-0 px-1 h-auto' }}
+          inputProps={{ variant: "text", inputClassName: "p-0 px-1 h-auto" }}
           popperPlacement="bottom-end"
           className="w-[100px]"
         />
@@ -118,7 +118,7 @@ export default function SalesReport({ className }: { className?: string }) {
           <ResponsiveContainer
             width="100%"
             height="100%"
-            {...(isTablet && { minWidth: '700px' })}
+            {...(isTablet && { minWidth: "700px" })}
           >
             <ComposedChart
               data={data}
@@ -140,7 +140,7 @@ export default function SalesReport({ className }: { className?: string }) {
               <YAxis
                 axisLine={false}
                 tickLine={false}
-                tick={<CustomYAxisTick prefix={'$'} />}
+                tick={<CustomYAxisTick prefix={"$"} />}
               />
               <Tooltip
                 content={

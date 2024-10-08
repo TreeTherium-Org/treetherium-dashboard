@@ -1,30 +1,30 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { PiTrashDuotone } from 'react-icons/pi';
-import DateFiled from '@/app/shared/controlled-table/date-field';
-import PriceField from '@/app/shared/controlled-table/price-field';
-import StatusField from '@/app/shared/controlled-table/status-field';
-import { Badge, Text, Button } from 'rizzui';
-import { getDateRangeStateValues } from '@core/utils/get-formatted-date';
-import { useMedia } from '@core/hooks/use-media';
+import React from "react";
+import { PiTrashDuotone } from "react-icons/pi";
+import DateFiled from "@/app/shared/controlled-table/date-field";
+import PriceField from "@/app/shared/controlled-table/price-field";
+import StatusField from "@/app/shared/controlled-table/status-field";
+import { Badge, Text, Button } from "rizzui";
+import { getDateRangeStateValues } from "@/src/utils/get-formatted-date";
+import { useMedia } from "@/src/hooks/use-media";
 
 const statusOptions = [
   {
-    value: 'completed',
-    label: 'Completed',
+    value: "completed",
+    label: "Completed",
   },
   {
-    value: 'pending',
-    label: 'Pending',
+    value: "pending",
+    label: "Pending",
   },
   {
-    value: 'cancelled',
-    label: 'Cancelled',
+    value: "cancelled",
+    label: "Cancelled",
   },
   {
-    value: 'refunded',
-    label: 'Refunded',
+    value: "refunded",
+    label: "Refunded",
   },
 ];
 
@@ -41,53 +41,53 @@ export default function FilterElement({
   updateFilter,
   handleReset,
 }: FilterElementProps) {
-  const isMediumScreen = useMedia('(max-width: 1860px)', false);
+  const isMediumScreen = useMedia("(max-width: 1860px)", false);
   return (
     <>
       <PriceField
-        value={filters['price']}
-        onChange={(data) => updateFilter('price', data)}
-        label={'Price'}
+        value={filters["price"]}
+        onChange={(data) => updateFilter("price", data)}
+        label={"Price"}
       />
       <DateFiled
         selectsRange
         className="w-full"
-        selected={getDateRangeStateValues(filters['createdAt'][0])}
-        startDate={getDateRangeStateValues(filters['createdAt'][0]) as Date}
-        endDate={getDateRangeStateValues(filters['createdAt'][1]) as Date}
+        selected={getDateRangeStateValues(filters["createdAt"][0])}
+        startDate={getDateRangeStateValues(filters["createdAt"][0]) as Date}
+        endDate={getDateRangeStateValues(filters["createdAt"][1]) as Date}
         onChange={(date: any) => {
-          updateFilter('createdAt', date);
+          updateFilter("createdAt", date);
         }}
         placeholderText="Select created date"
         {...(isMediumScreen && {
           inputProps: {
-            label: 'Created Date',
-            labelClassName: 'font-medium text-gray-700',
+            label: "Created Date",
+            labelClassName: "font-medium text-gray-700",
           },
         })}
       />
       <DateFiled
         selectsRange
         className="w-full"
-        selected={getDateRangeStateValues(filters['updatedAt'][0])}
-        startDate={getDateRangeStateValues(filters['updatedAt'][0]) as Date}
-        endDate={getDateRangeStateValues(filters['updatedAt'][1]) as Date}
+        selected={getDateRangeStateValues(filters["updatedAt"][0])}
+        startDate={getDateRangeStateValues(filters["updatedAt"][0]) as Date}
+        endDate={getDateRangeStateValues(filters["updatedAt"][1]) as Date}
         onChange={(date: any) => {
-          updateFilter('updatedAt', date);
+          updateFilter("updatedAt", date);
         }}
         placeholderText="Select modified date"
         {...(isMediumScreen && {
           inputProps: {
-            label: 'Due Date',
-            labelClassName: 'font-medium text-gray-700',
+            label: "Due Date",
+            labelClassName: "font-medium text-gray-700",
           },
         })}
       />
       <StatusField
         options={statusOptions}
-        value={filters['status']}
+        value={filters["status"]}
         onChange={(value: string) => {
-          updateFilter('status', value);
+          updateFilter("status", value);
         }}
         getOptionValue={(option: { value: any }) => option.value}
         getOptionDisplayValue={(option: { value: any }) =>
@@ -95,8 +95,8 @@ export default function FilterElement({
         }
         displayValue={(selected: string) => renderOptionDisplayValue(selected)}
         {...(isMediumScreen && {
-          label: 'Status',
-          labelClassName: 'font-medium text-gray-700',
+          label: "Status",
+          labelClassName: "font-medium text-gray-700",
         })}
         dropdownClassName="h-auto"
       />
@@ -118,7 +118,7 @@ export default function FilterElement({
 
 function renderOptionDisplayValue(value: string) {
   switch (value.toLowerCase()) {
-    case 'pending':
+    case "pending":
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
@@ -127,7 +127,7 @@ function renderOptionDisplayValue(value: string) {
           </Text>
         </div>
       );
-    case 'completed':
+    case "completed":
       return (
         <div className="flex items-center">
           <Badge color="success" renderAsDot />
@@ -136,7 +136,7 @@ function renderOptionDisplayValue(value: string) {
           </Text>
         </div>
       );
-    case 'cancelled':
+    case "cancelled":
       return (
         <div className="flex items-center">
           <Badge color="danger" renderAsDot />

@@ -1,7 +1,7 @@
-import { CartItem, Product, ProductColor } from '@/types';
-import { generateSlug } from '@core/utils/generate-slug';
+import { CartItem, Product, ProductColor } from "@/types";
+import { generateSlug } from "@/src/utils/generate-slug";
 
-interface CartProduct extends Omit<Product, 'colors' | 'sizes'> {
+interface CartProduct extends Omit<Product, "colors" | "sizes"> {
   color: ProductColor;
   size: number;
 }

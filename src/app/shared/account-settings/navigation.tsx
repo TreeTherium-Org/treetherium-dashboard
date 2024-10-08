@@ -1,43 +1,43 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Button, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { useScrollableSlider } from '@core/hooks/use-scrollable-slider';
-import { PiCaretLeftBold, PiCaretRightBold } from 'react-icons/pi';
-import { usePathname } from 'next/navigation';
-import { useLayout } from '@/layouts/use-layout';
-import { LAYOUT_OPTIONS } from '@/config/enums';
-import { useBerylliumSidebars } from '@/layouts/beryllium/beryllium-utils';
+import Link from "next/link";
+import { Button, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { useScrollableSlider } from "@/src/hooks/use-scrollable-slider";
+import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
+import { usePathname } from "next/navigation";
+import { useLayout } from "@/layouts/use-layout";
+import { LAYOUT_OPTIONS } from "@/config/enums";
+import { useBerylliumSidebars } from "@/layouts/beryllium/beryllium-utils";
 
 const menuItems = [
   {
-    label: 'My Details',
-    value: '/forms/profile-settings',
+    label: "My Details",
+    value: "/forms/profile-settings",
   },
   {
-    label: 'Profile',
-    value: '/forms/profile-settings/profile',
+    label: "Profile",
+    value: "/forms/profile-settings/profile",
   },
   {
-    label: 'Password',
-    value: '/forms/profile-settings/password',
+    label: "Password",
+    value: "/forms/profile-settings/password",
   },
   {
-    label: 'Team',
-    value: '/forms/profile-settings/team',
+    label: "Team",
+    value: "/forms/profile-settings/team",
   },
   {
-    label: 'Billing',
-    value: '/forms/profile-settings/billing',
+    label: "Billing",
+    value: "/forms/profile-settings/billing",
   },
   {
-    label: 'Notifications',
-    value: '/forms/profile-settings/notification',
+    label: "Notifications",
+    value: "/forms/profile-settings/notification",
   },
   {
-    label: 'Integrations',
-    value: '/forms/profile-settings/integration',
+    label: "Integrations",
+    value: "/forms/profile-settings/integration",
   },
 ];
 
@@ -55,15 +55,15 @@ export default function ProfileSettingsNav() {
   return (
     <div
       className={cn(
-        'sticky z-20 -mx-4 -mt-4 border-b border-muted bg-white px-4 py-0 font-medium text-gray-500 dark:bg-gray-50 sm:-mt-2 md:-mx-5 md:px-5 lg:-mx-8 lg:mt-0 lg:px-8 xl:-mx-6 xl:px-6 2xl:top-20 3xl:-mx-[33px] 3xl:px-[33px] 4xl:-mx-10 4xl:px-10',
+        "sticky z-20 -mx-4 -mt-4 border-b border-muted bg-white px-4 py-0 font-medium text-gray-500 dark:bg-gray-50 sm:-mt-2 md:-mx-5 md:px-5 lg:-mx-8 lg:mt-0 lg:px-8 xl:-mx-6 xl:px-6 2xl:top-20 3xl:-mx-[33px] 3xl:px-[33px] 4xl:-mx-10 4xl:px-10",
         layout === LAYOUT_OPTIONS.LITHIUM
-          ? 'top-[66px] sm:top-[70px] md:top-[73px]'
+          ? "top-[66px] sm:top-[70px] md:top-[73px]"
           : layout === LAYOUT_OPTIONS.BERYLLIUM
-            ? 'top-[62px] sm:top-[72px] 2xl:top-[72px]'
-            : 'top-[62px] md:top-[71px]',
+          ? "top-[62px] sm:top-[72px] 2xl:top-[72px]"
+          : "top-[62px] md:top-[71px]",
         layout === LAYOUT_OPTIONS.BERYLLIUM &&
           expandedLeft &&
-          'xl:-ms-1 xl:px-0 3xl:-ms-2 3xl:ps-0 4xl:-ms-2'
+          "xl:-ms-1 xl:px-0 3xl:-ms-2 3xl:ps-0 4xl:-ms-2"
       )}
     >
       <div className="relative flex items-center overflow-hidden">
@@ -86,10 +86,10 @@ export default function ProfileSettingsNav() {
                 href={`${menu.value}`}
                 key={`menu-${index}`}
                 className={cn(
-                  'group relative cursor-pointer whitespace-nowrap py-2.5 font-medium text-gray-500 before:absolute before:bottom-0 before:left-0 before:z-[1] before:h-0.5 before:bg-gray-1000 before:transition-all hover:text-gray-900',
+                  "group relative cursor-pointer whitespace-nowrap py-2.5 font-medium text-gray-500 before:absolute before:bottom-0 before:left-0 before:z-[1] before:h-0.5 before:bg-gray-1000 before:transition-all hover:text-gray-900",
                   menu.value.toLowerCase() === pathname
-                    ? 'before:visible before:w-full before:opacity-100'
-                    : 'before:invisible before:w-0 before:opacity-0'
+                    ? "before:visible before:w-full before:opacity-100"
+                    : "before:invisible before:w-0 before:opacity-0"
                 )}
               >
                 <Text

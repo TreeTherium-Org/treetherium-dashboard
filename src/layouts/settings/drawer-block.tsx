@@ -1,5 +1,5 @@
-import { Title } from 'rizzui';
-import cn from '@core/utils/class-names';
+import { Title } from "rizzui";
+import cn from "@/src/utils/class-names";
 
 export default function DrawerBlock({
   title,
@@ -7,11 +7,11 @@ export default function DrawerBlock({
   className,
 }: React.PropsWithChildren<{ title: string; className?: string }>) {
   return (
-    <div className={cn('mb-10 px-0.5', className)}>
+    <div className={cn("mb-10 px-0.5", className)}>
       <Title
         as="h6"
         className={cn(
-          'mb-3 font-inter text-[13px] font-medium uppercase tracking-wider text-gray-500'
+          "mb-3 font-inter text-[13px] font-medium uppercase tracking-wider text-gray-500"
         )}
       >
         {title}

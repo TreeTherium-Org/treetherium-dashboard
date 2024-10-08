@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import WorldMap from 'react-svg-worldmap';
-import WidgetCard from '@core/components/cards/widget-card';
-import { Badge, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { DatePicker } from '@core/ui/datepicker';
-import { useElementSize } from '@core/hooks/use-element-size';
+import { useState } from "react";
+import WorldMap from "react-svg-worldmap";
+import WidgetCard from "@/src/components/cards/widget-card";
+import { Badge, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { DatePicker } from "@/src/ui/datepicker";
+import { useElementSize } from "@/src/hooks/use-element-size";
 
 const data = [
-  { country: 'US', name: 'United States', value: 40, style: 'bg-[#028ca6]' },
-  { country: 'CA', name: 'Canada', value: 20, style: 'bg-[#8bcad6]' },
-  { country: 'IN', name: 'India', value: 15, style: 'bg-[#a1d4de]' },
-  { country: 'CN', name: 'China', value: 5, style: 'bg-[#cce8ed]' },
-  { country: 'GB', name: 'United Kingdom', value: 5, style: 'bg-[#cce8ed]' },
-  { country: 'FR', name: 'France', value: 5, style: 'bg-[#cce8ed]' },
+  { country: "US", name: "United States", value: 40, style: "bg-[#028ca6]" },
+  { country: "CA", name: "Canada", value: 20, style: "bg-[#8bcad6]" },
+  { country: "IN", name: "India", value: 15, style: "bg-[#a1d4de]" },
+  { country: "CN", name: "China", value: 5, style: "bg-[#cce8ed]" },
+  { country: "GB", name: "United Kingdom", value: 5, style: "bg-[#cce8ed]" },
+  { country: "FR", name: "France", value: 5, style: "bg-[#cce8ed]" },
 ];
 
 export default function UserLocation({ className }: { className?: string }) {
@@ -22,7 +22,7 @@ export default function UserLocation({ className }: { className?: string }) {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   return (
     <WidgetCard
-      title={'User Location'}
+      title={"User Location"}
       action={
         <DatePicker
           selected={startDate}
@@ -32,14 +32,14 @@ export default function UserLocation({ className }: { className?: string }) {
           showMonthYearPicker
           popperPlacement="bottom-end"
           inputProps={{
-            variant: 'text',
-            inputClassName: 'p-0 px-1 h-auto [&_input]:text-ellipsis',
+            variant: "text",
+            inputClassName: "p-0 px-1 h-auto [&_input]:text-ellipsis",
           }}
           className="w-36"
         />
       }
       className={cn(
-        'relative grid grid-cols-1 place-content-between gap-3',
+        "relative grid grid-cols-1 place-content-between gap-3",
         className
       )}
     >
@@ -54,7 +54,7 @@ export default function UserLocation({ className }: { className?: string }) {
         <div className="mx-auto flex w-full max-w-md flex-wrap justify-center gap-x-3 gap-y-1.5 text-center">
           {data.map((country) => (
             <div key={country.name} className="flex items-center gap-1">
-              <Badge renderAsDot className={cn(country.style, 'dark:invert')} />
+              <Badge renderAsDot className={cn(country.style, "dark:invert")} />
               <Text className="text-gray-500 dark:text-gray-600">
                 {country.name}
                 <Text

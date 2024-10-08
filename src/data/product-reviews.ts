@@ -1,8 +1,8 @@
-import { getRandomArrayElement } from '@core/utils/get-random-array-element';
+import { getRandomArrayElement } from "@/src/utils/get-random-array-element";
 
-const reviewStatus = ['Approved', 'Rejected', 'Pending'];
+const reviewStatus = ["Approved", "Rejected", "Pending"];
 
-import { avatarIds } from '@core/utils/get-avatar';
+import { avatarIds } from "@/src/utils/get-avatar";
 
 export type Review = {
   id: string;
@@ -20,78 +20,78 @@ export type Review = {
 
 export const productReviews = [
   {
-    id: '13803',
+    id: "13803",
     product: {
-      name: 'Modern Frozen Sausages',
-      category: 'Books',
+      name: "Modern Frozen Sausages",
+      category: "Books",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/1.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/1.webp",
     },
     review:
-      'The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design',
+      "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
     customer: {
-      name: 'Karen Russel',
+      name: "Karen Russel",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 4,
-    createdAt: new Date('2022-11-12T13:43:07.334Z'),
+    createdAt: new Date("2022-11-12T13:43:07.334Z"),
   },
   {
-    id: '60586',
+    id: "60586",
     product: {
-      name: 'Unbranded Fresh Shirt',
-      category: 'Garden',
+      name: "Unbranded Fresh Shirt",
+      category: "Garden",
 
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/2.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/2.webp",
     },
     review:
-      'Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals',
+      "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
     customer: {
-      name: 'Irvin Ledner',
+      name: "Irvin Ledner",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 3,
-    createdAt: new Date('2023-03-09T20:11:21.277Z'),
+    createdAt: new Date("2023-03-09T20:11:21.277Z"),
   },
   {
-    id: '48211',
+    id: "48211",
     product: {
-      name: 'Modern Metal Fish',
-      category: 'Games',
+      name: "Modern Metal Fish",
+      category: "Games",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/3.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/3.webp",
     },
     review:
       "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
     customer: {
-      name: 'Opal Brakus Sr.',
+      name: "Opal Brakus Sr.",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2023-08-05T22:34:06.843Z'),
+    createdAt: new Date("2023-08-05T22:34:06.843Z"),
   },
   {
-    id: '40681',
+    id: "40681",
     product: {
-      name: 'Sleek Rubber Tuna',
-      category: 'Electronics',
+      name: "Sleek Rubber Tuna",
+      category: "Electronics",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/4.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/4.webp",
     },
     review:
-      'Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support',
+      "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
     customer: {
-      name: 'Kara Reilly IV',
+      name: "Kara Reilly IV",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -99,40 +99,40 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 4,
-    createdAt: new Date('2023-04-29T23:36:04.580Z'),
+    createdAt: new Date("2023-04-29T23:36:04.580Z"),
   },
   {
-    id: '64606',
+    id: "64606",
     product: {
-      name: 'Awesome Bronze Gloves',
-      category: 'Industrial',
+      name: "Awesome Bronze Gloves",
+      category: "Industrial",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/5.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/5.webp",
     },
     review:
-      'Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals',
+      "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
     customer: {
-      name: 'Essie Bernier',
+      name: "Essie Bernier",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 3,
-    createdAt: new Date('2023-04-25T02:18:32.327Z'),
+    createdAt: new Date("2023-04-25T02:18:32.327Z"),
   },
   {
-    id: '46379',
+    id: "46379",
     product: {
-      name: 'Unbranded Frozen Cheese',
-      category: 'Games',
+      name: "Unbranded Frozen Cheese",
+      category: "Games",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/6.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/6.webp",
     },
     review:
-      'The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients',
+      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
     customer: {
-      name: 'Jamie Pfannerstill',
+      name: "Jamie Pfannerstill",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -140,20 +140,20 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 2,
-    createdAt: new Date('2022-11-26T06:55:37.822Z'),
+    createdAt: new Date("2022-11-26T06:55:37.822Z"),
   },
   {
-    id: '42080',
+    id: "42080",
     product: {
-      name: 'Intelligent Bronze Salad',
-      category: 'Music',
+      name: "Intelligent Bronze Salad",
+      category: "Music",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/7.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/7.webp",
     },
     review:
-      'New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart',
+      "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
     customer: {
-      name: 'Jordan Smitham',
+      name: "Jordan Smitham",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -161,119 +161,119 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 4,
-    createdAt: new Date('2022-09-08T07:29:49.952Z'),
+    createdAt: new Date("2022-09-08T07:29:49.952Z"),
   },
   {
-    id: '11926',
+    id: "11926",
     product: {
-      name: 'Refined Fresh Computer',
-      category: 'Games',
+      name: "Refined Fresh Computer",
+      category: "Games",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/8.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/8.webp",
     },
-    review: 'The Football Is Good For Training And Recreational Purposes',
+    review: "The Football Is Good For Training And Recreational Purposes",
     customer: {
-      name: 'Ray Breitenberg',
+      name: "Ray Breitenberg",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 2,
-    createdAt: new Date('2023-02-02T14:34:50.655Z'),
+    createdAt: new Date("2023-02-02T14:34:50.655Z"),
   },
   {
-    id: '99629',
+    id: "99629",
     product: {
-      name: 'Elegant Plastic Chicken',
-      category: 'Beauty',
+      name: "Elegant Plastic Chicken",
+      category: "Beauty",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/9.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/9.webp",
     },
     review:
-      'Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals',
+      "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
     customer: {
-      name: 'Blanca Kuhic',
+      name: "Blanca Kuhic",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2023-08-14T05:10:13.336Z'),
+    createdAt: new Date("2023-08-14T05:10:13.336Z"),
   },
   {
-    id: '86933',
+    id: "86933",
     product: {
-      name: 'Unbranded Soft Shoes',
-      category: 'Music',
+      name: "Unbranded Soft Shoes",
+      category: "Music",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/10.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/10.webp",
     },
     review:
-      'The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality',
+      "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
     customer: {
-      name: 'Cesar Reinger',
+      name: "Cesar Reinger",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2023-08-16T12:17:10.416Z'),
+    createdAt: new Date("2023-08-16T12:17:10.416Z"),
   },
   {
-    id: '75429',
+    id: "75429",
     product: {
-      name: 'Fantastic Concrete Car',
-      category: 'Music',
+      name: "Fantastic Concrete Car",
+      category: "Music",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/11.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/11.webp",
     },
     review:
-      'The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive',
+      "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
     customer: {
-      name: 'Philip Kub',
+      name: "Philip Kub",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 2,
-    createdAt: new Date('2023-01-09T20:30:19.472Z'),
+    createdAt: new Date("2023-01-09T20:30:19.472Z"),
   },
   {
-    id: '07643',
+    id: "07643",
     product: {
-      name: 'Licensed Granite Keyboard',
-      category: 'Jewelery',
+      name: "Licensed Granite Keyboard",
+      category: "Jewelery",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/12.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/12.webp",
     },
     review:
-      'The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients',
+      "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
     customer: {
-      name: 'Doreen Reilly IV',
+      name: "Doreen Reilly IV",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 3,
-    createdAt: new Date('2023-02-07T18:07:53.234Z'),
+    createdAt: new Date("2023-02-07T18:07:53.234Z"),
   },
   {
-    id: '61950',
+    id: "61950",
     product: {
-      name: 'Incredible Concrete Computer',
-      category: 'Sports',
+      name: "Incredible Concrete Computer",
+      category: "Sports",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/13.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/13.webp",
     },
     review:
-      'New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016',
+      "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
     customer: {
-      name: 'Ada Hartmann',
+      name: "Ada Hartmann",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -281,40 +281,40 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2023-08-14T05:48:39.101Z'),
+    createdAt: new Date("2023-08-14T05:48:39.101Z"),
   },
   {
-    id: '07857',
+    id: "07857",
     product: {
-      name: 'Unbranded Steel Gloves',
-      category: 'Outdoors',
+      name: "Unbranded Steel Gloves",
+      category: "Outdoors",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/14.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/14.webp",
     },
     review:
-      'New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart',
+      "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
     customer: {
-      name: 'Dave Corkery',
+      name: "Dave Corkery",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 3,
-    createdAt: new Date('2022-11-28T22:54:11.147Z'),
+    createdAt: new Date("2022-11-28T22:54:11.147Z"),
   },
   {
-    id: '79280',
+    id: "79280",
     product: {
-      name: 'Modern Metal Cheese',
-      category: 'Health',
+      name: "Modern Metal Cheese",
+      category: "Health",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/15.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/15.webp",
     },
     review:
-      'Carbonite web goalkeeper gloves are ergonomically designed to give easy fit',
+      "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
     customer: {
-      name: 'Jerald Moore Jr.',
+      name: "Jerald Moore Jr.",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -322,20 +322,20 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2022-11-01T01:05:24.896Z'),
+    createdAt: new Date("2022-11-01T01:05:24.896Z"),
   },
   {
-    id: '72211',
+    id: "72211",
     product: {
-      name: 'Tasty Bronze Gloves',
-      category: 'Outdoors',
+      name: "Tasty Bronze Gloves",
+      category: "Outdoors",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/16.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/16.webp",
     },
     review:
-      'Carbonite web goalkeeper gloves are ergonomically designed to give easy fit',
+      "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
     customer: {
-      name: 'Ruben Kub',
+      name: "Ruben Kub",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -343,61 +343,61 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2023-07-25T09:53:52.751Z'),
+    createdAt: new Date("2023-07-25T09:53:52.751Z"),
   },
   {
-    id: '30855',
+    id: "30855",
     product: {
-      name: 'Small Rubber Chair',
-      category: 'Electronics',
+      name: "Small Rubber Chair",
+      category: "Electronics",
 
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/7.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/7.webp",
     },
     review:
-      'The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive',
+      "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
     customer: {
-      name: 'Ms. Nicole Jakubowski',
+      name: "Ms. Nicole Jakubowski",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 3,
-    createdAt: new Date('2023-01-16T21:53:25.463Z'),
+    createdAt: new Date("2023-01-16T21:53:25.463Z"),
   },
   {
-    id: '18914',
+    id: "18914",
     product: {
-      name: 'Tasty Granite Hat',
-      category: 'Kids',
+      name: "Tasty Granite Hat",
+      category: "Kids",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/6.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/6.webp",
     },
     review:
-      'New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016',
+      "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
     customer: {
-      name: 'Marie Tillman',
+      name: "Marie Tillman",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 2,
-    createdAt: new Date('2023-01-16T23:50:33.073Z'),
+    createdAt: new Date("2023-01-16T23:50:33.073Z"),
   },
   {
-    id: '31051',
+    id: "31051",
     product: {
-      name: 'Recycled Bronze Shirt',
-      category: 'Movies',
+      name: "Recycled Bronze Shirt",
+      category: "Movies",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/5.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/5.webp",
     },
     review:
       "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
     customer: {
-      name: 'Frank Lynch',
+      name: "Frank Lynch",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -405,20 +405,20 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2023-01-15T00:41:20.987Z'),
+    createdAt: new Date("2023-01-15T00:41:20.987Z"),
   },
   {
-    id: '40238',
+    id: "40238",
     product: {
-      name: 'Gorgeous Wooden Ball',
-      category: 'Computers',
+      name: "Gorgeous Wooden Ball",
+      category: "Computers",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/4.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/4.webp",
     },
     review:
-      'The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J',
+      "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
     customer: {
-      name: 'Jackie Mohr',
+      name: "Jackie Mohr",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -426,19 +426,19 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2023-07-08T14:40:13.878Z'),
+    createdAt: new Date("2023-07-08T14:40:13.878Z"),
   },
   {
-    id: '42822',
+    id: "42822",
     product: {
-      name: 'Ergonomic Granite Soap',
-      category: 'Outdoors',
+      name: "Ergonomic Granite Soap",
+      category: "Outdoors",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/3.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/3.webp",
     },
-    review: 'The Football Is Good For Training And Recreational Purposes',
+    review: "The Football Is Good For Training And Recreational Purposes",
     customer: {
-      name: 'Mrs. Claire Berge',
+      name: "Mrs. Claire Berge",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -446,20 +446,20 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2023-01-06T15:28:20.645Z'),
+    createdAt: new Date("2023-01-06T15:28:20.645Z"),
   },
   {
-    id: '64537',
+    id: "64537",
     product: {
-      name: 'Handmade Steel Towels',
-      category: 'Beauty',
+      name: "Handmade Steel Towels",
+      category: "Beauty",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/2.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/2.webp",
     },
     review:
-      'Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals',
+      "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
     customer: {
-      name: 'Mr. Bradford Sauer',
+      name: "Mr. Bradford Sauer",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -467,99 +467,99 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2022-09-01T22:39:24.001Z'),
+    createdAt: new Date("2022-09-01T22:39:24.001Z"),
   },
   {
-    id: '34101',
+    id: "34101",
     product: {
-      name: 'Tasty Frozen Chicken',
-      category: 'Music',
+      name: "Tasty Frozen Chicken",
+      category: "Music",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/1.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/1.webp",
     },
     review:
-      'The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality',
+      "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
     customer: {
-      name: 'Mrs. Connie Schaden',
+      name: "Mrs. Connie Schaden",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 5,
-    createdAt: new Date('2022-11-09T13:51:57.982Z'),
+    createdAt: new Date("2022-11-09T13:51:57.982Z"),
   },
   {
-    id: '24043',
+    id: "24043",
     product: {
-      name: 'Ergonomic Concrete Tuna',
-      category: 'Grocery',
+      name: "Ergonomic Concrete Tuna",
+      category: "Grocery",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/7.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/7.webp",
     },
     review:
-      'The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design',
+      "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
     customer: {
-      name: 'Freddie VonRueden',
+      name: "Freddie VonRueden",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 3,
-    createdAt: new Date('2023-02-11T12:10:59.935Z'),
+    createdAt: new Date("2023-02-11T12:10:59.935Z"),
   },
   {
-    id: '80797',
+    id: "80797",
     product: {
-      name: 'Modern Bronze Ball',
-      category: 'Sports',
+      name: "Modern Bronze Ball",
+      category: "Sports",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/8.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/8.webp",
     },
     review:
-      'The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design',
+      "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
     customer: {
-      name: 'Dr. Lindsay Shanahan',
+      name: "Dr. Lindsay Shanahan",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 4,
-    createdAt: new Date('2023-04-30T22:32:51.750Z'),
+    createdAt: new Date("2023-04-30T22:32:51.750Z"),
   },
   {
-    id: '98504',
+    id: "98504",
     product: {
-      name: 'Fantastic Soft Fish',
-      category: 'Electronics',
+      name: "Fantastic Soft Fish",
+      category: "Electronics",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/9.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/9.webp",
     },
     review:
       "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
     customer: {
-      name: 'Winifred Keeling',
+      name: "Winifred Keeling",
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
       )}.webp`,
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 3,
-    createdAt: new Date('2023-03-26T16:53:07.336Z'),
+    createdAt: new Date("2023-03-26T16:53:07.336Z"),
   },
   {
-    id: '23650',
+    id: "23650",
     product: {
-      name: 'Tasty Granite Gloves',
-      category: 'Toys',
+      name: "Tasty Granite Gloves",
+      category: "Toys",
       image:
-        'https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/10.webp',
+        "https://isomorphic-furyroad.s3.amazonaws.com/public/products/modern/10.webp",
     },
-    review: 'The Football Is Good For Training And Recreational Purposes',
+    review: "The Football Is Good For Training And Recreational Purposes",
     customer: {
-      name: 'Kara Huels',
+      name: "Kara Huels",
 
       avatar: `https://isomorphic-furyroad.s3.amazonaws.com/public/avatars-blur/avatar-${getRandomArrayElement(
         avatarIds
@@ -567,6 +567,6 @@ export const productReviews = [
     },
     status: getRandomArrayElement(reviewStatus),
     rating: 2,
-    createdAt: new Date('2023-06-21T15:55:13.465Z'),
+    createdAt: new Date("2023-06-21T15:55:13.465Z"),
   },
 ];

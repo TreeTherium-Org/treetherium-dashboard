@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Badge, ActionIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
-import SearchWidget from '@/app/shared/search/search';
-import MessagesDropdown from '@/layouts/messages-dropdown';
-import NotificationDropdown from '@/layouts/notification-dropdown';
-import ProfileMenu from '@/layouts/profile-menu';
-import SettingsButton from '@/layouts/settings-button';
-import HamburgerButton from '@/layouts/hamburger-button';
-import Logo from '@core/components/logo';
+import Link from "next/link";
+import { Badge, ActionIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
+import SearchWidget from "@/app/shared/search/search";
+import MessagesDropdown from "@/layouts/messages-dropdown";
+import NotificationDropdown from "@/layouts/notification-dropdown";
+import ProfileMenu from "@/layouts/profile-menu";
+import SettingsButton from "@/layouts/settings-button";
+import HamburgerButton from "@/layouts/hamburger-button";
+import Logo from "@/src/components/logo";
 import {
   PiBellSimpleRingingDuotone,
   PiChatsCircleDuotone,
   PiGearDuotone,
   PiMagnifyingGlassDuotone,
-} from 'react-icons/pi';
-import HeaderMenuLeft from '@/layouts/lithium/lithium-menu';
-import Sidebar from '@/layouts/hydrogen/sidebar';
-import StickyHeader from '@/layouts/sticky-header';
+} from "react-icons/pi";
+import HeaderMenuLeft from "@/layouts/lithium/lithium-menu";
+import Sidebar from "@/layouts/hydrogen/sidebar";
+import StickyHeader from "@/layouts/sticky-header";
 
 function HeaderMenuRight() {
   return (
@@ -28,7 +28,7 @@ function HeaderMenuRight() {
           aria-label="Messages"
           variant="text"
           className={cn(
-            'relative h-[34px] w-[34px] overflow-hidden rounded-full md:h-9 md:w-9 3xl:h-10 3xl:w-10'
+            "relative h-[34px] w-[34px] overflow-hidden rounded-full md:h-9 md:w-9 3xl:h-10 3xl:w-10"
           )}
         >
           <PiChatsCircleDuotone className="h-6 w-auto" />
@@ -45,7 +45,7 @@ function HeaderMenuRight() {
           aria-label="Notification"
           variant="text"
           className={cn(
-            'relative h-[34px] w-[34px] overflow-hidden rounded-full md:h-9 md:w-9 3xl:h-10 3xl:w-10'
+            "relative h-[34px] w-[34px] overflow-hidden rounded-full md:h-9 md:w-9 3xl:h-10 3xl:w-10"
           )}
         >
           <PiBellSimpleRingingDuotone className="h-6 w-auto" />
@@ -71,12 +71,12 @@ function HeaderMenuRight() {
 export default function Header() {
   return (
     <StickyHeader
-      className={'z-[990] justify-between 2xl:py-5 2xl:pl-6 3xl:px-8'}
+      className={"z-[990] justify-between 2xl:py-5 2xl:pl-6 3xl:px-8"}
     >
       <div className="hidden items-center gap-3 xl:flex">
         <Link
           aria-label="Site Logo"
-          href={'/'}
+          href={"/"}
           className="me-4 hidden w-[155px] shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:block"
         >
           <Logo className="max-w-[155px]" />
@@ -90,7 +90,7 @@ export default function Header() {
           />
           <Link
             aria-label="Site Logo"
-            href={'/'}
+            href={"/"}
             className="me-4 w-9 shrink-0 text-gray-800 hover:text-gray-900 lg:me-5 xl:hidden"
           >
             <Logo iconOnly={true} />
@@ -98,7 +98,7 @@ export default function Header() {
           <SearchWidget
             icon={<PiMagnifyingGlassDuotone className="h-[20px] w-[20px]" />}
             className={cn(
-              'text-gray-700 hover:text-gray-900 focus-visible:outline-0 active:translate-y-0 xl:border-0 xl:p-0 xl:shadow-none xl:backdrop-blur-none xl:hover:border-0 xl:hover:outline-0 xl:focus:outline-0 xl:focus-visible:outline-0 [&_.magnifying-glass]:me-0 [&_.placeholder-text]:hidden [&_.search-command]:ms-2 [&_.search-command]:hidden [&_.search-command]:lg:text-gray-0'
+              "text-gray-700 hover:text-gray-900 focus-visible:outline-0 active:translate-y-0 xl:border-0 xl:p-0 xl:shadow-none xl:backdrop-blur-none xl:hover:border-0 xl:hover:outline-0 xl:focus:outline-0 xl:focus-visible:outline-0 [&_.magnifying-glass]:me-0 [&_.placeholder-text]:hidden [&_.search-command]:ms-2 [&_.search-command]:hidden [&_.search-command]:lg:text-gray-0"
             )}
           />
         </div>

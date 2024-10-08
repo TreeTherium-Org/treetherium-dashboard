@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import { DatePicker } from '@core/ui/datepicker';
-import WidgetCard from '@core/components/cards/widget-card';
-import { Button, Text } from 'rizzui';
-import { topProducts } from '@/data/top-products-data';
-import Rating from '@core/components/rating';
+import { useState } from "react";
+import Image from "next/image";
+import { DatePicker } from "@/src/ui/datepicker";
+import WidgetCard from "@/src/components/cards/widget-card";
+import { Button, Text } from "rizzui";
+import { topProducts } from "@/data/top-products-data";
+import Rating from "@/src/components/rating";
 
 const currentDate = new Date();
 const previousMonthDate = new Date(
@@ -23,7 +23,7 @@ export default function BestSellers({ className }: { className?: string }) {
 
   return (
     <WidgetCard
-      title={'Top Products'}
+      title={"Top Products"}
       description={
         <>
           Overview:
@@ -36,9 +36,9 @@ export default function BestSellers({ className }: { className?: string }) {
             placeholderText="Select Date in a Range"
             selectsRange
             inputProps={{
-              variant: 'text',
-              inputClassName: 'p-0 pe-1 h-auto ms-2 [&_input]:text-ellipsis',
-              prefixClassName: 'hidden',
+              variant: "text",
+              inputClassName: "p-0 pe-1 h-auto ms-2 [&_input]:text-ellipsis",
+              prefixClassName: "hidden",
             }}
           />
         </>

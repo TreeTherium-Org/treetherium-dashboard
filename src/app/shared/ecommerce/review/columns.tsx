@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { HeaderCell } from '@/app/shared/table';
+import { HeaderCell } from "@/app/shared/table";
 import {
   Checkbox,
   Badge,
@@ -10,24 +10,24 @@ import {
   Text,
   Button,
   Popover,
-} from 'rizzui';
-import TrashIcon from '@core/components/icons/trash';
-import PencilIcon from '@core/components/icons/pencil';
-import { PiDotsThreeVerticalBold, PiStarFill, PiXBold } from 'react-icons/pi';
-import AvatarCard from '@core/ui/avatar-card';
-import DateCell from '@core/ui/date-cell';
+} from "rizzui";
+import TrashIcon from "@/src/components/icons/trash";
+import PencilIcon from "@/src/components/icons/pencil";
+import { PiDotsThreeVerticalBold, PiStarFill, PiXBold } from "react-icons/pi";
+import AvatarCard from "@/src/ui/avatar-card";
+import DateCell from "@/src/ui/date-cell";
 
 // get status badge
 function getStatusBadge(status: string) {
   switch (status.toLowerCase()) {
-    case 'pending':
+    case "pending":
       return (
         <div className="flex items-center">
           <Badge color="warning" renderAsDot />
           <Text className="ms-2 font-medium text-orange-dark">{status}</Text>
         </div>
       );
-    case 'approved':
+    case "approved":
       return (
         <div className="flex items-center">
           <Badge color="success" renderAsDot />
@@ -59,8 +59,8 @@ export const getColumns = ({
 }: Columns) => [
   {
     title: <></>,
-    dataIndex: 'checked',
-    key: 'checked',
+    dataIndex: "checked",
+    key: "checked",
     width: 30,
     render: (_: any, row: any) => (
       <div className="inline-flex ps-2">
@@ -74,22 +74,22 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="ID" />,
-    dataIndex: 'id',
-    key: 'id',
+    dataIndex: "id",
+    key: "id",
     width: 150,
     render: (id: any) => <Text className="text-sm text-gray-500">RW-{id}</Text>,
   },
   {
     title: <HeaderCell title="Customer Review" />,
-    dataIndex: 'customer',
-    key: 'customer',
+    dataIndex: "customer",
+    key: "customer",
     width: 350,
     render: (customer: any, row: any) => (
       <div className="flex items-center">
         <Avatar name={customer.name} src={customer.avatar} />
         <div className="ms-3 pe-4">
           <Title as="h6" className="mb-1 !text-sm font-medium">
-            <span className="font-normal text-gray-500">By</span>{' '}
+            <span className="font-normal text-gray-500">By</span>{" "}
             {customer.name}
           </Title>
           <Text className="leading-relaxed text-gray-500">{row.review}</Text>
@@ -103,13 +103,13 @@ export const getColumns = ({
         title="Rating"
         sortable
         ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'rating'
+          sortConfig?.direction === "asc" && sortConfig?.key === "rating"
         }
       />
     ),
-    onHeaderCell: () => onHeaderCellClick('rating'),
-    dataIndex: 'rating',
-    key: 'rating',
+    onHeaderCell: () => onHeaderCellClick("rating"),
+    dataIndex: "rating",
+    key: "rating",
     width: 120,
     render: (rating: any) => (
       <div className="inline-flex items-center rounded-full border border-gray-300 px-2.5 py-1">
@@ -120,8 +120,8 @@ export const getColumns = ({
   },
   {
     title: <HeaderCell title="Product" />,
-    dataIndex: 'product',
-    key: 'product',
+    dataIndex: "product",
+    key: "product",
     width: 300,
     render: ({
       name,
@@ -138,8 +138,8 @@ export const getColumns = ({
         description={category}
         avatarProps={{
           name: name,
-          size: 'lg',
-          className: 'rounded-lg',
+          size: "lg",
+          className: "rounded-lg",
         }}
       />
     ),
@@ -150,27 +150,27 @@ export const getColumns = ({
         title="Created"
         sortable
         ascending={
-          sortConfig?.direction === 'asc' && sortConfig?.key === 'createdAt'
+          sortConfig?.direction === "asc" && sortConfig?.key === "createdAt"
         }
       />
     ),
-    onHeaderCell: () => onHeaderCellClick('createdAt'),
-    dataIndex: 'createdAt',
-    key: 'createdAt',
+    onHeaderCell: () => onHeaderCellClick("createdAt"),
+    dataIndex: "createdAt",
+    key: "createdAt",
     width: 150,
     render: (value: Date) => <DateCell date={value} />,
   },
   {
     title: <HeaderCell title="Status" />,
-    dataIndex: 'status',
-    key: 'status',
+    dataIndex: "status",
+    key: "status",
     width: 120,
     render: (value: string) => getStatusBadge(value),
   },
   {
     title: <></>,
-    dataIndex: 'action',
-    key: 'action',
+    dataIndex: "action",
+    key: "action",
     width: 50,
     render: (_: string, row: any) => (
       <Popover placement="left">

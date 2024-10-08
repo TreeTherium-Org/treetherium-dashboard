@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import { useCallback, useMemo, useState } from 'react';
-import dynamic from 'next/dynamic';
-import { useTable } from '@core/hooks/use-table';
-import { useColumn } from '@core/hooks/use-column';
-import ControlledTable from '@/app/shared/controlled-table/index';
-import { getColumns } from '@/app/shared/roles-permissions/users-table/columns';
+import { useCallback, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
+import { useTable } from "@/src/hooks/use-table";
+import { useColumn } from "@/src/hooks/use-column";
+import ControlledTable from "@/app/shared/controlled-table/index";
+import { getColumns } from "@/app/shared/roles-permissions/users-table/columns";
 const FilterElement = dynamic(
-  () => import('@/app/shared/roles-permissions/users-table/filter-element'),
+  () => import("@/app/shared/roles-permissions/users-table/filter-element"),
   { ssr: false }
 );
-const TableFooter = dynamic(() => import('@/app/shared/table-footer'), {
+const TableFooter = dynamic(() => import("@/app/shared/table-footer"), {
   ssr: false,
 });
 
 const filterState = {
-  role: '',
-  status: '',
+  role: "",
+  status: "",
 };
 
 export default function UsersTable({ data = [] }: { data: any[] }) {

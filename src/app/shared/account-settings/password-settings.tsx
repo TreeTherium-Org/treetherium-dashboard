@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { SubmitHandler, Controller } from 'react-hook-form';
-import { PiDesktop } from 'react-icons/pi';
-import { Form } from '@core/ui/form';
-import { Button, Password, Title, Text } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { ProfileHeader } from '@/app/shared/account-settings/profile-settings';
-import HorizontalFormBlockWrapper from '@/app/shared/account-settings/horiozontal-block';
+import { useState } from "react";
+import { SubmitHandler, Controller } from "react-hook-form";
+import { PiDesktop } from "react-icons/pi";
+import { Form } from "@/src/ui/form";
+import { Button, Password, Title, Text } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { ProfileHeader } from "@/app/shared/account-settings/profile-settings";
+import HorizontalFormBlockWrapper from "@/app/shared/account-settings/horiozontal-block";
 import {
   passwordFormSchema,
   PasswordFormTypes,
-} from '@/validators/password-settings.schema';
+} from "@/validators/password-settings.schema";
 
 export default function PasswordSettingsView({
   settings,
@@ -25,11 +25,11 @@ export default function PasswordSettingsView({
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      console.log('Password settings data ->', data);
+      console.log("Password settings data ->", data);
       setReset({
-        currentPassword: '',
-        newPassword: '',
-        confirmedPassword: '',
+        currentPassword: "",
+        newPassword: "",
+        confirmedPassword: "",
       });
     }, 600);
   };
@@ -42,7 +42,7 @@ export default function PasswordSettingsView({
         onSubmit={onSubmit}
         className="@container"
         useFormProps={{
-          mode: 'onChange',
+          mode: "onChange",
           defaultValues: {
             ...settings,
           },
@@ -62,7 +62,7 @@ export default function PasswordSettingsView({
                   titleClassName="text-base font-medium"
                 >
                   <Password
-                    {...register('currentPassword')}
+                    {...register("currentPassword")}
                     placeholder="Enter your password"
                     error={errors.currentPassword?.message}
                   />
@@ -80,7 +80,7 @@ export default function PasswordSettingsView({
                         placeholder="Enter your password"
                         helperText={
                           getValues().newPassword.length < 8 &&
-                          'Your current password must be more than 8 characters'
+                          "Your current password must be more than 8 characters"
                         }
                         onChange={onChange}
                         error={errors.newPassword?.message}
@@ -127,7 +127,7 @@ export default function PasswordSettingsView({
 // Logged devices
 function LoggedDevices({ className }: { className?: string }) {
   return (
-    <div className={cn('mx-auto w-full max-w-screen-2xl', className)}>
+    <div className={cn("mx-auto w-full max-w-screen-2xl", className)}>
       <div className="border-b border-dashed border-muted">
         <Title as="h2" className="mb-3 text-xl font-bold text-gray-900">
           Where you’re logged in

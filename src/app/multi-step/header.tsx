@@ -1,27 +1,27 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { FiSave } from 'react-icons/fi';
-import { Button } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { useMedia } from '@core/hooks/use-media';
-import { siteConfig } from '@/config/site.config';
+import Link from "next/link";
+import Image from "next/image";
+import { FiSave } from "react-icons/fi";
+import { Button } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { useMedia } from "@/src/hooks/use-media";
+import { siteConfig } from "@/config/site.config";
 
 interface FooterProps {
   className?: string;
 }
 
 export default function Header({ className }: FooterProps) {
-  const isMobile = useMedia('(max-width: 767px)', false);
+  const isMobile = useMedia("(max-width: 767px)", false);
   return (
     <header
       className={cn(
-        'flex w-full items-center justify-between px-4 py-5 md:h-20 md:px-5 lg:px-8 4xl:px-10',
+        "flex w-full items-center justify-between px-4 py-5 md:h-20 md:px-5 lg:px-8 4xl:px-10",
         className
       )}
     >
-      <Link href={'/'}>
+      <Link href={"/"}>
         <Image
           src={isMobile ? siteConfig.icon : siteConfig.logo}
           alt={siteConfig.title}

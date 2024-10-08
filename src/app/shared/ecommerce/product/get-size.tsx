@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Controller, useFormContext } from 'react-hook-form';
-import { AdvancedRadio, FieldError, RadioGroup } from 'rizzui';
-import cn from '@core/utils/class-names';
+import { Controller, useFormContext } from "react-hook-form";
+import { AdvancedRadio, FieldError, RadioGroup } from "rizzui";
+import cn from "@/src/utils/class-names";
 
 export default function GetSize({ sizes }: { sizes?: number[] }) {
   const {
@@ -28,9 +28,9 @@ export default function GetSize({ sizes }: { sizes?: number[] }) {
                   key={size}
                   value={size}
                   contentClassName={cn(
-                    'px-3 py-2 min-w-[unset] min-h-[unset] flex items-center justify-between content-classname',
+                    "px-3 py-2 min-w-[unset] min-h-[unset] flex items-center justify-between content-classname",
                     String(size) === String(value) &&
-                      'border-primary ring-primary ring-1'
+                      "border-primary ring-primary ring-1"
                   )}
                 >
                   {size}

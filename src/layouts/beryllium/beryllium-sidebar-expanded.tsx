@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { Collapse } from 'rizzui';
-import cn from '@core/utils/class-names';
-import { useBerylliumSidebars } from '@/layouts/beryllium/beryllium-utils';
-import { useAtomValue } from 'jotai';
+import { Collapse } from "rizzui";
+import cn from "@/src/utils/class-names";
+import { useBerylliumSidebars } from "@/layouts/beryllium/beryllium-utils";
+import { useAtomValue } from "jotai";
 import {
   ItemType,
   berylliumMenuItemAtom,
-} from '@/layouts/beryllium/beryllium-fixed-menu-items';
-import { Fragment } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { PiCaretDownBold } from 'react-icons/pi';
-import SimpleBar from '@core/ui/simplebar';
-import StatusBadge from '@core/components/get-status-badge';
-import { useColorPresetName } from '@/layouts/settings/use-theme-color';
+} from "@/layouts/beryllium/beryllium-fixed-menu-items";
+import { Fragment } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { PiCaretDownBold } from "react-icons/pi";
+import SimpleBar from "@/src/ui/simplebar";
+import StatusBadge from "@/src/components/get-status-badge";
+import { useColorPresetName } from "@/layouts/settings/use-theme-color";
 
 function LinkMenuItem({ item }: { item: ItemType }) {
   const { colorPresetName } = useColorPresetName();
@@ -23,14 +23,14 @@ function LinkMenuItem({ item }: { item: ItemType }) {
   const Icon = item.icon;
   return (
     <Link
-      href={item.href ?? '/'}
+      href={item.href ?? "/"}
       className={cn(
-        'flex items-center justify-between gap-3 rounded-2xl px-4 py-2 font-medium duration-200',
+        "flex items-center justify-between gap-3 rounded-2xl px-4 py-2 font-medium duration-200",
         isActive
-          ? colorPresetName === 'black'
-            ? 'bg-gray-100 text-primary dark:bg-gray-100 dark:text-primary'
-            : 'bg-gray-100 text-primary dark:bg-gray-100'
-          : 'hover:bg-gray-100 hover:text-gray-900'
+          ? colorPresetName === "black"
+            ? "bg-gray-100 text-primary dark:bg-gray-100 dark:text-primary"
+            : "bg-gray-100 text-primary dark:bg-gray-100"
+          : "hover:bg-gray-100 hover:text-gray-900"
       )}
     >
       <div className="flex items-center gap-2 truncate">
@@ -67,15 +67,15 @@ function CollapsibleMenuItem({ item }: { item: ItemType }) {
         <div
           onClick={toggle}
           className={cn(
-            'group relative flex cursor-pointer items-center justify-between rounded-full px-4 py-2 font-medium duration-200',
+            "group relative flex cursor-pointer items-center justify-between rounded-full px-4 py-2 font-medium duration-200",
             isActive || isDropdownOpen
-              ? colorPresetName === 'black'
-                ? 'bg-gray-100 text-primary dark:bg-gray-100 dark:text-primary'
-                : 'bg-gray-100 text-primary dark:bg-gray-100'
-              : 'hover:bg-gray-100 hover:text-gray-900'
+              ? colorPresetName === "black"
+                ? "bg-gray-100 text-primary dark:bg-gray-100 dark:text-primary"
+                : "bg-gray-100 text-primary dark:bg-gray-100"
+              : "hover:bg-gray-100 hover:text-gray-900"
           )}
         >
-          <span className={'flex items-center gap-3'}>
+          <span className={"flex items-center gap-3"}>
             <Icon className="h-5 w-5" />
             {item.name}
           </span>
@@ -83,10 +83,10 @@ function CollapsibleMenuItem({ item }: { item: ItemType }) {
           <PiCaretDownBold
             strokeWidth={3}
             className={cn(
-              'h-3.5 w-3.5 -rotate-90 text-gray-500 transition-transform duration-200 rtl:rotate-90',
-              open && 'rotate-0 rtl:rotate-0',
+              "h-3.5 w-3.5 -rotate-90 text-gray-500 transition-transform duration-200 rtl:rotate-90",
+              open && "rotate-0 rtl:rotate-0",
               (isActive || isDropdownOpen) &&
-                'text-primary dark:text-primary-lighter'
+                "text-primary dark:text-primary-lighter"
             )}
           />
         </div>
@@ -100,19 +100,19 @@ function CollapsibleMenuItem({ item }: { item: ItemType }) {
             href={subMenuItem?.href}
             key={subMenuItem?.name + index}
             className={cn(
-              'mx-3.5 mb-0.5 flex items-center justify-between rounded-md px-3.5 py-2 font-medium capitalize duration-200 last-of-type:mb-1 lg:last-of-type:mb-2 2xl:mx-5',
+              "mx-3.5 mb-0.5 flex items-center justify-between rounded-md px-3.5 py-2 font-medium capitalize duration-200 last-of-type:mb-1 lg:last-of-type:mb-2 2xl:mx-5",
               isChildActive
-                ? 'text-primary'
-                : 'text-gray-500 hover:text-primary'
+                ? "text-primary"
+                : "text-gray-500 hover:text-primary"
             )}
           >
             <div className="flex items-center truncate">
               <span
                 className={cn(
-                  'me-[18px] ms-1 inline-flex h-1 w-1 rounded-full bg-current transition-all duration-200',
+                  "me-[18px] ms-1 inline-flex h-1 w-1 rounded-full bg-current transition-all duration-200",
                   isChildActive
-                    ? 'bg-primary text-primary ring-[1px] ring-primary'
-                    : 'opacity-40'
+                    ? "bg-primary text-primary ring-[1px] ring-primary"
+                    : "opacity-40"
                 )}
               />
               <span className="truncate">{subMenuItem?.name}</span>
@@ -134,8 +134,8 @@ export default function BerylliumLeftSidebarExpandable() {
   return (
     <div
       className={cn(
-        'fixed start-[104px] top-[91px] z-50 hidden h-full w-0 overflow-x-hidden duration-200 xl:flex',
-        !!expandedLeft && 'w-[294px]'
+        "fixed start-[104px] top-[91px] z-50 hidden h-full w-0 overflow-x-hidden duration-200 xl:flex",
+        !!expandedLeft && "w-[294px]"
       )}
     >
       <SimpleBar className="h-[calc(100vh_-_100px)] min-w-[294px] pe-2.5">

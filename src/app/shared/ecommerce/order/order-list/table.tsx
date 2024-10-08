@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useCallback, useMemo, useState } from 'react';
-import dynamic from 'next/dynamic';
-import { useTable } from '@core/hooks/use-table';
-import { useColumn } from '@core/hooks/use-column';
-import { PiCaretDownBold, PiCaretUpBold } from 'react-icons/pi';
-import ControlledTable from '@/app/shared/controlled-table/index';
-import { getColumns } from '@/app/shared/ecommerce/order/order-list/columns';
-import { ActionIcon } from 'rizzui';
-import cn from '@core/utils/class-names';
-import ExpandedOrderRow from '@/app/shared/ecommerce/order/order-list/expanded-row';
+import { useCallback, useMemo, useState } from "react";
+import dynamic from "next/dynamic";
+import { useTable } from "@/src/hooks/use-table";
+import { useColumn } from "@/src/hooks/use-column";
+import { PiCaretDownBold, PiCaretUpBold } from "react-icons/pi";
+import ControlledTable from "@/app/shared/controlled-table/index";
+import { getColumns } from "@/app/shared/ecommerce/order/order-list/columns";
+import { ActionIcon } from "rizzui";
+import cn from "@/src/utils/class-names";
+import ExpandedOrderRow from "@/app/shared/ecommerce/order/order-list/expanded-row";
 // dynamic import
 const FilterElement = dynamic(
-  () => import('@/app/shared/ecommerce/order/order-list/filter-element'),
+  () => import("@/app/shared/ecommerce/order/order-list/filter-element"),
   { ssr: false }
 );
 
@@ -37,19 +37,19 @@ function CustomExpandIcon(props: any) {
 }
 
 const filterState = {
-  price: ['', ''],
+  price: ["", ""],
   createdAt: [null, null],
   updatedAt: [null, null],
-  status: '',
+  status: "",
 };
 
 export default function OrderTable({
   data = [],
-  variant = 'modern',
+  variant = "modern",
   className,
 }: {
   data: any[];
-  variant?: 'modern' | 'minimal' | 'classic' | 'elegant' | 'retro';
+  variant?: "modern" | "minimal" | "classic" | "elegant" | "retro";
   className?: string;
 }) {
   const [pageSize, setPageSize] = useState(10);
@@ -114,7 +114,7 @@ export default function OrderTable({
         filterOptions={{
           searchTerm,
           onSearchClear: () => {
-            handleSearch('');
+            handleSearch("");
           },
           onSearchChange: (event) => {
             handleSearch(event.target.value);
@@ -135,7 +135,7 @@ export default function OrderTable({
           />
         }
         className={
-          'rounded-md border border-muted text-sm shadow-sm [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:h-60 [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:justify-center [&_.rc-table-row:last-child_td.rc-table-cell]:border-b-0 [&_thead.rc-table-thead]:border-t-0'
+          "rounded-md border border-muted text-sm shadow-sm [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:h-60 [&_.rc-table-placeholder_.rc-table-expanded-row-fixed>div]:justify-center [&_.rc-table-row:last-child_td.rc-table-cell]:border-b-0 [&_thead.rc-table-thead]:border-t-0"
         }
       />
     </div>
