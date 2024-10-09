@@ -13,7 +13,6 @@ import PromotionalSales from "@/app/shared/ecommerce/dashboard/promotional-sales
 import RecentOrder from "@/app/shared/ecommerce/dashboard/recent-order";
 import StockReport from "@/app/shared/ecommerce/dashboard/stock-report";
 import { PiPlusBold } from "react-icons/pi";
-import welcomeImg from "@public/TT-logo.png";
 import HandWaveIcon from "@/src/components/icons/hand-wave";
 
 export default function EcommerceDashboard() {
@@ -33,11 +32,6 @@ export default function EcommerceDashboard() {
           media={
             <div className="absolute -bottom-6 end-4 hidden w-[300px] @2xl:block lg:w-[320px] 2xl:-bottom-7 2xl:w-[330px]">
               <div className="relative">
-                <Image
-                  src={welcomeImg}
-                  alt="Welcome shop image form freepik"
-                  className="dark:brightness-95 dark:drop-shadow-md"
-                />
               </div>
             </div>
           }

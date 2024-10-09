@@ -9,6 +9,8 @@ import cn from "@/src/utils/class-names";
 import NextProgress from "@/src/components/next-progress";
 import { authOptions } from "@/app/api/auth/[...nextauth]/auth-options"; // Adjust the import path based on your folder structure
 import AuthProvider from "@/app/api/auth/[...nextauth]/auth-provider";
+
+
 // styles
 import "swiper/css";
 import "swiper/css/navigation";

@@ -10,7 +10,7 @@ enum MODE {
 }
 
 export const siteConfig = {
-  title: 'Isomorphic - React Typescript Admin Dashboard Template',
+  title: 'Treetherium - Staff Dashboard',
   description: `Isomorphic the ultimate React TypeScript Admin Template. Streamline your admin dashboard development with our feature-rich, responsive, and highly customizable solution. Boost productivity and create stunning admin interfaces effortlessly.`,
   logo: logoImg,
   icon: logoIconImg,
