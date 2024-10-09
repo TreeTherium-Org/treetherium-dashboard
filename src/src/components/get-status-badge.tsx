@@ -2,7 +2,7 @@
 
 import { Badge } from 'rizzui';
 import cn from '../utils/class-names';
-import { useLayout } from '../../../../../TreeTherium-dApp-1/isomorphic/apps/isomorphic/src/layouts/use-layout';
+import { useLayout } from '@/layouts/use-layout';
 
 const classes = {
   base: 'text-xs px-2 duration-200 py-0.5 font-normal capitalize border tracking-wider font-lexend bg-opacity-50 dark:bg-opacity-40 dark:text-opacity-90 dark:text-gray-900 dark:backdrop-blur',
