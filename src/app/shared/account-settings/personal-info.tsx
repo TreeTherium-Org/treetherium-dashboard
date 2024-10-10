@@ -39,6 +39,7 @@ export default function PersonalInfoView() {
 
   // Fetch user's email from Firestore
   useEffect(() => {
+    console.log(email);
     const fetchUserEmail = async () => {
       try {
         const docRef = doc(db, "staff", userId);
