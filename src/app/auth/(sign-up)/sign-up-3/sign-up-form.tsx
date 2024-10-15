@@ -39,7 +39,7 @@ export default function SignUpForm() {
         data.password
       );
       const user = userCredential.user;
-      //create staff collection in firestore
+      // Create staff collection in firestore
       await setDoc(doc(db, "staff", user.uid), {
         email: data.email,
         createdAt: new Date(),
@@ -47,21 +47,19 @@ export default function SignUpForm() {
         role: data.role,
       });
 
-      //console.log('User signed up and data saved:', user);
-
       setReset({ ...initialValues, isAgreed: false });
       router.push(routes.auth.signIn3);
     } catch (error) {
       if (error instanceof Error) {
-        console.error("Error signing up:", error.message);
-        alert("Sign-up failed: " + error.message);
+        console.error("Error registering:", error.message);
+        alert("Register failed: " + error.message);
       } else {
         console.error("Unknown error", error);
         alert("An unknown error occurred");
       }
     }
   };
-  //all of this use typescript
+
   return (
     <>
       <form
@@ -73,7 +71,7 @@ export default function SignUpForm() {
           size={isMedium ? "lg" : "xl"}
           label="Email"
           placeholder="Enter your email"
-          className="[&>label>span]:font-medium"
+          className="[&>label>span]:font-medium text-[#4F3738]"
           {...register("email", { required: "Email is required" })}
           error={errors.email?.message}
         />
@@ -81,28 +79,28 @@ export default function SignUpForm() {
           label="Password"
           placeholder="Enter your password"
           size={isMedium ? "lg" : "xl"}
-          className="[&>label>span]:font-medium"
+          className="[&>label>span]:font-medium text-[#4F3738]"
           {...register("password", { required: "Password is required" })}
           error={errors.password?.message}
         />
 
-        <div className="col-span-2 flex items-start pb-1 text-gray-700">
+        <div className="col-span-2 flex items-start pb-1 text-[#4F3738]">
           <Switch
             {...register("isAgreed", { required: "Agreement is required" })}
             className="[&>label>span.transition]:shrink-0 [&>label>span]:font-medium"
             label={
-              <Text className="ps-1 text-gray-500">
-                By signing up you have agreed to our{" "}
+              <Text className="ps-1 text-[#4F3738]">
+                By registering you have agreed to our{" "}
                 <Link
                   href="/"
-                  className="font-semibold text-gray-700 transition-colors hover:text-primary"
+                  className="font-semibold text-[#4F3738] transition-colors hover:text-primary"
                 >
                   Terms
                 </Link>{" "}
                 &{" "}
                 <Link
                   href="/"
-                  className="font-semibold text-gray-700 transition-colors hover:text-primary"
+                  className="font-semibold text-[#4F3738] transition-colors hover:text-primary"
                 >
                   Privacy Policy
                 </Link>
@@ -115,13 +113,13 @@ export default function SignUpForm() {
         </Button>
       </form>
 
-      <Text className="mt-5 text-center text-[15px] leading-loose text-gray-500 md:mt-7 lg:mt-9 lg:text-base">
-        Don’t want to reset?{" "}
+      <Text className="mt-5 text-center text-[15px] leading-loose text-[#4F3738] md:mt-7 lg:mt-9 lg:text-base">
+        Don’t want to register?{" "}
         <Link
           href={routes.auth.signIn3}
-          className="font-semibold text-gray-700 transition-colors hover:text-gray-1000"
+          className="font-semibold text-[#4F3738] transition-colors hover:text-[#4F3738]"
         >
-          Sign In
+          Login
         </Link>
       </Text>
     </>

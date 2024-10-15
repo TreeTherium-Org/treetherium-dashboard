@@ -24,39 +24,18 @@ import { useLayout } from "@/layouts/use-layout";
 import { useBerylliumSidebars } from "@/layouts/beryllium/beryllium-utils";
 import { LAYOUT_OPTIONS } from "@/config/enums";
 import { doc, getDoc } from "firebase/firestore"; // Firestore import
-import { db } from "../../../../firebase"; // Import Firebase config
+import { db, auth } from "../../../../firebase"; // Import Firebase config
 
 const QuillEditor = dynamic(() => import("@/src/ui/quill-editor"), {
   ssr: false,
 });
 
 export default function ProfileSettingsView() {
-  const [email, setEmail] = useState<string | null>(null);
-  const userId = "USER_ID"; // Replace with actual logic to get the user ID
-
-  useEffect(() => {
-    // Function to fetch user email from Firestore
-    const fetchUserEmail = async () => {
-      try {
-        const docRef = doc(db, "staff", userId); // Firestore 'staff' collection
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setEmail(docSnap.data().email); // Assuming the field is 'email'
-        } else {
-          console.log("No such document!");
-        }
-      } catch (error) {
-        console.error("Error fetching document: ", error);
-      }
-    };
-
-    fetchUserEmail();
-  }, [userId]);
-
   const onSubmit: SubmitHandler<ProfileFormTypes> = (data) => {
     toast.success(<Text as="b">Profile successfully updated!</Text>);
-    console.log("Profile settings data ->", data);
+    console.log('Profile settings data ->', data);
   };
+
 
   return (
     <>
@@ -136,13 +115,8 @@ export default function ProfileSettingsView() {
                 <FormGroup
                   title="Alternative contact email"
                   className="pt-7 @2xl:pt-9 @3xl:grid-cols-12 @3xl:pt-11"
-                  description="Your registered email will be displayed here."
+                  description="Enter an alternative email if you’d like to be contacted via a different email."
                 >
-                  <div className="flex items-center space-x-2">
-                    <PiEnvelopeSimple className="h-6 w-6 text-gray-500" />
-                    <Text>{email || "No email available"}</Text>{" "}
-                    {/* Display the fetched email */}
-                  </div>
                 </FormGroup>
               </div>
               <FormFooter altBtnText="Cancel" submitBtnText="Save" />

@@ -35,12 +35,12 @@ export default function SignInForm() {
       );
       const user = userCredential.user;
 
-      console.log("User signed in:", user);
+      console.log("User logged in:", user);
 
       // Redirect to /ecommerce after successful sign-in
       router.push("/welcome");
     } catch (error) {
-      setError("Failed to sign in. Please check your credentials.");
+      setError("Failed to login. Please check your credentials.");
       console.error("Error signing in:", error);
     }
   };
@@ -62,7 +62,7 @@ export default function SignInForm() {
               size={isMedium ? "lg" : "xl"}
               label="Email"
               placeholder="Enter your email"
-              className="[&>label>span]:font-medium"
+              className="[&>label>span]:font-medium text-[#4F3738]"
               {...register("email")}
               error={errors.email?.message}
             />
@@ -70,7 +70,7 @@ export default function SignInForm() {
               label="Password"
               placeholder="Enter your password"
               size={isMedium ? "lg" : "xl"}
-              className="[&>label>span]:font-medium"
+              className="[&>label>span]:font-medium text-[#4F3738]"
               {...register("password")}
               error={errors.password?.message}
             />
@@ -78,7 +78,7 @@ export default function SignInForm() {
               <Switch label="Remember Me" {...register("rememberMe")} />
               <Link
                 href={routes.auth.forgotPassword3}
-                className="h-auto p-0 text-sm font-semibold text-gray-600 underline transition-colors hover:text-primary hover:no-underline"
+                className="h-auto p-0 text-sm font-semibold text-[#4F3738] underline transition-colors hover:text-primary hover:no-underline"
               >
                 Forget Password?
               </Link>
@@ -89,7 +89,7 @@ export default function SignInForm() {
               type="submit"
               size={isMedium ? "lg" : "xl"}
             >
-              Sign In
+              Register
             </Button>
           </div>
         )}
@@ -98,13 +98,13 @@ export default function SignInForm() {
       {/* Display error if sign-in fails */}
       {error && <p className="text-red-500">{error}</p>}
 
-      <Text className="mt-5 text-center text-[15px] leading-loose text-gray-500 md:mt-7 lg:mt-9 lg:text-base">
-        Don’t have an account?{" "}
+      <Text className="mt-5 text-center text-[15px] leading-loose text-[#4F3738] md:mt-7 lg:mt-9 lg:text-base">
+        Don’t have an account yet?{" "}
         <Link
           href={routes.auth.signUp3}
-          className="font-semibold text-gray-700 transition-colors hover:text-gray-1000"
+          className="font-semibold text-gray-700 transition-colors hover:text-[#4F3738]"
         >
-          Sign Up
+          Register
         </Link>
       </Text>
     </>

@@ -43,13 +43,14 @@ export default function AuthWrapperThree({
           )}
         >
           <div className="flex flex-col items-center">
-            <Link href={"/"} className="mb-7 inline-block w-[80px] lg:mb-9">
+            <Link href={"/"} className="mb-7 inline-block lg:mb-9">
               <Image
                 src="/TT-logo.png"
                 alt="TT-Logo"
-                width={80}
-                height={80}
+                width={104}
+                height={104}
                 className="dark:invert"
+                style={{ width: '104px', height: '104px' }}
               />
             </Link>
             <Title
@@ -62,17 +63,18 @@ export default function AuthWrapperThree({
           {isSocialLoginActive && (
             <>
               <div className="flex flex-col gap-4 pb-6 md:flex-row md:gap-6 md:pb-7">
-                <Button
-                  variant="outline"
-                  className="h-11 w-full"
-                  onClick={() => handleGoogleSignIn(router)} // Pass the router to the handleGoogleSignIn function.
-                >
-                  <FcGoogle className="me-2 h-5 w-5 shrink-0" />
-                  <span className="truncate">Signin With Google</span>
-                </Button>
+              <Button
+                variant="outline"
+                className="h-11 w-full text-[#4F3738]" // Change text color here
+                onClick={() => handleGoogleSignIn(router)} // Pass the router to the handleGoogleSignIn function.
+              >
+                <FcGoogle className="me-2 h-5 w-5 shrink-0" />
+                <span className="truncate text-[#4F3738]">Login With Google</span> {/* Change text color here */}
+              </Button>
+
               </div>
               <OrSeparation
-                title={`Or, Sign ${isSignIn ? "in" : "up"} with your email`}
+                title={`Or, ${isSignIn ? "login" : "register"} with your email`}
                 isCenter
                 className="mb-4"
               />

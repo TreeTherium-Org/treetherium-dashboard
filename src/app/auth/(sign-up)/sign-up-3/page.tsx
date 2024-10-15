@@ -10,10 +10,10 @@ export default function SignUpPage() {
     <AuthWrapperThree
       title={
         <>
-          <span className="bg-gradient-to-r from-[#2b3d1d] to-[#A3A830] bg-clip-text text-transparent">
+          <span className="block bg-gradient-to-r from-[#2b3d1d] to-[#A3A830] bg-clip-text text-transparent">
             Join us today!
           </span>{' '}
-          Staff Registration
+          <span className="block text-[#4F3738] !text-[#4F3738] dark:text-[#4F3738]">Staff Registration</span>
         </>
       }
       isSocialLoginActive={true}
@@ -22,3 +22,4 @@ export default function SignUpPage() {
     </AuthWrapperThree>
   );
 }
+

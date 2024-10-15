@@ -8,7 +8,6 @@ import { doc, getDoc } from 'firebase/firestore'; // Firestore functions to get 
 interface User {
   uid: string;
   email: string | null;
-  role: string | null;
 }
 
 export const useAuth = () => {
@@ -18,7 +17,7 @@ export const useAuth = () => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         fetchUserRole(currentUser.uid).then((role) => {
-          setUser({ uid: currentUser.uid, email: currentUser.email, role });
+          setUser({ uid: currentUser.uid, email: currentUser.email });
         });
       } else {
         setUser(null);

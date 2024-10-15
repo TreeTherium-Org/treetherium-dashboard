@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { SubmitHandler, Controller } from "react-hook-form";
 import { PiClock } from "react-icons/pi";
 import { Form } from "@/src/ui/form";
-import { Loader, Text, Input } from "rizzui";
+import { Text, Input } from "rizzui";
 import FormGroup from "@/app/shared/form-group";
 import FormFooter from "@/src/components/form-footer";
 import {
@@ -16,17 +16,12 @@ import {
   personalInfoFormSchema,
   PersonalInfoFormTypes,
 } from "@/validators/personal-info.schema";
-import UploadZone from "@/src/ui/file-upload/upload-zone";
 import { countries, roles, timezones } from "@/data/forms/my-details";
 import AvatarUpload from "@/src/ui/file-upload/avatar-upload";
+import { auth } from "../../../../firebase"; // Import your auth configuration
 
 const Select = dynamic(() => import("rizzui").then((mod) => mod.Select), {
   ssr: false,
-  loading: () => (
-    <div className="grid h-10 place-content-center">
-      <Loader variant="spinner" />
-    </div>
-  ),
 });
 
 const QuillEditor = dynamic(() => import("@/src/ui/quill-editor"), {
@@ -35,29 +30,32 @@ const QuillEditor = dynamic(() => import("@/src/ui/quill-editor"), {
 
 export default function PersonalInfoView() {
   const [email, setEmail] = useState<string | null>(null);
-  const userId = "USER_ID"; // Replace this with the actual user ID
 
   // Fetch user's email from Firestore
   useEffect(() => {
-    console.log(email);
     const fetchUserEmail = async () => {
-      try {
-        const docRef = doc(db, "staff", userId);
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-          const userData = docSnap.data();
-          setEmail(userData.email); // Assuming the field is called 'email'
-        } else {
-          console.log("No such document!");
+      const user = auth.currentUser; // Get the currently signed-in user
+      if (user) {
+        const docRef = doc(db, "staff", user.uid); // Create a reference to the user document in Firestore
+        try {
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            const userData = docSnap.data();
+            setEmail(userData.email); // Assuming the field is called 'email'
+            console.log(userData.email , " : personal info");
+          } else {
+            console.log("No such document!");
+          }
+        } catch (error) {
+          console.error("Error fetching user email:", error);
         }
-      } catch (error) {
-        console.error("Error fetching user email:", error);
+      } else {
+        console.error("User is not signed in");
       }
     };
 
     fetchUserEmail();
-  }, [userId]);
+  }, []);
 
   const onSubmit: SubmitHandler<PersonalInfoFormTypes> = (data) => {
     toast.success(<Text as="b">Successfully added!</Text>);
